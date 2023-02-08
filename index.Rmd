@@ -19,11 +19,15 @@ csl: chicago-fullnote-bibliography.csl
 
 EIPT 5023 -- Analysis of Quantitative Data I, Fall 2022
 
-**Course Description:** This course covers descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation and simple regression, and chi-square tests. Computer applications are included.
+## **Course Description:** 
 
-**Course Overview:** This course is designed to provide students with an opportunity to develop their knowledge and understanding of various statistical concepts and procedures. In particular, it is hoped that students will leave the course with (a) a recognition of how statistics fits within the broader (quantitative) research process, (b) an understanding of the assumptions associated with different statistical procedures and how those assumptions should guide analytic choices, and (c) an understanding of how to utilize tools (such as SPSS) in order to analyze quantitative data.
+This course covers descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation and simple regression, and chi-square tests. Computer applications are included.
 
-# **General Objectives:**
+## **Course Overview:** 
+
+This course is designed to provide students with an opportunity to develop their knowledge and understanding of various statistical concepts and procedures. In particular, it is hoped that students will leave the course with (a) a recognition of how statistics fits within the broader (quantitative) research process, (b) an understanding of the assumptions associated with different statistical procedures and how those assumptions should guide analytic choices, and (c) an understanding of how to utilize tools (such as SPSS) in order to analyze quantitative data.
+
+## **General Objectives:**
 
 To be able to correctly identify variables falling at different scales of measurement.
 

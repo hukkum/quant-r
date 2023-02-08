@@ -3,7 +3,7 @@
     "path": "C:/Users/para0021/Public/quant-r/index.Rmd",
     "project_path": "index.Rmd",
     "type": "r_markdown",
-    "hash": "3529945910",
+    "hash": "3739708604",
     "contents": "",
     "dirty": false,
     "created": 1675876246968.0,
@@ -16,16 +16,16 @@
         "rmdVisualWrapConfigured": "true",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "25,0",
+        "cursorPosition": "29,0",
         "scrollLine": "24",
-        "rmdVisualModeLocation": "2434:192"
+        "rmdVisualModeLocation": "1547:1151"
     },
     "folds": "",
-    "lastKnownWriteTime": 1675877821,
+    "lastKnownWriteTime": 1675879708,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1675877821712,
+    "last_content_update": 1675879708655,
     "read_only": false,
     "read_only_alternatives": []
 }
