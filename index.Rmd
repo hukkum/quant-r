@@ -1,11 +1,11 @@
---- 
-title: "A Minimal Book Example"
-author: "John Doe"
+---
+title: "Quantitative Methods in Educational Research Using R"
+author: "Subash Parajuli"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
+url: your book url like https://r.lesson3.io/
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
   This is a minimal example of using the bookdown package to write a book.
@@ -15,46 +15,32 @@ biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# About
+# Syllabus
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+EIPT 5023 -- Analysis of Quantitative Data I, Fall 2022
 
-## Usage 
+**Course Description:** This course covers descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation and simple regression, and chi-square tests. Computer applications are included.
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+**Course Overview:** This course is designed to provide students with an opportunity to develop their knowledge and understanding of various statistical concepts and procedures. In particular, it is hoped that students will leave the course with (a) a recognition of how statistics fits within the broader (quantitative) research process, (b) an understanding of the assumptions associated with different statistical procedures and how those assumptions should guide analytic choices, and (c) an understanding of how to utilize tools (such as SPSS) in order to analyze quantitative data.
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+# **General Objectives:**
 
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+To be able to correctly identify variables falling at different scales of measurement.
 
-## Render book
+To be able to correctly identify appropriate techniques for analyzing data when presented with variables with different measurement characteristics.
 
-You can render the HTML version of this example book without changing anything:
+To be able to understand the assumptions associated with different statistical tests.
 
-1. Find the **Build** pane in the RStudio IDE, and
+To be able to set up and manage databases containing variables.
 
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+To be able to carry out statistical analyses of data using SPSS.
 
-Or build the book from the R console:
+To be able to correctly interpret the results of statistical analyses.
 
-```{r, eval=FALSE}
-bookdown::render_book()
-```
+To be able to distinguish between null and alternative (research) hypotheses.
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+To be able to distinguish between a directional and non-directional hypothesis.
 
-## Preview book
+To understand the concepts of \"statistical significance\" and \"effect size\".
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
-```
-
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+To understand the effects of sampling (e.g., size, strategies) on inferences concerning population estimates.
