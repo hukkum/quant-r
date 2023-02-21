@@ -1,5 +1,4 @@
-# Why read Statistics? 
-
+#Preface
 As a field, statistics is concerned with the analysis of numerical data (which has either
  been collected by a researcher or organization). Data analysis is generally carried out for the purposes of defining problems and/or making decisions to address problems. 
  

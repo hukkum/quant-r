@@ -26,7 +26,7 @@ plot(pressure, type = 'b', pch = 19)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="10-cross-refs_files/figure-html/nice-fig-1.png" alt="Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases." width="80%" />
+<img src="10-cross-refs_files/figure-epub3/nice-fig-1.png" alt="Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases." width="80%" />
 <p class="caption">(\#fig:nice-fig)Here is a nice figure!</p>
 </div>
 
