@@ -1,0 +1,16 @@
+# R Basics 
+## Installing R and R Studio
+
+### Download R
+
+### Download R studio
+
+
+## R Packages
+
+## R Studio Enviroment
+
+## R Console
+
+
+## RDRR

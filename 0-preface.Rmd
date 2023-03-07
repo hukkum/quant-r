@@ -1,0 +1,11 @@
+# Preface {-}
+
+## Acknolwedgement
+I would like to thank my professor Dr C for providing me this wonderful opportunity to ocmpile the resource materials in R. 
+
+
+## Conventions Used in the Book
+
+
+
+## RDRR (Live R console)

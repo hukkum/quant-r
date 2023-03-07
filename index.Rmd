@@ -1,21 +1,18 @@
 ---
-title: "Quantitatie Methods -  R Cookbook"
+title: "Quantitative Methods -  R Cookbook"
 author: "Subash Parajuli"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
-url: your book url like https://r.lesson3.io/
+url: https://r.lesson3.io/
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This cookbook covers practical worked out examples which you can easily apply to your datasers and also includes a disussion on how the recipe is working.
-biblio-style: apalike
-csl: chicago-fullnote-bibliography.csl
+  This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.
 ---
 
-# Welcome
+# Welcome {-}
 
-Welcome to Quantitative Methods - R Cookbook. This cookbook covers practical worked out examples which you can easily apply to your dataset and also includes a disussion on how the recipe is working. We will cover descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation and simple regression, and chi-square tests. This cookbook is designed to facilitate graduate and post graduate students to develop their knowledge and understanding of various statistical concepts and procedures in R programming.
+Welcome to Quantitative Methods - R Cookbook. This cookbook covers practical worked out examples which you can easily apply to your dataset and also includes a discussion on how the recipe is working. We will cover descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation and simple regression, and chi-square tests. This cookbook is designed to facilitate graduate and post graduate students to develop their knowledge and understanding of various statistical concepts and procedures in R programming.
 
 ## General Objectives
 

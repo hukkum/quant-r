@@ -1,0 +1,16 @@
+general-objectives
+acknolwedgement
+conventions-used-in-the-book
+rdrr-live-r-console
+r-basics
+installing-r-and-r-studio
+download-r
+download-r-studio
+r-packages
+r-studio-enviroment
+r-console
+rdrr
+entering-and-importing-data-in-r
+finding-mean-median-mode-in-r
+normal-distribution
+calulate-z-score-using-r
