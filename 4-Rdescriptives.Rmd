@@ -1,1 +1,4 @@
-# Finding Mean, median, mode in R
+# Describing Data in R
+This section will cover the descriptive stastics in R
+
+## Finding Central Tendency
