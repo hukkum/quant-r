@@ -1,8 +1,0 @@
-fig:nice-fig
-tab:nice-tab
-welcome
-general-objectives
-r-studio
-cross
-chapters-and-sub-chapters
-captioned-figures-and-tables

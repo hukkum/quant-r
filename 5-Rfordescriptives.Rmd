@@ -1,1 +1,0 @@
-#Entering Data and Generating Descriptives in R
