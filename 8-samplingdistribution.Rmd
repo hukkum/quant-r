@@ -1,0 +1,7 @@
+#Sampling distribution
+
+
+## Point Estimate
+
+
+## Confidence Interval

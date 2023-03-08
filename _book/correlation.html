@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Welcome | Quantitative Methods - R Cookbook</title>
+<title>2 Correlation | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
 <meta name="description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Welcome | Quantitative Methods - R Cookbook">
+<meta property="og:title" content="2 Correlation | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://r.lesson3.io/">
+<meta property="og:url" content="https://r.lesson3.io/correlation.html">
 <meta property="og:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome | Quantitative Methods - R Cookbook">
+<meta name="twitter:title" content="2 Correlation | Quantitative Methods - R Cookbook">
 <meta name="twitter:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -44,10 +44,10 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="active" href="index.html">Welcome</a></li>
+<li><a class="" href="index.html">Welcome</a></li>
 <li><a class="" href="preface.html">Preface</a></li>
 <li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">2</span> Correlation</a></li>
+<li><a class="active" href="correlation.html"><span class="header-section-number">2</span> Correlation</a></li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">3</span> Simple Linear Regression</a></li>
 <li><a class="" href="multiple-regression.html"><span class="header-section-number">4</span> Multiple Regression</a></li>
 <li><a class="" href="one-way-anova.html"><span class="header-section-number">5</span> One way ANOVA</a></li>
@@ -69,42 +69,23 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="welcome" class="section level1 unnumbered">
-<h1>Welcome<a class="anchor" aria-label="anchor" href="#welcome"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="correlation" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation"><i class="fas fa-link"></i></a>
 </h1>
-<p>Welcome to Quantitative Methods - R Cookbook. This cookbook covers practical worked out examples which you can easily apply to your dataset and also includes a discussion on how the recipe is working. We will cover descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation and simple regression, and chi-square tests. This cookbook is designed to facilitate graduate and post graduate students to develop their knowledge and understanding of various statistical concepts and procedures in R programming.</p>
-<div id="general-objectives" class="section level2 unnumbered">
-<h2>General Objectives<a class="anchor" aria-label="anchor" href="#general-objectives"><i class="fas fa-link"></i></a>
-</h2>
-<p>This course is based upon a 3 credit semester course “Quantitative Methods” as taught in University of OKlahoma in Fall 2022. Based on the course, the objectives of the cookbook will be:</p>
-<ul>
-<li><p>To be able to correctly identify variables falling at different scales of measurement.</p></li>
-<li><p>To be able to correctly identify appropriate techniques for analyzing data when presented with variables with different measurement characteristics.</p></li>
-<li><p>To be able to understand the assumptions associated with different statistical tests.</p></li>
-<li><p>To be able to set up and manage databases containing variables.</p></li>
-<li><p>To be able to carry out statistical analyses of data using R.</p></li>
-<li><p>To be able to correctly interpret the results of statistical analyses.</p></li>
-<li><p>To be able to distinguish between null and alternative (research) hypotheses.</p></li>
-<li><p>To be able to distinguish between a directional and non-directional hypothesis.</p></li>
-<li><p>To understand the concepts of “statistical significance” and “effect size”.</p></li>
-<li><p>To understand the effects of sampling (e.g., size, strategies) on inferences concerning population estimates.</p></li>
-</ul>
-</div>
+
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="next"><a href="preface.html">Preface</a></div>
+<div class="prev"><a href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></div>
+<div class="next"><a href="simple-linear-regression.html"><span class="header-section-number">3</span> Simple Linear Regression</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#welcome">Welcome</a></li>
-<li><a class="nav-link" href="#general-objectives">General Objectives</a></li>
-</ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#correlation"><span class="header-section-number">2</span> Correlation</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/index.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/11-correlation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/11-correlation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

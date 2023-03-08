@@ -1,4 +1,3 @@
-general-objectives
 acknolwedgement
 conventions-used-in-the-book
 rdrr-live-r-console
@@ -13,6 +12,15 @@ documentation-websites
 books
 website
 cheatsheet
+correlation
+simple-linear-regression
+multiple-regression
+one-way-anova
+tukeys-post-hoc-tests
+chi-square-tests
+chi-square-goodness-of-fit-test
+chi-sqaure-test-of-association
+g-power
 loading-data-in-r
 entering-data-in-r
 importing-csv-file
@@ -23,3 +31,6 @@ normal-distribution
 calulate-z-score-using-r
 computing-z-scores
 probability-and-inference
+point-estimate
+confidence-interval
+hypothesis-signifance-testing
