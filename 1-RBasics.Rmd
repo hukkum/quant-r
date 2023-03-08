@@ -41,3 +41,18 @@ While R is simply a statistically programming language, the R packages developed
 ## R Console
 
 ## RDRR
+
+
+## R Community and Resources
+
+R has a huge community of developers and supporters. Following resources may be very useful for you to move ahead during your research and experiments. 
+
+### Documentation / Websites
+
+### Books
+
+### Website
+
+### Cheatsheet
+
+

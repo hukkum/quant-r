@@ -1,1 +1,0 @@
-# Frequency and Plot in R

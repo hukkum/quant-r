@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>4 Describing Data in R | Quantitative Methods - R Cookbook</title>
+<title>3 Describing Data in R | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
-<meta name="description" content="This section will cover the descriptive stastics in R  4.1 Finding Central Tendency">
+<meta name="description" content="This section will cover the descriptive statistics in R. R has built-in functions for a large number of summary statistics. For numeric variables, we can summarize data with the center and spread....">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="4 Describing Data in R | Quantitative Methods - R Cookbook">
+<meta property="og:title" content="3 Describing Data in R | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://r.lesson3.io/describing-data-in-r.html">
-<meta property="og:description" content="This section will cover the descriptive stastics in R  4.1 Finding Central Tendency">
+<meta property="og:description" content="This section will cover the descriptive statistics in R. R has built-in functions for a large number of summary statistics. For numeric variables, we can summarize data with the center and spread....">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4 Describing Data in R | Quantitative Methods - R Cookbook">
-<meta name="twitter:description" content="This section will cover the descriptive stastics in R  4.1 Finding Central Tendency">
+<meta name="twitter:title" content="3 Describing Data in R | Quantitative Methods - R Cookbook">
+<meta name="twitter:description" content="This section will cover the descriptive statistics in R. R has built-in functions for a large number of summary statistics. For numeric variables, we can summarize data with the center and spread....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -48,10 +48,11 @@
 <li><a class="" href="preface.html">Preface</a></li>
 <li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
 <li><a class="" href="loading-data-in-r.html"><span class="header-section-number">2</span> Loading Data in R</a></li>
-<li><a class="" href="frequency-and-plot-in-r.html"><span class="header-section-number">3</span> Frequency and Plot in R</a></li>
-<li><a class="active" href="describing-data-in-r.html"><span class="header-section-number">4</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">5</span> Normal Distribution</a></li>
-<li><a class="" href="calulate-z-score-using-r.html"><span class="header-section-number">6</span> Calulate Z-Score using R</a></li>
+<li><a class="active" href="describing-data-in-r.html"><span class="header-section-number">3</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">4</span> Normal Distribution</a></li>
+<li><a class="" href="calulate-z-score-using-r.html"><span class="header-section-number">5</span> Calulate Z-Score using R</a></li>
+<li><a class="" href="computing-z-scores.html"><span class="header-section-number">6</span> Computing Z-Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">7</span> Probability and Inference</a></li>
 </ul>
 
         <div class="book-extra">
@@ -59,26 +60,213 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="describing-data-in-r" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="describing-data-in-r" class="section level1" number="3">
 <h1>
-<span class="header-section-number">4</span> Describing Data in R<a class="anchor" aria-label="anchor" href="#describing-data-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3</span> Describing Data in R<a class="anchor" aria-label="anchor" href="#describing-data-in-r"><i class="fas fa-link"></i></a>
 </h1>
-<p>This section will cover the descriptive stastics in R</p>
-<div id="finding-central-tendency" class="section level2" number="4.1">
+<p>This section will cover the descriptive statistics in R. <code>R</code> has built-in functions for a large number of summary statistics. For numeric variables, we can summarize data with the center and spread. We’ll again look at the <code>mpg</code> dataset from the <code>ggplot2</code> package.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
+<div id="central-tendency" class="section level3 unnumbered">
+<h3>Central Tendency<a class="anchor" aria-label="anchor" href="#central-tendency"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Measure</th>
+<th><code>R</code></th>
+<th>Result</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Mean</td>
+<td><code>mean(mpg$cty)</code></td>
+<td>16.8589744</td>
+</tr>
+<tr class="even">
+<td>Median</td>
+<td><code>median(mpg$cty)</code></td>
+<td>17</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="spread" class="section level3 unnumbered">
+<h3>Spread<a class="anchor" aria-label="anchor" href="#spread"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Measure</th>
+<th><code>R</code></th>
+<th>Result</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Variance</td>
+<td><code>var(mpg$cty)</code></td>
+<td>18.1130736</td>
+</tr>
+<tr class="even">
+<td>Standard Deviation</td>
+<td><code>sd(mpg$cty)</code></td>
+<td>4.2559457</td>
+</tr>
+<tr class="odd">
+<td>IQR</td>
+<td><code>IQR(mpg$cty)</code></td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Minimum</td>
+<td><code>min(mpg$cty)</code></td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>Maximum</td>
+<td><code>max(mpg$cty)</code></td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>Range</td>
+<td><code>range(mpg$cty)</code></td>
+<td>9, 35</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="categorical" class="section level3 unnumbered">
+<h3>Categorical<a class="anchor" aria-label="anchor" href="#categorical"><i class="fas fa-link"></i></a>
+</h3>
+<p>For categorical variables, counts and percentages can be used for summary.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">drv</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##   4   f   r 
+## 103 106  25</code></pre>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">drv</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##         4         f         r 
+## 0.4401709 0.4529915 0.1068376</code></pre>
+</div>
+<div id="plotting" class="section level2" number="3.1">
 <h2>
-<span class="header-section-number">4.1</span> Finding Central Tendency<a class="anchor" aria-label="anchor" href="#finding-central-tendency"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1</span> Plotting<a class="anchor" aria-label="anchor" href="#plotting"><i class="fas fa-link"></i></a>
 </h2>
+<p>Now that we have some data to work with, and we have learned about the data at the most basic level, our next task is to visualize the data. Often, a proper visualization can illuminate features of the data that can inform further analysis.</p>
+<p>We will look at four methods of visualizing data that we will use throughout the course:</p>
+<ul>
+<li>Histograms</li>
+<li>Barplots</li>
+<li>Boxplots</li>
+<li>Scatterplots</li>
+</ul>
+<div id="histograms" class="section level3" number="3.1.1">
+<h3>
+<span class="header-section-number">3.1.1</span> Histograms<a class="anchor" aria-label="anchor" href="#histograms"><i class="fas fa-link"></i></a>
+</h3>
+<p>When visualizing a single numerical variable, a <strong>histogram</strong> will be our go-to tool, which can be created in <code>R</code> using the <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function.</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">cty</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
+<p>The histogram function has a number of parameters which can be changed to make our plot look much nicer. Use the <code>?</code> operator to read the documentation for the <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> to see a full list of these parameters.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">cty</span>,</span>
+<span>     xlab   <span class="op">=</span> <span class="st">"Miles Per Gallon (City)"</span>,</span>
+<span>     main   <span class="op">=</span> <span class="st">"Histogram of MPG (City)"</span>,</span>
+<span>     breaks <span class="op">=</span> <span class="fl">12</span>,</span>
+<span>     col    <span class="op">=</span> <span class="st">"dodgerblue"</span>,</span>
+<span>     border <span class="op">=</span> <span class="st">"darkorange"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
+<p>Importantly, you should always be sure to label your axes and give the plot a title. The argument <code>breaks</code> is specific to <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code>. Entering an integer will give a suggestion to <code>R</code> for how many bars to use for the histogram. By default <code>R</code> will attempt to intelligently guess a good number of <code>breaks</code>, but as we can see here, it is sometimes useful to modify this yourself.</p>
+</div>
+<div id="barplots" class="section level3" number="3.1.2">
+<h3>
+<span class="header-section-number">3.1.2</span> Barplots<a class="anchor" aria-label="anchor" href="#barplots"><i class="fas fa-link"></i></a>
+</h3>
+<p>Somewhat similar to a histogram, a barplot can provide a visual summary of a categorical variable, or a numeric variable with a finite number of values, like a ranking from 1 to 10.</p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">drv</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">drv</span><span class="op">)</span>,</span>
+<span>     xlab   <span class="op">=</span> <span class="st">"Drivetrain (f = FWD, r = RWD, 4 = 4WD)"</span>,</span>
+<span>     ylab   <span class="op">=</span> <span class="st">"Frequency"</span>,</span>
+<span>     main   <span class="op">=</span> <span class="st">"Drivetrains"</span>,</span>
+<span>     col    <span class="op">=</span> <span class="st">"dodgerblue"</span>,</span>
+<span>     border <span class="op">=</span> <span class="st">"darkorange"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+</div>
+<div id="boxplots" class="section level3" number="3.1.3">
+<h3>
+<span class="header-section-number">3.1.3</span> Boxplots<a class="anchor" aria-label="anchor" href="#boxplots"><i class="fas fa-link"></i></a>
+</h3>
+<p>To visualize the relationship between a numerical and categorical variable, we will use a <strong>boxplot</strong>. In the <code>mpg</code> dataset, the <code>drv</code> variable takes a small, finite number of values. A car can only be front wheel drive, 4 wheel drive, or rear wheel drive.</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">drv</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "f" "4" "r"</code></pre>
+<p>First note that we can use a single boxplot as an alternative to a histogram for visualizing a single numerical variable. To do so in <code>R</code>, we use the <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> function.</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">hwy</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
+<p>However, more often we will use boxplots to compare a numerical variable for different values of a categorical variable.</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">hwy</span> <span class="op">~</span> <span class="va">drv</span>, data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
+<p>Here we used the <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> command to create side-by-side boxplots. However, since we are now dealing with two variables, the syntax has changed. The <code>R</code> syntax <code>hwy ~ drv, data = mpg</code> reads “Plot the <code>hwy</code> variable against the <code>drv</code> variable using the dataset <code>mpg</code>.” We see the use of a <code>~</code> (which specifies a formula) and also a <code>data =</code> argument. This will be a syntax that is common to many functions we will use in this course.</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">hwy</span> <span class="op">~</span> <span class="va">drv</span>, data <span class="op">=</span> <span class="va">mpg</span>,</span>
+<span>     xlab   <span class="op">=</span> <span class="st">"Drivetrain (f = FWD, r = RWD, 4 = 4WD)"</span>,</span>
+<span>     ylab   <span class="op">=</span> <span class="st">"Miles Per Gallon (Highway)"</span>,</span>
+<span>     main   <span class="op">=</span> <span class="st">"MPG (Highway) vs Drivetrain"</span>,</span>
+<span>     pch    <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>     cex    <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>     col    <span class="op">=</span> <span class="st">"darkorange"</span>,</span>
+<span>     border <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
+<p>Again, <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> has a number of additional arguments which have the ability to make our plot more visually appealing.</p>
+</div>
+<div id="scatterplots" class="section level3" number="3.1.4">
+<h3>
+<span class="header-section-number">3.1.4</span> Scatterplots<a class="anchor" aria-label="anchor" href="#scatterplots"><i class="fas fa-link"></i></a>
+</h3>
+<p>Lastly, to visualize the relationship between two numeric variables we will use a <strong>scatterplot</strong>. This can be done with the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function and the <code>~</code> syntax we just used with a boxplot. (The function <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> can also be used more generally; see the documentation for details.)</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hwy</span> <span class="op">~</span> <span class="va">displ</span>, data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hwy</span> <span class="op">~</span> <span class="va">displ</span>, data <span class="op">=</span> <span class="va">mpg</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Engine Displacement (in Liters)"</span>,</span>
+<span>     ylab <span class="op">=</span> <span class="st">"Miles Per Gallon (Highway)"</span>,</span>
+<span>     main <span class="op">=</span> <span class="st">"MPG (Highway) vs Engine Displacement"</span>,</span>
+<span>     pch  <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>     cex  <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>     col  <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
 
 </div>
 </div>
+</div>
   <div class="chapter-nav">
-<div class="prev"><a href="frequency-and-plot-in-r.html"><span class="header-section-number">3</span> Frequency and Plot in R</a></div>
-<div class="next"><a href="normal-distribution.html"><span class="header-section-number">5</span> Normal Distribution</a></div>
+<div class="prev"><a href="loading-data-in-r.html"><span class="header-section-number">2</span> Loading Data in R</a></div>
+<div class="next"><a href="normal-distribution.html"><span class="header-section-number">4</span> Normal Distribution</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#describing-data-in-r"><span class="header-section-number">4</span> Describing Data in R</a></li>
-<li><a class="nav-link" href="#finding-central-tendency"><span class="header-section-number">4.1</span> Finding Central Tendency</a></li>
+<li>
+<a class="nav-link" href="#describing-data-in-r"><span class="header-section-number">3</span> Describing Data in R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#central-tendency">Central Tendency</a></li>
+<li><a class="nav-link" href="#spread">Spread</a></li>
+<li><a class="nav-link" href="#categorical">Categorical</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#plotting"><span class="header-section-number">3.1</span> Plotting</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#histograms"><span class="header-section-number">3.1.1</span> Histograms</a></li>
+<li><a class="nav-link" href="#barplots"><span class="header-section-number">3.1.2</span> Barplots</a></li>
+<li><a class="nav-link" href="#boxplots"><span class="header-section-number">3.1.3</span> Boxplots</a></li>
+<li><a class="nav-link" href="#scatterplots"><span class="header-section-number">3.1.4</span> Scatterplots</a></li>
+</ul>
+</li>
 </ul>
 
       <div class="book-extra">
