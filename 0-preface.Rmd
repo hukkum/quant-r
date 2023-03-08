@@ -11,12 +11,6 @@ Code chunks will be presented in a typical Markdown format as such, with the cod
 ```{runif(n = 20, min = 0, max = 100)}
 ```
 
-When using commands outside of base R, the loading of the parent package will be explicitly shown to avoid confusion:
-
-```{li}
-```
-
-Typically in longer chains of code, I will use `%>%` from `magrittr` as a pipe. This is usually standard practice in code using packages from the `tidyverse` so it's a good habit to start using it.
 
 Finally, here is the R version I am currently using:
 

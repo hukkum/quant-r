@@ -26,7 +26,7 @@ This course is based upon a 3 credit semester course "Quantitative Methods" as t
 
 -   To be able to set up and manage databases containing variables.
 
--   To be able to carry out statistical analyses of data using SPSS.
+-   To be able to carry out statistical analyses of data using R.
 
 -   To be able to correctly interpret the results of statistical analyses.
 

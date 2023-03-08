@@ -40,12 +40,26 @@ While R is simply a statistically programming language, the R packages developed
 
 ## R Console
 
-## RDRR
+## Getting Help
 
+Here are few useful syntax to ask for help
+
+     
+    {Get help for an object, in this case for the –-plot– function. 
+    ?plot  #You can also type: help(plot)
+
+    #Search the help pages for anything that has the word "regression". 
+    ??regression #You can also type:  help.search("regression")
+
+    #Search the word "age" in the objects available in the current R session.
+     apropos("age")
+    help(package=car) # View documentation in package ‘car’. You can also type: library(help="car“)
+    help(DataABC) # Access codebook for a dataset called ‘DataABC’ in the package ABC
+    args(log) # Description of the command.}
 
 ## R Community and Resources
 
-R has a huge community of developers and supporters. Following resources may be very useful for you to move ahead during your research and experiments. 
+R has a huge community of developers and supporters. Following resources may be very useful for you to move ahead during your research and experiments.
 
 ### Documentation / Websites
 
@@ -54,5 +68,3 @@ R has a huge community of developers and supporters. Following resources may be 
 ### Website
 
 ### Cheatsheet
-
-

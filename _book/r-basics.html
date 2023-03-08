@@ -110,10 +110,22 @@ Type 'q()' to quit R.
 <span class="header-section-number">1.3</span> R Console<a class="anchor" aria-label="anchor" href="#r-console"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="rdrr" class="section level2" number="1.4">
+<div id="getting-help" class="section level2" number="1.4">
 <h2>
-<span class="header-section-number">1.4</span> RDRR<a class="anchor" aria-label="anchor" href="#rdrr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.4</span> Getting Help<a class="anchor" aria-label="anchor" href="#getting-help"><i class="fas fa-link"></i></a>
 </h2>
+<p>Here are few useful syntax to ask for help</p>
+<pre><code>{Get help for an object, in this case for the –-plot– function. 
+?plot  #You can also type: help(plot)
+
+#Search the help pages for anything that has the word "regression". 
+??regression #You can also type:  help.search("regression")
+
+#Search the word "age" in the objects available in the current R session.
+ apropos("age")
+help(package=car) # View documentation in package ‘car’. You can also type: library(help="car“)
+help(DataABC) # Access codebook for a dataset called ‘DataABC’ in the package ABC
+args(log) # Description of the command.}</code></pre>
 </div>
 <div id="r-community-and-resources" class="section level2" number="1.5">
 <h2>
@@ -157,7 +169,7 @@ Type 'q()' to quit R.
 </li>
 <li><a class="nav-link" href="#r-packages"><span class="header-section-number">1.2</span> R Packages</a></li>
 <li><a class="nav-link" href="#r-console"><span class="header-section-number">1.3</span> R Console</a></li>
-<li><a class="nav-link" href="#rdrr"><span class="header-section-number">1.4</span> RDRR</a></li>
+<li><a class="nav-link" href="#getting-help"><span class="header-section-number">1.4</span> Getting Help</a></li>
 <li>
 <a class="nav-link" href="#r-community-and-resources"><span class="header-section-number">1.5</span> R Community and Resources</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#documentation-websites"><span class="header-section-number">1.5.1</span> Documentation / Websites</a></li>
@@ -183,7 +195,7 @@ Type 'q()' to quit R.
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-03-07.</p>
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-03-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -7,7 +7,7 @@ installing-r-base-package.
 download-r-studio
 r-packages
 r-console
-rdrr
+getting-help
 r-community-and-resources
 documentation-websites
 books
@@ -19,11 +19,6 @@ importing-csv-file
 importing-spss-and-stata-file
 importing-excel-file
 describing-data-in-r
-plotting
-histograms
-barplots
-boxplots
-scatterplots
 normal-distribution
 calulate-z-score-using-r
 computing-z-scores
