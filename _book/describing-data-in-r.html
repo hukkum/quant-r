@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>10 Describing Data in R | Quantitative Methods - R Cookbook</title>
+<title>3 Describing Data in R | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
 <meta name="description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="10 Describing Data in R | Quantitative Methods - R Cookbook">
+<meta property="og:title" content="3 Describing Data in R | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://r.lesson3.io/describing-data-in-r.html">
 <meta property="og:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="10 Describing Data in R | Quantitative Methods - R Cookbook">
+<meta name="twitter:title" content="3 Describing Data in R | Quantitative Methods - R Cookbook">
 <meta name="twitter:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -47,21 +47,21 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li><a class="" href="preface.html">Preface</a></li>
 <li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">2</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">3</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">4</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">5</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">6</span> Tukey’s post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">7</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">8</span> G* Power</a></li>
-<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">9</span> Loading Data in R</a></li>
+<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">2</span> Loading Data in R</a></li>
+<li><a class="active" href="describing-data-in-r.html"><span class="header-section-number">3</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">4</span> Normal Distribution</a></li>
+<li><a class="" href="calulate-z-score-using-r.html"><span class="header-section-number">5</span> Calulate Z-Score using R</a></li>
+<li><a class="" href="computing-z-scores.html"><span class="header-section-number">6</span> Computing Z-Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">7</span> Probability and Inference</a></li>
+<li><a class="" href="hypothesis-signifance-testing.html"><span class="header-section-number">8</span> Hypothesis Signifance Testing</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">9</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">10</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">11</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">12</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">13</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">14</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">15</span> G* Power</a></li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="active" href="describing-data-in-r.html"><span class="header-section-number">10</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">11</span> Normal Distribution</a></li>
-<li><a class="" href="calulate-z-score-using-r.html"><span class="header-section-number">12</span> Calulate Z-Score using R</a></li>
-<li><a class="" href="computing-z-scores.html"><span class="header-section-number">13</span> Computing Z-Scores</a></li>
-<li><a class="" href="probability-and-inference.html"><span class="header-section-number">14</span> Probability and Inference</a></li>
-<li><a class="" href="hypothesis-signifance-testing.html"><span class="header-section-number">15</span> Hypothesis Signifance Testing</a></li>
 </ul>
 
         <div class="book-extra">
@@ -69,23 +69,23 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="describing-data-in-r" class="section level1" number="10">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="describing-data-in-r" class="section level1" number="3">
 <h1>
-<span class="header-section-number">10</span> Describing Data in R<a class="anchor" aria-label="anchor" href="#describing-data-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3</span> Describing Data in R<a class="anchor" aria-label="anchor" href="#describing-data-in-r"><i class="fas fa-link"></i></a>
 </h1>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="references.html">References</a></div>
-<div class="next"><a href="normal-distribution.html"><span class="header-section-number">11</span> Normal Distribution</a></div>
+<div class="prev"><a href="loading-data-in-r.html"><span class="header-section-number">2</span> Loading Data in R</a></div>
+<div class="next"><a href="normal-distribution.html"><span class="header-section-number">4</span> Normal Distribution</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#describing-data-in-r"><span class="header-section-number">10</span> Describing Data in R</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#describing-data-in-r"><span class="header-section-number">3</span> Describing Data in R</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/4-Rdescriptives.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/4-Rdescriptives.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/04-Rdescriptives.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/04-Rdescriptives.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -97,7 +97,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-03-08.</p>
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-03-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
