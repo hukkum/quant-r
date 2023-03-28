@@ -8,16 +8,17 @@ url: https://r.lesson3.io/
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
   This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.
+bibliography: book.bib
+biblio-style: apalike 
+link-citations: true 
+csl: apa.csl
 ---
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-csl: chicago-fullnote-bibliography.csl
 
-# Welcome {-}
+# Welcome {.unnumbered}
 
 Welcome to Quantitative Methods - R Cookbook. This cookbook covers practical worked out examples which you can easily apply to your dataset and also includes a discussion on how the recipe is working. We will cover descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation and simple regression, and chi-square tests. This cookbook is designed to facilitate graduate and post graduate students to develop their knowledge and understanding of various statistical concepts and procedures in R programming.
 
-## General Objectives {-}
+## General Objectives {.unnumbered}
 
 This course is based upon a 3 credit semester course "Quantitative Methods" as taught in University of OKlahoma in Fall 2022. Based on the course, the objectives of the cookbook will be:
 
@@ -41,4 +42,9 @@ This course is based upon a 3 credit semester course "Quantitative Methods" as t
 
 -   To understand the effects of sampling (e.g., size, strategies) on inferences concerning population estimates.
 
-
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
