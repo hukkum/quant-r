@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>2 Loading Data in R | Quantitative Methods - R Cookbook</title>
+<title>Chapter 3 Loading Data in R | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
 <meta name="description" content="Data set can be directly imported or can be entered manually directly into R ans save as a R data file also. Lets see how we can manually enter and save or import different data formats in R...">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="2 Loading Data in R | Quantitative Methods - R Cookbook">
+<meta property="og:title" content="Chapter 3 Loading Data in R | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://r.lesson3.io/loading-data-in-r.html">
 <meta property="og:description" content="Data set can be directly imported or can be entered manually directly into R ans save as a R data file also. Lets see how we can manually enter and save or import different data formats in R...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2 Loading Data in R | Quantitative Methods - R Cookbook">
+<meta name="twitter:title" content="Chapter 3 Loading Data in R | Quantitative Methods - R Cookbook">
 <meta name="twitter:description" content="Data set can be directly imported or can be entered manually directly into R ans save as a R data file also. Lets see how we can manually enter and save or import different data formats in R...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -46,37 +46,38 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
 <li><a class="" href="preface.html">Preface</a></li>
-<li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
-<li><a class="active" href="loading-data-in-r.html"><span class="header-section-number">2</span> Loading Data in R</a></li>
-<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">3</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">4</span> Normal Distribution</a></li>
-<li><a class="" href="calulate-z-score-using-r.html"><span class="header-section-number">5</span> Calulate Z-Score using R</a></li>
-<li><a class="" href="computing-z-scores.html"><span class="header-section-number">6</span> Computing Z-Scores</a></li>
-<li><a class="" href="probability-and-inference.html"><span class="header-section-number">7</span> Probability and Inference</a></li>
-<li><a class="" href="hypothesis-signifance-testing.html"><span class="header-section-number">8</span> Hypothesis Signifance Testing</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">9</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">10</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">11</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">12</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">13</span> Tukey’s post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">14</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">15</span> G* Power</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
+<li><a class="active" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">4</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">5</span> Normal Distribution</a></li>
+<li><a class="" href="calulate-z-score-using-r.html"><span class="header-section-number">6</span> Calulate Z-Score using R</a></li>
+<li><a class="" href="computing-z-scores.html"><span class="header-section-number">7</span> Computing Z-Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">8</span> Probability and Inference</a></li>
+<li><a class="" href="hypothesis-signifance-testing.html"><span class="header-section-number">9</span> Hypothesis Signifance Testing</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">10</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">11</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">12</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">13</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">14</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">15</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">16</span> G* Power</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="loading-data-in-r" class="section level1" number="2">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="loading-data-in-r" class="section level1" number="3">
 <h1>
-<span class="header-section-number">2</span> Loading Data in R<a class="anchor" aria-label="anchor" href="#loading-data-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3</span> Loading Data in R<a class="anchor" aria-label="anchor" href="#loading-data-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Data set can be directly imported or can be entered manually directly into R ans save as a R data file also. Lets see how we can manually enter and save or import different data formats in R Studio.</p>
-<div id="entering-data-in-r" class="section level2" number="2.1">
+<div id="entering-data-in-r" class="section level2" number="3.1">
 <h2>
-<span class="header-section-number">2.1</span> Entering Data in R<a class="anchor" aria-label="anchor" href="#entering-data-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1</span> Entering Data in R<a class="anchor" aria-label="anchor" href="#entering-data-in-r"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can start working in R right away by entering the data in R. To enter numerical data manually, c (stands for ‘column’) command is used.</p>
 <pre><code>  age &lt;- c(45, 23, 36, 29)
@@ -85,9 +86,9 @@
 <pre><code>  gpa &lt;- c("A+", "A", "B+", "B")
   </code></pre>
 </div>
-<div id="importing-csv-file" class="section level2" number="2.2">
+<div id="importing-csv-file" class="section level2" number="3.2">
 <h2>
-<span class="header-section-number">2.2</span> Importing CSV file<a class="anchor" aria-label="anchor" href="#importing-csv-file"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> Importing CSV file<a class="anchor" aria-label="anchor" href="#importing-csv-file"><i class="fas fa-link"></i></a>
 </h2>
 <p>read command function in R is used to read the data files. To read CSV file, you can simply move the CSV file into the working directory and load the file using read.csv command. You will need the readr package to read CSV file.</p>
 <pre><code><a href="https://readr.tidyverse.org">  library (readr)
@@ -100,9 +101,9 @@
   csv1</a></code></pre>
 <p>Here, csv1 in the name assigned to the CSV file in R environment. You will be using the same variable name whenever you want to work with the csv file you imported.</p>
 </div>
-<div id="importing-spss-and-stata-file" class="section level2" number="2.3">
+<div id="importing-spss-and-stata-file" class="section level2" number="3.3">
 <h2>
-<span class="header-section-number">2.3</span> Importing SPSS and STATA file<a class="anchor" aria-label="anchor" href="#importing-spss-and-stata-file"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.3</span> Importing SPSS and STATA file<a class="anchor" aria-label="anchor" href="#importing-spss-and-stata-file"><i class="fas fa-link"></i></a>
 </h2>
 <p>R also has a package called ‘haven’ which helps us read the SPSS and STATA data files easily in R. After installing the haven package, we use read_sav command to import the SPSS file.</p>
 <pre><code>  #Install package
@@ -126,9 +127,9 @@
   </code></pre>
 <p>Note: It seems like we should be using \ instead of  while writing the path name to prevent the error : <code>Error: '\U' used without hex digits in character string starting "'C:\U"1</code></p>
 </div>
-<div id="importing-excel-file" class="section level2" number="2.4">
+<div id="importing-excel-file" class="section level2" number="3.4">
 <h2>
-<span class="header-section-number">2.4</span> Importing Excel File<a class="anchor" aria-label="anchor" href="#importing-excel-file"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.4</span> Importing Excel File<a class="anchor" aria-label="anchor" href="#importing-excel-file"><i class="fas fa-link"></i></a>
 </h2>
 <p><em>readxl</em> package is used to read the excel file in R environment.</p>
 <pre><code> #Install package
@@ -148,22 +149,22 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></div>
-<div class="next"><a href="describing-data-in-r.html"><span class="header-section-number">3</span> Describing Data in R</a></div>
+<div class="prev"><a href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></div>
+<div class="next"><a href="describing-data-in-r.html"><span class="header-section-number">4</span> Describing Data in R</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#loading-data-in-r"><span class="header-section-number">2</span> Loading Data in R</a></li>
-<li><a class="nav-link" href="#entering-data-in-r"><span class="header-section-number">2.1</span> Entering Data in R</a></li>
-<li><a class="nav-link" href="#importing-csv-file"><span class="header-section-number">2.2</span> Importing CSV file</a></li>
-<li><a class="nav-link" href="#importing-spss-and-stata-file"><span class="header-section-number">2.3</span> Importing SPSS and STATA file</a></li>
-<li><a class="nav-link" href="#importing-excel-file"><span class="header-section-number">2.4</span> Importing Excel File</a></li>
+<li><a class="nav-link" href="#loading-data-in-r"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="nav-link" href="#entering-data-in-r"><span class="header-section-number">3.1</span> Entering Data in R</a></li>
+<li><a class="nav-link" href="#importing-csv-file"><span class="header-section-number">3.2</span> Importing CSV file</a></li>
+<li><a class="nav-link" href="#importing-spss-and-stata-file"><span class="header-section-number">3.3</span> Importing SPSS and STATA file</a></li>
+<li><a class="nav-link" href="#importing-excel-file"><span class="header-section-number">3.4</span> Importing Excel File</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/02-datainR.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/02-datainR.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/02-datainR.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/02-datainR.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -175,7 +176,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-03-23.</p>
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,6 +1,10 @@
 acknolwedgement
 conventions-used-in-the-book
 rdrr-live-r-console
+basic-statistical-concepts
+data-types
+types-of-variable
+types-of-scales-of-measurement-of-variables
 r-basics
 installing-r-base-package.
 download-r-studio
