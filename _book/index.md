@@ -1,7 +1,7 @@
 ---
 title: "Quantitative Methods -  R Cookbook"
 author: "Subash Parajuli"
-date: "2023-04-04"
+date: "2023-04-05"
 site: bookdown::bookdown_site
 documentclass: book
 url: https://r.lesson3.io/
