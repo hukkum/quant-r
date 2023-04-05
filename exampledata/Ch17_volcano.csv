@@ -1,0 +1,106 @@
+﻿Year,Month,Day,Tsu,ErthQuk,VolcanoName,VolcanoLocation,VolcanoCountry,VolcanoLatitude,VolcanoLongitude,VolcanoElevation,VolcanoType,EruptionVEI,EruptionAgent,NumberDeaths,Deaths,NumberInjuries,Injuries,Damage$,Damage,De_C,data,Stratovolcano
+2016,10,8, , ,Aso,Kyushu-Japan,Japan,32.88,131.1,1592,1, ,T, , , , , ,1, , ,0
+2017,9,12, , ,Campi Flegrei,Italy,Italy,40.827,14.139,458,1, , ,3,1, , , , , , ,0
+2008,5,2, , ,Chaiten,Chile-S,Chile,-42.833,-72.646,962,1, , ,1,1, , , , , , ,0
+2016,6,9, , ,Yellowstone,US-Wyoming,United States,44.43,-110.67,2805,1, , ,1,1, , , , , , ,0
+2017,7,1, , ,Dieng Volc Complex,Java,Indonesia,-7.2,109.92,2565,2, , ,8,1,11,1, , , , ,0
+2014,9,27, , ,On-take,Honshu-Japan,Japan,35.9,137.48,3063,2,3, ,55,2,70,2, , , , ,0
+2010,5,27, , ,Pacaya,Guatemala,Guatemala,14.381,-90.601,2552,2,1,T,1,1, , , ,1,1, ,0
+2013,12,13, , ,Okataina,New Zealand,New Zealand,-38.12,176.5,1111,3, ,G,1,1, , , , , , ,0
+2015,10, , , ,Okataina,New Zealand,New Zealand,-38.12,176.5,1111,3, ,I,1,1, , , , , , ,0
+2017,9,23, , ,Aoba,Vanuatu-SW Pacific,Vanuatu,-15.4,167.83,1496,4, ,T, , , , , ,1, , ,0
+2018,4, , , ,Aoba,Vanuatu-SW Pacific,Vanuatu,-15.4,167.83,1496,4,3,"T,G",4,1, , , ,1,1, ,0
+2005,11,24, , ,Karthala,Indian O-W,Comoros,-11.75,43.38,2361,4, , , ,1, , , ,1, , ,0
+2018,4,28,Tsu,Eq,Kilauea,Hawaiian Is,United States,19.425,-155.292,1222,4,1,L, , ,1,1, ,4,3, ,0
+2000,11,3, , ,Kilauea,Hawaiian Is,United States,19.425,-155.292,1222,4, ,G,2,1, , , , , , ,0
+2009,11,30, , ,Kilauea,Hawaiian Is,United States,19.425,-155.292,1222,4, , , , , , , ,2, , ,0
+2012,2,10, , ,Kilauea,Hawaiian Is,United States,19.425,-155.292,1222,4, , , , , , , ,2, , ,0
+2012,3,2, , ,Kilauea,Hawaiian Is,United States,19.425,-155.292,1222,4, ,L, , , , , ,1,1, ,0
+2014,11,10, , ,Kilauea,Hawaiian Is,United States,19.425,-155.292,1222,4, , , , , , ,14.5,3,1, ,0
+2018,2,1, , ,Kilauea,Hawaiian Is,United States,19.425,-155.292,1222,4,1,G,1,1,3,1, , , , ,0
+2018,7,16, , ,Kilauea,Hawaiian Is,United States,19.425,-155.292,1222,4, ,T, , ,23,1,1,1, , ,0
+2011,1,28, , ,Kirishima,Kyushu-Japan,Japan,31.93,130.87,1700,4, , , , , ,1, ,1, , ,0
+2012,12,12, , ,Tolbachik,Kamchatka,Russia,55.83,160.33,3682,4, , , , , , , ,1, , ,0
+2000,8,23, , ,Arenal,Costa Rica,Costa Rica,10.463,-84.703,1657,5,3,P,2,1,1,1, , , , ,1
+2006,6,7, , ,Bulusan,Luzon-Philippines,Philippines,12.77,124.05,1565,5,2, ,1,1, , , , , , ,1
+2011,2,23, , ,Bulusan,Luzon-Philippines,Philippines,12.77,124.05,1565,5,2, ,1,1, , , , , , ,1
+2015,4,22, , ,Calbuco,Chile-S,Chile,-41.326,-72.614,2003,5, , , , , , , ,2,2, ,1
+2004,1,29, , ,Egon,Lesser Sunda Is,Indonesia,-8.67,122.45,1703,5,1,T,1,1, , , , , , ,1
+2002,8,28, ,Eq,Etna,Italy,Italy,37.734,15.004,3350,5,3, , , ,32,1, ,2,2, ,1
+2001,5,14, , ,Etna,Italy,Italy,37.734,15.004,3350,5,3, ,1,1, , , ,1, , ,1
+2001,7,26, , ,Etna,Italy,Italy,37.734,15.004,3350,5,2, , , , , , ,1,1, ,1
+2017,3,15, , ,Etna,Italy,Italy,37.734,15.004,3350,5, ,P, , ,10,1, , , , ,1
+2010,3,31, , ,Eyjafjallajokull,Iceland-S,Iceland,63.63,-19.62,1666,5,2, ,2,1, , , , , , ,1
+2014,11,23, , ,Fogo,Cape Verde Is,Cape Verde,14.95,-24.35,2829,5, , , , , , , ,2,3, ,1
+2017,6,6, , ,Fuego,Guatemala,Guatemala,14.473,-90.88,3763,5,2,P, , , , , ,2, , ,1
+2018,6,3, , ,Fuego,Guatemala,Guatemala,14.473,-90.88,3763,5,2,P,165,3,55,2, ,3,3, ,1
+2011,12,27, , ,Gamalama,Halmahera-Indonesia,Indonesia,.8,127.325,1715,5,3,m,4,1, ,1, , , , ,1
+2014,12,18, , ,Gamalama,Halmahera-Indonesia,Indonesia,.8,127.325,1715,5, , ,1,1,4,1, , , , ,1
+2007,4,18, , ,Huila,Colombia,Colombia,2.92,-76.05,5365,5, , , , , , , ,2,1, ,1
+2008,11,20, , ,Huila,Colombia,Colombia,2.92,-76.05,5365,5, , ,10,1, ,1, , , , ,1
+2018,3,21, , ,Ijen,Java,Indonesia,-8.058,114.242,2799,5, ,G, , ,30,1, , , , ,1
+2018,2,9,Tsu, ,Kadovar,New Guinea-NE of,Papua New Guinea,-3.62,144.62,365,5, ,W, , , , , , , , ,1
+2018,1,5, , ,Kadovar,New Guinea-NE of,Papua New Guinea,-3.62,144.62,365,5, ,T, , , , , ,1, , ,1
+2002,1,3, , ,Karangetang [Api Siau],Sangihe Is-Indonesia,Indonesia,2.78,125.48,1784,5,3,M, , , , , ,1,1, ,1
+2010,8,6, , ,Karangetang [Api Siau],Sangihe Is-Indonesia,Indonesia,2.78,125.48,1784,5,3, ,4,1,5,1, , ,1, ,1
+2011,3,18, , ,Karangetang [Api Siau],Sangihe Is-Indonesia,Indonesia,2.78,125.48,1784,5, , , , , , , ,1, , ,1
+2015,5,7, , ,Karangetang [Api Siau],Sangihe Is-Indonesia,Indonesia,2.78,125.48,1784,5, , , , , , , ,1,1, ,1
+2008,8,8,Tsu, ,Kasatochi,Aleutian Is,United States,52.18,-175.5,314,5,3, , , , , , , , , ,1
+2014,2,13, , ,Kelut,Java,Indonesia,-7.93,112.308,1731,5, , ,7,1, , , ,3,4, ,1
+2018,1,23, , ,Kusatsu-Shirane,Honshu-Japan,Japan,36.62,138.55,2176,5, ,T,1,1,11,1, ,1, , ,1
+2011,7,17, , ,Lokon-Empung,Sulawesi-Indonesia,Indonesia,1.358,124.792,1580,5, , ,1,1, , , , , , ,1
+2004,10,24, , ,Manam,New Guinea-NE of,Papua New Guinea,-4.1,145.061,1807,5,4,T,5,1, , , , , , ,1
+2005,1,27, , ,Manam,New Guinea-NE of,Papua New Guinea,-4.1,145.061,1807,5,4,T,1,1,14,1, , , , ,1
+2007,3, , , ,Manam,New Guinea-NE of,Papua New Guinea,-4.1,145.061,1807,5,4,M,4,1,1,1, , , , ,1
+2015,7,31, , ,Manam,New Guinea-NE of,Papua New Guinea,-4.1,145.061,1807,5,2, , , ,2,1, ,1, , ,1
+2018,8,25, , ,Manam,New Guinea-NE of,Papua New Guinea,-4.1,145.061,1807,5,4,"L,T", , , , , ,3,3, ,1
+2006,11,30, , ,Mayon,Luzon-Philippines,Philippines,13.257,123.685,2462,5,1,m,1266,4, , , ,1, , ,1
+2013,5,7, , ,Mayon,Luzon-Philippines,Philippines,13.257,123.685,2462,5, , ,5,1,8,1, , , , ,1
+2018,1,13, , ,Mayon,Luzon-Philippines,Philippines,13.257,123.685,2462,5, ,"T,P", , ,1972,4,3.72,2, , ,1
+2000,11, , , ,Merapi,Java,Indonesia,-7.542,110.442,2947,5,2,A,1,1, , , , , , ,1
+2001,8,5, , ,Merapi,Java,Indonesia,-7.542,110.442,2947,5,2,P,2,1, , , , , , ,1
+2006,6,14, , ,Merapi,Java,Indonesia,-7.542,110.442,2947,5,1, ,2,1, , , , , , ,1
+2010,10,26, , ,Merapi,Java,Indonesia,-7.542,110.442,2947,5, , ,367,3,277,3,600,4,3, ,1
+2011,1,3, , ,Merapi,Java,Indonesia,-7.542,110.442,2947,5, ,M,1,1,1,1, ,1, , ,1
+2013,2,12, , ,Merapi,Java,Indonesia,-7.542,110.442,2947,5, ,M,1,1,1,1, ,1, , ,1
+2017,12,18, , ,Merapi,Java,Indonesia,-7.542,110.442,2947,5, ,A,8,1,8,1, , , , ,1
+2000,6,27,Tsu,Eq,Miyake-jima,Izu Is-Japan,Japan,34.08,139.53,815,5,2, , , , , , ,1, , ,1
+2011,6,22, , ,Nabro,Africa-NE,Eritrea,13.37,41.7,2218,5,3, ,31,1, ,3, ,1, , ,1
+2002,1,17, , ,Nyiragongo,Africa-C,"Congo, DRC",-1.52,29.25,3470,5,1, ,100,2,400,3, ,3,3, ,1
+2013,2, , , ,Paluweh,Lesser Sunda Is,Indonesia,-8.32,121.708,875,5, , , , , , , ,1,1, ,1
+2013,8,10, , ,Paluweh,Lesser Sunda Is,Indonesia,-8.32,121.708,875,5,3, ,5,1, , , , , , ,1
+2011,6,4, , ,Puyehue,Chile-C,Chile,-40.59,-72.117,2236,5,4, , , , , , ,2, , ,1
+2006,3,17, , ,Raoul Island,Kermadec Is,New Zealand,-29.27,-177.92,516,5, , ,1,1, , , , , , ,1
+2009,3,23, , ,Redoubt,Alaska-SW,United States,60.48,-152.75,3108,5, , , , , , , ,1, , ,1
+2002,11,3, , ,Reventador,Ecuador,Ecuador,-.078,-77.656,3562,5,4,I, ,1, ,1, ,1,1, ,1
+2016,9,27, , ,Rinjani,Lesser Sunda Is,Indonesia,-8.42,116.47,3726,5, , , , , , , , , , ,1
+2013,9,4, , ,Sakura-jima,Kyushu-Japan,Japan,31.58,130.67,1117,5, , , , , , , ,1, , ,1
+2007,7,7, , ,Salak,Java,Indonesia,-6.72,106.73,2211,5, ,G,6,1, , , , , , ,1
+2005,10,1, , ,Santa Ana,El Salvador,El Salvador,13.853,-89.63,2365,5,3,A,2,1, ,1, , , , ,1
+2010,5,29,Tsu,Eq,Sarigan,Mariana Is-C Pacific,United States,16.708,145.78,538,5, , , , , , , , , , ,1
+2000,7,27, , ,Semeru,Java,Indonesia,-8.108,112.92,3676,5,3,T,2,1, , , , , , ,1
+2002, , , , ,Semeru,Java,Indonesia,-8.108,112.92,3676,5,3,T,3,1, , , , , , ,1
+2010,8,30, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5, , ,2,1, , , , , , ,1
+2013,9,15, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5,2, , , , , , ,2, , ,1
+2014,2,1, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5, , ,17,1,3,1, ,1,2, ,1
+2015,2,20, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5, , , , , , , ,1,1, ,1
+2015,10,16, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5, ,M,1,1, , , ,1, , ,1
+2016,5,9, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5, , ,1,1,4,1, ,1,1, ,1
+2016,5,21, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5, , ,7,1,3,1,100,4, , ,1
+2017,4,13, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5,2,P, , , , , ,1,2, ,1
+2017,12,27, , ,Sinabung,Sumatra,Indonesia,3.17,98.392,2460,5, ,T, , , , , ,2, , ,1
+2003,7,12,Tsu, ,Soufriere Hills,W Indies,Montserrat,16.72,-62.18,915,5,3, , , , , , , , , ,1
+2006,5,20,Tsu, ,Soufriere Hills,W Indies,Montserrat,16.72,-62.18,915,5,2,P, , , , , , , , ,1
+2002,12,30,Tsu, ,Stromboli,Italy,Italy,38.789,15.213,926,5, , , , , ,1, ,1,1, ,1
+2001,10,20, , ,Stromboli,Italy,Italy,38.789,15.213,926,5,2,T,1,1, , , , , , ,1
+2007,9,30, , ,"Tair, Jebel at",Red Sea,Yemen,15.7,41.742,244,5, , ,7,1,1,1, , , , ,1
+2004,6,8, , ,Tengger Caldera,Java,Indonesia,-7.942,112.95,2329,5,2,T,2,1,5,1, , , , ,1
+2010,12,28, , ,Tengger Caldera,Java,Indonesia,-7.942,112.95,2329,5, , , , , , , ,1, , ,1
+2006,7,18, , ,Tungurahua,Ecuador,Ecuador,-1.467,-78.442,5023,5,3, ,1,1, , , , , , ,1
+2006,8,17, , ,Tungurahua,Ecuador,Ecuador,-1.467,-78.442,5023,5,3,T,5,1,13,1, ,3,3, ,1
+2008,8,22, , ,Tungurahua,Ecuador,Ecuador,-1.467,-78.442,5023,5,3,M,2,1,2,1, ,1,1, ,1
+2010,1, , , ,Tungurahua,Ecuador,Ecuador,-1.467,-78.442,5023,5,3, , , , , , ,1, , ,1
+2010,11, , , ,Tungurahua,Ecuador,Ecuador,-1.467,-78.442,5023,5,3, , , , , , ,1, , ,1
+2011,4, , , ,Tungurahua,Ecuador,Ecuador,-1.467,-78.442,5023,5,4, , , , , , ,1, , ,1
+2013,9,1, , ,Ubinas,Peru,Peru,-16.355,-70.903,5672,5, , , , , , , ,1, , ,1
+2011,7,9, , ,Katla,Iceland-S,Iceland,63.63,-19.05,1512,6, , , , , , , ,1, , ,0

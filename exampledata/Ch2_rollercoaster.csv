@@ -1,0 +1,124 @@
+﻿Continent,Country,SteelSitDown
+Asia,Afghanistan,1
+Asia,Armenia,4
+Asia,Azerbaijan,8
+Asia,Bahrain,2
+Asia,Bangladesh,15
+Asia,Brunei,1
+Asia,Cambodia,3
+Asia,China,1176
+Asia,Georgia,11
+Asia,Guam,1
+Asia,India,94
+Asia,Indonesia,61
+Asia,Iran,53
+Asia,Iraq,28
+Asia,Israel,12
+Asia,Japan,184
+Asia,Jordan,13
+Asia,Kazakhstan,22
+Asia,Kuwait,11
+Asia,Kyrgyzstan,4
+Asia,Lebanon,4
+Asia,Malaysia,12
+Asia,Maldives,1
+Asia,Mongolia,2
+Asia,Myanmar,9
+Asia,Nepal,2
+Asia,North Korea,6
+Asia,Oman,6
+Asia,Pakistan,18
+Asia,Palestine,12
+Asia,Philippines,20
+Asia,Qatar,2
+Asia,Russia,145
+Asia,Saudi Arabia,81
+Asia,Singapore,2
+Asia,South Korea,37
+Asia,Sri Lanka,4
+Asia,Syria,3
+Asia,Taiwan,18
+Asia,Tajikistan,2
+Asia,Thailand,8
+Asia,Turkmenistan,3
+Asia,United Arab Emirates,40
+Asia,Uzbekistan,26
+Asia,Vietnam,50
+Asia,Yemen,6
+ , , 
+Africa,Algeria,13
+Africa,Angola,2
+Africa,Botswana,1
+Africa,Egypt,11
+Africa,Libya,4
+Africa,Malawi,1
+Africa,Mauritius,1
+Africa,Morocco,6
+Africa,Nigeria,6
+Africa,Rwanda,1
+Africa,Senegal,1
+Africa,South Africa,8
+Africa,Sudan,2
+Africa,Tanzania,4
+Africa,Togo,1
+Africa,Tunisia,11
+Africa,Uganda,1
+Africa,Zambia,1
+Australia,Australia,20
+Australia,New Zealand,4
+ , , 
+ , , 
+Europe,Albania,1
+Europe,Andorra,1
+Europe,Austria,51
+Europe,Belarus,9
+Europe,Belgium,26
+Europe,Bosnia and Herzegovina,1
+Europe,Bulgaria,6
+Europe,Croatia,5
+Europe,Cyprus,6
+Europe,Czech Republic,13
+Europe,Denmark,36
+Europe,Estonia,2
+Europe,Finland,18
+Europe,France,158
+Europe,Germany,204
+Europe,Greece,9
+Europe,Hungary,10
+Europe,Ireland,5
+Europe,Italy,115
+Europe,Latvia,1
+Europe,Lithuania,1
+Europe,Moldova,1
+Europe,Netherlands,46
+Europe,Norway,12
+Europe,Poland,41
+Europe,Portugal,4
+Europe,Romania,7
+Europe,Serbia,2
+Europe,Slovakia,4
+Europe,Slovenia,4
+Europe,Spain,39
+Europe,Sweden,26
+Europe,Switzerland,16
+Europe,Turkey,89
+Europe,Ukraine,10
+Europe,United Kingdom,165
+North America,Canada,47
+North America,Costa Rica,4
+North America,Cuba,4
+North America,Guatemala,8
+North America,Haiti,1
+North America,Honduras,5
+North America,Jamaica,1
+North America,Mexico,48
+North America,USA,575
+ , , 
+South America,Argentina,14
+South America,Brazil,72
+South America,Chile,9
+South America,Colombia,17
+South America,Ecuador,6
+South America,Peru,20
+South America,Uruguay,1
+South America,Venezuela,28

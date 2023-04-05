@@ -18,7 +18,7 @@ Similarly, categorical data can also be entered using quotation marks.
 
 read command function in R is used to read the data files. To read CSV file, you can simply move the CSV file into the working directory and load the file using read.csv command. You will need the readr package to read CSV file.
 
-      library (readr)
+    '''library (readr)
       csv1 <- read.csv("records.csv")
       
       #To view the structure
@@ -26,6 +26,7 @@ read command function in R is used to read the data files. To read CSV file, you
       
       #To view the CSV file
       csv1
+      '''
 
 Here, csv1 in the name assigned to the CSV file in R environment. You will be using the same variable name whenever you want to work with the csv file you imported.
 

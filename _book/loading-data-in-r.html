@@ -49,9 +49,9 @@
 <li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
 <li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
 <li><a class="active" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
-<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">4</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">5</span> Normal Distribution</a></li>
-<li><a class="" href="calulate-z-score-using-r.html"><span class="header-section-number">6</span> Calulate Z-Score using R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
 <li><a class="" href="computing-z-scores.html"><span class="header-section-number">7</span> Computing Z-Scores</a></li>
 <li><a class="" href="probability-and-inference.html"><span class="header-section-number">8</span> Probability and Inference</a></li>
 <li><a class="" href="hypothesis-signifance-testing.html"><span class="header-section-number">9</span> Hypothesis Signifance Testing</a></li>
@@ -66,7 +66,7 @@
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -91,14 +91,15 @@
 <span class="header-section-number">3.2</span> Importing CSV file<a class="anchor" aria-label="anchor" href="#importing-csv-file"><i class="fas fa-link"></i></a>
 </h2>
 <p>read command function in R is used to read the data files. To read CSV file, you can simply move the CSV file into the working directory and load the file using read.csv command. You will need the readr package to read CSV file.</p>
-<pre><code><a href="https://readr.tidyverse.org">  library (readr)
+<pre><code>'''library (readr)
   csv1 &lt;- read.csv("records.csv")
   
   #To view the structure
   str(csv1)
   
   #To view the CSV file
-  csv1</a></code></pre>
+  csv1
+  '''</code></pre>
 <p>Here, csv1 in the name assigned to the CSV file in R environment. You will be using the same variable name whenever you want to work with the csv file you imported.</p>
 </div>
 <div id="importing-spss-and-stata-file" class="section level2" number="3.3">
@@ -145,12 +146,11 @@
   </code></pre>
 <p><strong>R has comprehensive packages to import from multiple statistical systems. Some packages include foreign, readdta1 etc. Find more about Data Import and Export in R <a href="https://cran.r-project.org/doc/manuals/r-release/R-data.html">here</a>.</strong></p>
 
-
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></div>
-<div class="next"><a href="describing-data-in-r.html"><span class="header-section-number">4</span> Describing Data in R</a></div>
+<div class="next"><a href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -163,8 +163,8 @@
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/02-datainR.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/02-datainR.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/02-datainR.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/02-datainR.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -176,7 +176,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-03-28.</p>
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

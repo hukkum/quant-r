@@ -49,9 +49,9 @@
 <li><a class="active" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
 <li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
 <li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
-<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">4</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">5</span> Normal Distribution</a></li>
-<li><a class="" href="calulate-z-score-using-r.html"><span class="header-section-number">6</span> Calulate Z-Score using R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
 <li><a class="" href="computing-z-scores.html"><span class="header-section-number">7</span> Computing Z-Scores</a></li>
 <li><a class="" href="probability-and-inference.html"><span class="header-section-number">8</span> Probability and Inference</a></li>
 <li><a class="" href="hypothesis-signifance-testing.html"><span class="header-section-number">9</span> Hypothesis Signifance Testing</a></li>
@@ -66,7 +66,7 @@
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -79,19 +79,82 @@
 <span class="header-section-number">1.1</span> Data Types<a class="anchor" aria-label="anchor" href="#data-types"><i class="fas fa-link"></i></a>
 </h2>
 <p>Data types idea in computer science and program shares similar nomenclature in case of statistics. Data is broadly classified into constant and variables in terms of its nature during the execution of the analysis or the statistical program.</p>
-<p>### Constant Constant are those kind of data types which are not changed during the program or during analysis. For eg, the value of alpha (alpha) is always kept constant.</p>
-<p>### Variables Variables are those data types which are changed or have multiple values in the program.</p>
+<p><strong>Constant</strong> are those kind of data types which are not changed during the program or during analysis. For eg, the value of alpha (alpha) is always kept constant.</p>
+<p><strong>Variables</strong> are those data types which are changed or have multiple values in the program.</p>
 </div>
 <div id="types-of-variable" class="section level2" number="1.2">
 <h2>
 <span class="header-section-number">1.2</span> Types of variable<a class="anchor" aria-label="anchor" href="#types-of-variable"><i class="fas fa-link"></i></a>
 </h2>
-<p>The different types of variables and their key characteristics and examples are</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Quantitative Variables (Continuous and Discrete):</strong></p>
+<ul>
+<li><p>Continuous Variables: Variables that can take any value within a range, typically measured on a continuous scale. Example: Height, weight, or temperature.</p></li>
+<li><p>Discrete Variables: Variables that can only take specific values, usually whole numbers or counts. Example: Number of students in a class, or number of books in a library.</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Qualitative Variables (Nominal and Ordinal):</strong></p>
+<ul>
+<li><p>Nominal Variables: Variables that represent categories without any inherent order. Example: Gender (male or female), or types of food (vegetarian or non-vegetarian).</p></li>
+<li>
+<p>Ordinal Variables: Variables that represent categories with a natural order or ranking. Example: Education level (elementary, high school, or college), or customer satisfaction ratings (poor, average, or excellent).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basic-statistical-concepts.html#cb2-1" aria-hidden="true" tabindex="-1"></a>                   VARIABLES</span>
+<span id="cb2-2"><a href="basic-statistical-concepts.html#cb2-2" aria-hidden="true" tabindex="-1"></a>                       <span class="sc">|</span></span>
+<span id="cb2-3"><a href="basic-statistical-concepts.html#cb2-3" aria-hidden="true" tabindex="-1"></a>            <span class="sc">+----------+-----------+</span></span>
+<span id="cb2-4"><a href="basic-statistical-concepts.html#cb2-4" aria-hidden="true" tabindex="-1"></a>            <span class="er">|</span>                      <span class="er">|</span></span>
+<span id="cb2-5"><a href="basic-statistical-concepts.html#cb2-5" aria-hidden="true" tabindex="-1"></a>      Quantitative           Qualitative</span>
+<span id="cb2-6"><a href="basic-statistical-concepts.html#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="sc">|</span>                      <span class="er">|</span></span>
+<span id="cb2-7"><a href="basic-statistical-concepts.html#cb2-7" aria-hidden="true" tabindex="-1"></a>     <span class="sc">+------+-------+</span>      <span class="sc">+-------+-------+</span></span>
+<span id="cb2-8"><a href="basic-statistical-concepts.html#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="er">|</span>              <span class="er">|</span>      <span class="er">|</span>               <span class="er">|</span></span>
+<span id="cb2-9"><a href="basic-statistical-concepts.html#cb2-9" aria-hidden="true" tabindex="-1"></a>Continuous    Discrete   Nominal      Ordinal</span></code></pre></div>
+<p>Understanding the types of variables is crucial because it guides the selection of appropriate statistical techniques for data analysis.</p>
+</li>
+</ul>
+</li>
+</ol>
 </div>
 <div id="types-of-scales-of-measurement-of-variables" class="section level2" number="1.3">
 <h2>
 <span class="header-section-number">1.3</span> Types of scales of measurement of variables<a class="anchor" aria-label="anchor" href="#types-of-scales-of-measurement-of-variables"><i class="fas fa-link"></i></a>
 </h2>
+<p>Four different types of scales of measurement are presented in the table below.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="14%">
+<col width="54%">
+<col width="31%">
+</colgroup>
+<thead><tr class="header">
+<th><strong>Scale of Measurement</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Example</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Nominal</td>
+<td>Categorical data without any inherent order or ranking. Each value represents a distinct category.</td>
+<td>Gender (male or female), colors, or religion.</td>
+</tr>
+<tr class="even">
+<td>Ordinal</td>
+<td>Categorical data with a natural order or ranking, but without a specific numerical value.</td>
+<td>Education level, Likert scale, or age group.</td>
+</tr>
+<tr class="odd">
+<td>Interval</td>
+<td>Numeric data with a constant difference between values, but no true zero point.</td>
+<td>Temperature (Celsius or Fahrenheit), or calendar years.</td>
+</tr>
+<tr class="even">
+<td>Ratio</td>
+<td>Numeric data with a constant difference between values and a true zero point.</td>
+<td>Age, height, weight, or income.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Understanding the scales of measurement is important because it helps determine the appropriate statistical techniques and interpretations for the data.</p>
 
 </div>
 </div>
@@ -109,8 +172,8 @@
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/000-statconcept.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/000-statconcept.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/000-statconcept.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/000-statconcept.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -122,7 +185,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-03-28.</p>
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

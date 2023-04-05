@@ -117,7 +117,7 @@
 
 \title{Quantitative Methods - R Cookbook}
 \author{Subash Parajuli}
-\date{2023-03-28}
+\date{2023-04-04}
 
 \begin{document}
 \maketitle
@@ -212,17 +212,78 @@ Finally, here is the R version I am currently using:
 
 Data types idea in computer science and program shares similar nomenclature in case of statistics. Data is broadly classified into constant and variables in terms of its nature during the execution of the analysis or the statistical program.
 
-\#\#\# Constant Constant are those kind of data types which are not changed during the program or during analysis. For eg, the value of alpha (alpha) is always kept constant.
+\textbf{Constant} are those kind of data types which are not changed during the program or during analysis. For eg, the value of alpha (alpha) is always kept constant.
 
-\#\#\# Variables Variables are those data types which are changed or have multiple values in the program.
+\textbf{Variables} are those data types which are changed or have multiple values in the program.
 
 \hypertarget{types-of-variable}{%
 \section{Types of variable}\label{types-of-variable}}
 
-The different types of variables and their key characteristics and examples are
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Quantitative Variables (Continuous and Discrete):}
+
+  \begin{itemize}
+  \item
+    Continuous Variables: Variables that can take any value within a range, typically measured on a continuous scale. Example: Height, weight, or temperature.
+  \item
+    Discrete Variables: Variables that can only take specific values, usually whole numbers or counts. Example: Number of students in a class, or number of books in a library.
+  \end{itemize}
+\item
+  \textbf{Qualitative Variables (Nominal and Ordinal):}
+
+  \begin{itemize}
+  \item
+    Nominal Variables: Variables that represent categories without any inherent order. Example: Gender (male or female), or types of food (vegetarian or non-vegetarian).
+  \item
+    Ordinal Variables: Variables that represent categories with a natural order or ranking. Example: Education level (elementary, high school, or college), or customer satisfaction ratings (poor, average, or excellent).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{                   VARIABLES}
+                       \SpecialCharTok{|}
+            \SpecialCharTok{+{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}+{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}+}
+            \ErrorTok{|}                      \ErrorTok{|}
+\NormalTok{      Quantitative           Qualitative}
+            \SpecialCharTok{|}                      \ErrorTok{|}
+     \SpecialCharTok{+{-}{-}{-}{-}{-}{-}+{-}{-}{-}{-}{-}{-}{-}+}      \SpecialCharTok{+{-}{-}{-}{-}{-}{-}{-}+{-}{-}{-}{-}{-}{-}{-}+}
+     \ErrorTok{|}              \ErrorTok{|}      \ErrorTok{|}               \ErrorTok{|}
+\NormalTok{Continuous    Discrete   Nominal      Ordinal}
+\end{Highlighting}
+\end{Shaded}
+
+    Understanding the types of variables is crucial because it guides the selection of appropriate statistical techniques for data analysis.
+  \end{itemize}
+\end{enumerate}
 
 \hypertarget{types-of-scales-of-measurement-of-variables}{%
 \section{Types of scales of measurement of variables}\label{types-of-scales-of-measurement-of-variables}}
+
+Four different types of scales of measurement are presented in the table below.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1421}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5464}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3115}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Scale of Measurement}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Description}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Example}
+\end{minipage} \\
+\midrule()
+\endhead
+Nominal & Categorical data without any inherent order or ranking. Each value represents a distinct category. & Gender (male or female), colors, or religion. \\
+Ordinal & Categorical data with a natural order or ranking, but without a specific numerical value. & Education level, Likert scale, or age group. \\
+Interval & Numeric data with a constant difference between values, but no true zero point. & Temperature (Celsius or Fahrenheit), or calendar years. \\
+Ratio & Numeric data with a constant difference between values and a true zero point. & Age, height, weight, or income. \\
+\bottomrule()
+\end{longtable}
+
+Understanding the scales of measurement is important because it helps determine the appropriate statistical techniques and interpretations for the data.
 
 \hypertarget{r-basics}{%
 \chapter{R Basics}\label{r-basics}}
@@ -398,6 +459,84 @@ Note: It seems like we should be using \textbackslash{} instead of ~while writin
 \end{verbatim}
 
 \textbf{R has comprehensive packages to import from multiple statistical systems. Some packages include foreign, readdta1 etc. Find more about Data Import and Export in R \href{https://cran.r-project.org/doc/manuals/r-release/R-data.html}{here}.}
+
+\hypertarget{data-representation}{%
+\chapter{Data Representation}\label{data-representation}}
+
+\#\# Frequency Tables: A frequency table displays the number of occurrences (frequencies) for each category or value in a dataset. It is particularly useful for summarizing categorical data or discrete numerical data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{, }\StringTok{"C"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{)}
+
+\CommentTok{\# Frequency table}
+\FunctionTok{table}\NormalTok{(data)}
+\CommentTok{\#\textgreater{} data}
+\CommentTok{\#\textgreater{} A B C }
+\CommentTok{\#\textgreater{} 4 3 3}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{histograms}{%
+\chapter{Histograms:}\label{histograms}}
+
+Histograms are used to visualize the distribution of continuous or discrete numerical data. They display the data using intervals (bins) along the x-axis and the frequency of observations within each bin on the y-axis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example data}
+\NormalTok{data\_numeric }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# Histogram}
+\FunctionTok{hist}\NormalTok{(data\_numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{03-frequencyandplot_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\hypertarget{bar-graphs}{%
+\section{Bar Graphs:}\label{bar-graphs}}
+
+Bar graphs are used for displaying categorical data. Each category is represented by a bar, and the height (or length) of the bar indicates the frequency or count of that category.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Bar graph}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(data))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{03-frequencyandplot_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\hypertarget{pie-charts}{%
+\section{Pie Charts:}\label{pie-charts}}
+
+Pie charts represent categorical data as slices of a circle. The size of each slice is proportional to the frequency of each category. Pie charts are useful for visualizing relative proportions of categories.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Pie chart}
+\FunctionTok{pie}\NormalTok{(}\FunctionTok{table}\NormalTok{(data))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{03-frequencyandplot_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\hypertarget{box-plots}{%
+\section{Box Plots:}\label{box-plots}}
+
+Box plots are used for visualizing the distribution of continuous or discrete numerical data. They show the median, quartiles, and outliers of the data, providing a compact and informative representation of the data distribution.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{boxplot}\NormalTok{(data\_numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{03-frequencyandplot_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+Each of these data representation techniques serves a different purpose and is suited for different types of data. By understanding when to use each method, you can effectively communicate your data insights and findings.
 
 \hypertarget{describing-data-in-r}{%
 \chapter{Describing Data in R}\label{describing-data-in-r}}

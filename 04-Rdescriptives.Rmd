@@ -1,2 +1,86 @@
 # Describing Data in R
 
+## Central Tendency:
+
+Central tendency measures provide a single value that represents the center or "typical" value of a dataset. The primary measures of central tendency are the mean, median, and mode.
+
+### Mean
+
+The mean, often referred to as the average, is the sum of all data points divided by the total number of data points. The mean is sensitive to extreme values (outliers) and may not always represent the true center of the data.
+
+### Median
+
+The median is the middle value of a dataset when it is sorted in ascending or descending order. If the dataset has an odd number of data points, the median is the middle value; if it has an even number of data points, the median is the average of the two middle values. The median is less sensitive to extreme values compared to the mean.
+
+### Mode
+
+The mode is the value that occurs most frequently in a dataset. A dataset can have more than one mode (multimodal) or no mode (no value occurs more than once). The mode can be used for both numerical and categorical data.
+
+To calculate these measures using the "psych" package in R, follow these steps:
+
+1.  Install and load the "psych" package:
+
+```{r eval=FALSE}
+install.packages("psych")
+library(psych)
+```
+
+2. To calculate mean, median mode. 
+
+```{r}
+# Example data
+data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Mean
+mean(data)
+
+# Median
+median(data)
+
+# Mode
+psych::describe(data)$mode
+```
+
+The "psych" package provides the "describe()" function, which calculates various summary statistics, including the mode. The mean and median functions are available in the base R package, so you can use them without loading the "psych" package.
+
+## Measures of Dispersion
+
+The primary measures of dispersion are:
+
+### Range:
+The range is the difference between the maximum and minimum values in a dataset. It gives a basic idea of the spread of the data but is sensitive to outliers and does not provide information about the distribution's shape.
+Formula: Range = Max(X) - Min(X)
+
+### Interquartile Range (IQR):
+The IQR is the difference between the first quartile (Q1, the 25th percentile) and the third quartile (Q3, the 75th percentile) of a dataset. It describes the spread of the middle 50% of the data and is less sensitive to outliers than the range.
+Formula: IQR = Q3 - Q1
+
+### Variance:
+The variance is the average of the squared differences between each data point and the mean. It measures the degree to which data points deviate from the mean. The variance is influenced by outliers and is expressed in squared units.
+Formula (population variance): σ² = Σ(X - μ)² / N
+Formula (sample variance): s² = Σ(X - x̄)² / (n - 1)
+
+### Standard Deviation:
+The standard deviation is the square root of the variance. It measures the average deviation of data points from the mean and is expressed in the same units as the data. Like the variance, it is sensitive to outliers.
+Formula (population standard deviation): σ = √σ²
+Formula (sample standard deviation): s = √s²
+
+
+### Calculating Measures of Dispersion Using R
+We can use *psych* pakcage to calculate measures of dispersion. 
+```{r}
+# Example data
+data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Range
+max(data) - min(data)
+
+# IQR
+IQR(data)
+
+# Variance
+var(data)
+
+# Standard deviation
+sd(data)
+```
