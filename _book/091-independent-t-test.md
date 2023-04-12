@@ -1,8 +1,5 @@
-# Inferences between two means
 
-The chapter covers different topics related to independent and dependent samples t-test, including its assumptions, procedures, and interpretations.
-
-## Independent vs Dependent Samples
+# Independent Samples T - Test
 
 The table below provides a comprehensive comparison between dependent and independent samples, including their definitions, examples, hypothesis testing, assumptions, statistical tests, effect size measures, and R functions. By understanding these differences, we can choose the appropriate statistical test for their data and interpret the results correctly.
 

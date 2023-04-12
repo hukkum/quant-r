@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 12 Paired t-test | Quantitative Methods - R Cookbook</title>
+<meta name="author" content="Subash Parajuli">
+<meta name="description" content="The paired samples t-test is used when the observations are collected from the same individuals or matched pairs (e.g., siblings, twins) under different conditions or at different time points. The...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 12 Paired t-test | Quantitative Methods - R Cookbook">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://r.lesson3.io/paired-t-test.html">
+<meta property="og:description" content="The paired samples t-test is used when the observations are collected from the same individuals or matched pairs (e.g., siblings, twins) under different conditions or at different time points. The...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 12 Paired t-test | Quantitative Methods - R Cookbook">
+<meta name="twitter:description" content="The paired samples t-test is used when the observations are collected from the same individuals or matched pairs (e.g., siblings, twins) under different conditions or at different time points. The...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Quantitative Methods - R Cookbook</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
+<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
+<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
+<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
+<li><a class="active" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">13</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">14</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">15</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">16</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">17</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">18</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">19</span> G* Power</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="paired-t-test" class="section level1" number="12">
+<h1>
+<span class="header-section-number">12</span> Paired t-test<a class="anchor" aria-label="anchor" href="#paired-t-test"><i class="fas fa-link"></i></a>
+</h1>
+<p>The paired samples t-test is used when the observations are collected from the same individuals or matched pairs (e.g., siblings, twins) under different conditions or at different time points. The purpose of the test is to determine if there is a significant difference between the means of the paired differences.</p>
+<p>The paired t-test is based on the following null (H₀) and alternative (H₁) hypotheses:</p>
+<ul>
+<li><p>H₀: μ_d = 0 (There is no significant difference between the means of the paired differences.)</p></li>
+<li><p>H₁: μ_d ≠ 0 (There is a significant difference between the means of the paired differences.)</p></li>
+</ul>
+<p>Mathematically, the test statistic for the paired t-test (t-value) is calculated using the following formula:</p>
+<p>t = (M_d - μ_d) / (s_d / sqrt(n))</p>
+<p>where:</p>
+<ul>
+<li><p>M_d is the mean of the paired differences</p></li>
+<li><p>μ_d is the population mean difference (0 in the null hypothesis)</p></li>
+<li><p>s_d is the standard deviation of the paired differences</p></li>
+<li><p>n is the number of pairs</p></li>
+<li><p>The t-value follows a t-distribution with degrees of freedom (df) equal to n - 1.</p></li>
+</ul>
+<p>The paired t-test is used when the observations within each pair are related or matched (e.g., pre-test and post-test scores of the same individuals, or scores of matched pairs like siblings or twins).The test compares the means of the paired differences rather than the means of the original observations.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><p>Comparing pre-test and post-test scores of students to determine the effectiveness of a teaching intervention.</p></li>
+<li><p>Comparing the performance of students in two different courses taught by the same instructor.</p></li>
+</ul>
+<p><strong>Recommendations:</strong></p>
+<ul>
+<li><p>Use the paired t-test when you have dependent samples and are interested in the difference between the means of the paired differences.</p></li>
+<li><p>Ensure the assumptions of the paired t-test are met (see below).</p></li>
+</ul>
+<p><strong>Sample size:</strong></p>
+<ul>
+<li><p>The sample size should be large enough to provide adequate statistical power to detect a meaningful effect.</p></li>
+<li><p>The required sample size depends on the effect size, significance level, and desired power. It can be calculated using power analysis techniques (e.g., using the <strong><code>pwr</code></strong> package in R).</p></li>
+</ul>
+<p><strong>Assumptions:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Paired observations</strong>: The observations within each pair should be related or matched, such as pre-test and post-test scores of the same individual, or scores of matched pairs like siblings or twins.</p></li>
+<li><p><strong>Random sampling</strong>: The pairs of observations should be obtained through random sampling from the population of interest. This ensures that the sample is representative of the population and the results can be generalized.</p></li>
+<li><p><strong>Normality of differences</strong>: The differences between the paired observations should be approximately normally distributed. This assumption can be checked using a variety of methods, such as histograms, Q-Q plots, or statistical tests like the Shapiro-Wilk test.</p></li>
+<li><p><strong>Independence of pairs</strong>: The pairs of observations should be independent of each other. In other words, one pair’s difference should not influence another pair’s difference.</p></li>
+<li>
+<p><strong>Interval or ratio scale data</strong>: The data for the paired observations should be measured on an interval or ratio scale. This means that the data should have a meaningful zero point and equal intervals between adjacent values.</p>
+<p>It is essential to ensure that these assumptions are met before conducting a paired t-test, as violation of these assumptions may lead to incorrect inferences. If any of these assumptions are violated, alternative statistical tests or data transformation methods might be more appropriate.</p>
+</li>
+</ol>
+<div id="performing-the-paired-t-test-using-r" class="section level3" number="12.0.1">
+<h3>
+<span class="header-section-number">12.0.1</span> <strong>Performing the paired t-test using R</strong><a class="anchor" aria-label="anchor" href="#performing-the-paired-t-test-using-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>We will need data from two related groups or samples, typically stored in a data frame with two variables representing the paired observations. Then we will be loading the requirec libraries. We will be using pysch package.</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">swimdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"exampledata/Ch7_swim.csv"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     pretest         posttest    </span></span>
+<span><span class="co">#&gt;  Min.   :58.00   Min.   :54.00  </span></span>
+<span><span class="co">#&gt;  1st Qu.:61.25   1st Qu.:56.25  </span></span>
+<span><span class="co">#&gt;  Median :63.50   Median :59.50  </span></span>
+<span><span class="co">#&gt;  Mean   :64.00   Mean   :59.00  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:65.75   3rd Qu.:61.75  </span></span>
+<span><span class="co">#&gt;  Max.   :72.00   Max.   :64.00</span></span></code></pre></div>
+</div>
+<div id="data-screening-procedures" class="section level3" number="12.0.2">
+<h3>
+<span class="header-section-number">12.0.2</span> Data screening procedures<a class="anchor" aria-label="anchor" href="#data-screening-procedures"><i class="fas fa-link"></i></a>
+</h3>
+<p>Before performing the paired t-test, it is essential to check the assumptions mentioned earlier, including the normality of differences and the presence of outliers.</p>
+<p>Check for outliers using boxplots:</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">pretest</span>, <span class="va">swimdata</span><span class="op">$</span><span class="va">posttest</span>, names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Pretest"</span>, <span class="st">"Posttest"</span><span class="op">)</span>, ylab <span class="op">=</span> <span class="st">"Scores"</span>, main <span class="op">=</span> <span class="st">"Boxplots for Pretest and Posttest"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="092-paired-t-test_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<p>Check for the normality of differences using histograms or Q-Q plots:</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Compute the differences between paired observations</span></span>
+<span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span> <span class="op">&lt;-</span> <span class="va">swimdata</span><span class="op">$</span><span class="va">posttest</span> <span class="op">-</span> <span class="va">swimdata</span><span class="op">$</span><span class="va">pretest</span></span>
+<span></span>
+<span><span class="co"># Create a histogram of the differences</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span>, main <span class="op">=</span> <span class="st">"Histogram of Paired Differences"</span>, xlab <span class="op">=</span> <span class="st">"Difference"</span>, ylab <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="092-paired-t-test_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Create a Q-Q plot of the differences</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span>, main <span class="op">=</span> <span class="st">"Q-Q Plot of Paired Differences"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="092-paired-t-test_files/figure-html/unnamed-chunk-3-2.png" width="672"></div>
+<p>We can also assess the normality using the Shapiro-Wilk test.</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  swimdata$difference</span></span>
+<span><span class="co">#&gt; W = 0.95557, p-value = 0.7344</span></span></code></pre></div>
+</div>
+<div id="performing-the-paired-t-test" class="section level3" number="12.0.3">
+<h3>
+<span class="header-section-number">12.0.3</span> Performing the paired t-test<a class="anchor" aria-label="anchor" href="#performing-the-paired-t-test"><i class="fas fa-link"></i></a>
+</h3>
+<p>Paired t-test can be performed using <strong>t.test()</strong> function.</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Perform the paired t-test</span></span>
+<span><span class="va">t_test_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">pretest</span>, <span class="va">swimdata</span><span class="op">$</span><span class="va">posttest</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the test result</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">t_test_result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Paired t-test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  swimdata$pretest and swimdata$posttest</span></span>
+<span><span class="co">#&gt; t = 7.3193, df = 9, p-value = 4.472e-05</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true mean difference is not equal to 0</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  3.454652 6.545348</span></span>
+<span><span class="co">#&gt; sample estimates:</span></span>
+<span><span class="co">#&gt; mean difference </span></span>
+<span><span class="co">#&gt;               5</span></span></code></pre></div>
+
+<p>#Covariance</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></div>
+<div class="next"><a href="correlation.html"><span class="header-section-number">13</span> Correlation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li>
+<a class="nav-link" href="#paired-t-test"><span class="header-section-number">12</span> Paired t-test</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#performing-the-paired-t-test-using-r"><span class="header-section-number">12.0.1</span> Performing the paired t-test using R</a></li>
+<li><a class="nav-link" href="#data-screening-procedures"><span class="header-section-number">12.0.2</span> Data screening procedures</a></li>
+<li><a class="nav-link" href="#performing-the-paired-t-test"><span class="header-section-number">12.0.3</span> Performing the paired t-test</a></li>
+</ul>
+</li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/092-paired-t-test.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/092-paired-t-test.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-12.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
