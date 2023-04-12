@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 11 Inferences between two means | Quantitative Methods - R Cookbook</title>
+<meta name="author" content="Subash Parajuli">
+<meta name="description" content="The chapter covers different topics related to independent and dependent samples t-test, including its assumptions, procedures, and interpretations.  11.1 Independent vs Dependent Samples The...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 11 Inferences between two means | Quantitative Methods - R Cookbook">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://r.lesson3.io/inferences-between-two-means.html">
+<meta property="og:description" content="The chapter covers different topics related to independent and dependent samples t-test, including its assumptions, procedures, and interpretations.  11.1 Independent vs Dependent Samples The...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 11 Inferences between two means | Quantitative Methods - R Cookbook">
+<meta name="twitter:description" content="The chapter covers different topics related to independent and dependent samples t-test, including its assumptions, procedures, and interpretations.  11.1 Independent vs Dependent Samples The...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Quantitative Methods - R Cookbook</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
+<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
+<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
+<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li><a class="active" href="inferences-between-two-means.html"><span class="header-section-number">11</span> Inferences between two means</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">12</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">13</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">14</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">15</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">16</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">17</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">18</span> G* Power</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="inferences-between-two-means" class="section level1" number="11">
+<h1>
+<span class="header-section-number">11</span> Inferences between two means<a class="anchor" aria-label="anchor" href="#inferences-between-two-means"><i class="fas fa-link"></i></a>
+</h1>
+<p>The chapter covers different topics related to independent and dependent samples t-test, including its assumptions, procedures, and interpretations.</p>
+<div id="independent-vs-dependent-samples" class="section level2" number="11.1">
+<h2>
+<span class="header-section-number">11.1</span> Independent vs Dependent Samples<a class="anchor" aria-label="anchor" href="#independent-vs-dependent-samples"><i class="fas fa-link"></i></a>
+</h2>
+<p>The table below provides a comprehensive comparison between dependent and independent samples, including their definitions, examples, hypothesis testing, assumptions, statistical tests, effect size measures, and R functions. By understanding these differences, we can choose the appropriate statistical test for their data and interpret the results correctly.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="19%">
+<col width="34%">
+<col width="45%">
+</colgroup>
+<thead><tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>Dependent Samples</strong></th>
+<th><strong>Independent Samples</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Definition</strong></td>
+<td>Dependent samples are paired or related observations collected from the same individuals or matched pairs.</td>
+<td>Independent samples consist of observations collected from two separate and unrelated groups.</td>
+</tr>
+<tr class="even">
+<td><strong>Examples</strong></td>
+<td>- Pre-test and post-test scores from the same individuals. &lt;br&gt; - Scores from matched pairs of individuals (e.g., siblings, twins).</td>
+<td>- Test scores from two different groups of students taught using different teaching methods. &lt;br&gt; - Scores from two groups of participants exposed to different conditions in an experiment.</td>
+</tr>
+<tr class="odd">
+<td><strong>Hypothesis Testing</strong></td>
+<td>The null hypothesis states that there is no significant difference between the means of the paired differences. &lt;br&gt; H₀: μ₁ - μ₂ = 0</td>
+<td>The null hypothesis states that there is no significant difference between the means of the two independent groups. &lt;br&gt; H₀: μ₁ = μ₂</td>
+</tr>
+<tr class="even">
+<td><strong>Assumptions</strong></td>
+<td>- The differences between the paired observations should be approximately normally distributed. &lt;br&gt; - The observations within each pair should be related or matched.</td>
+<td>- The observations in each group must be independent of each other. &lt;br&gt; - The data in each group should be approximately normally distributed. &lt;br&gt; - The variances of the two groups should be approximately equal.</td>
+</tr>
+<tr class="odd">
+<td><strong>Statistical Test</strong></td>
+<td>Paired samples t-test</td>
+<td>Independent samples t-test (or Welch’s t-test if equal variances assumption is not met)</td>
+</tr>
+<tr class="even">
+<td><strong>Effect Size</strong></td>
+<td>Cohen’s d or the point-biserial correlation for paired samples</td>
+<td>Cohen’s d or the point-biserial correlation for independent samples</td>
+</tr>
+<tr class="odd">
+<td><strong>R Function</strong></td>
+<td><strong><code>t.test(x, y, paired = TRUE)</code></strong></td>
+<td>
+<strong><code>t.test(x, y)</code></strong> (or <strong><code>t.test(x, y, var.equal = FALSE)</code></strong> for Welch’s t-test)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="independent-samples-t-test" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> Independent Samples t-test<a class="anchor" aria-label="anchor" href="#independent-samples-t-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>The independent samples t-test is used to compare the means of two independent groups to determine if there is a significant difference between them.</p>
+<p>The independent samples t-test is based on the following null (H₀) and alternative (H₁) hypotheses:</p>
+<p>H₀: μ₁ = μ₂ (There is no significant difference between the means of the two groups.)
+H₁: μ₁ ≠ μ₂ (There is a significant difference between the means of the two groups.)
+The test statistic for the independent samples t-test is the t-value, which is calculated using the following formula:</p>
+<p>t = (M₁ - M₂) / sqrt((s₁²/n₁) + (s₂²/n₂))</p>
+<p>where:</p>
+<p>M₁ and M₂ are the means of the two groups
+s₁² and s₂² are the variances of the two groups
+n₁ and n₂ are the sample sizes of the two groups
+The t-value follows a t-distribution with degrees of freedom (df) approximated by the following formula:</p>
+<p>df = min(n₁ - 1, n₂ - 1)</p>
+<p>Once the t-value and degrees of freedom are calculated, the p-value can be determined by comparing the t-value to the t-distribution with the appropriate degrees of freedom. If the p-value is less than the chosen significance level (e.g., 0.05), the null hypothesis can be rejected, indicating a significant difference between the means of the two groups.</p>
+<div id="independent-t-test-using-r" class="section level3" number="11.2.1">
+<h3>
+<span class="header-section-number">11.2.1</span> Independent t-test using R<a class="anchor" aria-label="anchor" href="#independent-t-test-using-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>You will need data from two independent groups, typically stored in a data frame with one variable representing the group membership and another variable representing the outcome of interest.</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Example data</span></span>
+<span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"B"</span><span class="op">)</span></span>
+<span><span class="va">outcome</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">12</span>, <span class="fl">14</span>, <span class="fl">16</span>, <span class="fl">18</span>, <span class="fl">20</span>, <span class="fl">22</span>, <span class="fl">24</span>, <span class="fl">26</span>, <span class="fl">28</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create a data frame</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">outcome</span><span class="op">)</span></span></code></pre></div>
+<p>Perform the independent samples t-test: Use the t.test() function in R, specifying the formula and the data frame as arguments.</p>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Perform the independent samples t-test</span></span>
+<span><span class="va">t_test_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">outcome</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the test result</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">t_test_result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Welch Two Sample t-test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  outcome by group</span></span>
+<span><span class="co">#&gt; t = -5, df = 8, p-value = 0.001053</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true difference in means between group A and group B is not equal to 0</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  -14.612008  -5.387992</span></span>
+<span><span class="co">#&gt; sample estimates:</span></span>
+<span><span class="co">#&gt; mean in group A mean in group B </span></span>
+<span><span class="co">#&gt;              14              24</span></span></code></pre></div>
+<p>The output of the t.test() function will include the t-value, degrees of freedom, p-value, and confidence interval for the difference in means. If the p-value is less than the chosen significance level (e.g., 0.05), you can reject the null hypothesis, concluding that there is a significant difference between the means of the two groups.</p>
+
+<p>#Covariance</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></div>
+<div class="next"><a href="correlation.html"><span class="header-section-number">12</span> Correlation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#inferences-between-two-means"><span class="header-section-number">11</span> Inferences between two means</a></li>
+<li><a class="nav-link" href="#independent-vs-dependent-samples"><span class="header-section-number">11.1</span> Independent vs Dependent Samples</a></li>
+<li>
+<a class="nav-link" href="#independent-samples-t-test"><span class="header-section-number">11.2</span> Independent Samples t-test</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#independent-t-test-using-r"><span class="header-section-number">11.2.1</span> Independent t-test using R</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/091-independent-t-test.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/091-independent-t-test.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-11.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

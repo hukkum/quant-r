@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 10 Hypothesis Testing | Quantitative Methods - R Cookbook</title>
+<meta name="author" content="Subash Parajuli">
+<meta name="description" content="Hypothesis testing is a method used to make decisions about population parameters based on sample data.  10.1 Hypothesis A hypothesis is an educated guess or statement about the relationship...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 10 Hypothesis Testing | Quantitative Methods - R Cookbook">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://r.lesson3.io/hypothesis-testing.html">
+<meta property="og:description" content="Hypothesis testing is a method used to make decisions about population parameters based on sample data.  10.1 Hypothesis A hypothesis is an educated guess or statement about the relationship...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 10 Hypothesis Testing | Quantitative Methods - R Cookbook">
+<meta name="twitter:description" content="Hypothesis testing is a method used to make decisions about population parameters based on sample data.  10.1 Hypothesis A hypothesis is an educated guess or statement about the relationship...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Quantitative Methods - R Cookbook</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
+<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
+<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
+<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
+<li><a class="active" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li><a class="" href="inferences-between-two-means.html"><span class="header-section-number">11</span> Inferences between two means</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">12</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">13</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">14</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">15</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">16</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">17</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">18</span> G* Power</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hypothesis-testing" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Hypothesis Testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing"><i class="fas fa-link"></i></a>
+</h1>
+<p>Hypothesis testing is a method used to make decisions about population parameters based on sample data.</p>
+<div id="hypothesis" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Hypothesis<a class="anchor" aria-label="anchor" href="#hypothesis"><i class="fas fa-link"></i></a>
+</h2>
+<p>A hypothesis is an educated guess or statement about the relationship between variables or the characteristics of a population. In hypothesis testing, there are two main hypotheses:</p>
+<div id="null-hypothesis-h0" class="section level3" number="10.1.1">
+<h3>
+<span class="header-section-number">10.1.1</span> Null hypothesis (H0):<a class="anchor" aria-label="anchor" href="#null-hypothesis-h0"><i class="fas fa-link"></i></a>
+</h3>
+<p>This hypothesis states that there is no effect or no relationship between variables. It is typically the hypothesis that the researcher wants to disprove.</p>
+</div>
+<div id="alternative-hypothesis-h1" class="section level3" number="10.1.2">
+<h3>
+<span class="header-section-number">10.1.2</span> Alternative hypothesis (H1):<a class="anchor" aria-label="anchor" href="#alternative-hypothesis-h1"><i class="fas fa-link"></i></a>
+</h3>
+<p>This hypothesis states that there is an effect or a relationship between variables. It is the hypothesis that the researcher wants to prove or provide evidence for.</p>
+</div>
+</div>
+<div id="decision-type-error" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Decision Type Error<a class="anchor" aria-label="anchor" href="#decision-type-error"><i class="fas fa-link"></i></a>
+</h2>
+<p>When performing hypothesis testing, there are two types of decision errors:</p>
+<p>Type I Error (α): This error occurs when the null hypothesis is rejected when it is actually true. In other words, it’s a false positive. The probability of committing a Type I error is denoted by the significance level (α), which is typically set at 0.05 or 0.01.
+Type II Error (β): This error occurs when the null hypothesis is not rejected when it is actually false. In other words, it’s a false negative. The probability of committing a Type II error is denoted by β. The power of a test (1 - β) measures the ability of the test to detect an effect when it truly exists.
+Here is a graphical representation of the types of decision errors:</p>
+<p>Hypothesis Testing Errors</p>
+<div class="sourceCode" id="cb23" eval="false"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb23-1"><a href="hypothesis-testing.html#cb23-1" aria-hidden="true" tabindex="-1"></a>|                  | Null Hypothesis (H0) is True | Null Hypothesis (H0) is False |</span>
+<span id="cb23-2"><a href="hypothesis-testing.html#cb23-2" aria-hidden="true" tabindex="-1"></a>|------------------|------------------------------|-------------------------------|</span>
+<span id="cb23-3"><a href="hypothesis-testing.html#cb23-3" aria-hidden="true" tabindex="-1"></a>| Reject H0        | Type I Error (α)             | Correct Decision (1 - β)      |</span>
+<span id="cb23-4"><a href="hypothesis-testing.html#cb23-4" aria-hidden="true" tabindex="-1"></a>| Fail to Reject H0| Correct Decision (1 - α)     | Type II Error (β)             |</span></code></pre></div>
+<p>This table represents the different outcomes when making decisions based on hypothesis testing. The columns represent the reality (i.e., whether the null hypothesis is true or false), and the rows represent the decision made based on the hypothesis test (i.e., whether to reject or not reject the null hypothesis). The cells show the types of decision errors (Type I and Type II errors) and the correct decisions.</p>
+</div>
+<div id="level-of-signficance" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Level of Signficance<a class="anchor" aria-label="anchor" href="#level-of-signficance"><i class="fas fa-link"></i></a>
+</h2>
+<p>The level of significance is a critical component in hypothesis testing because it sets a threshold for determining whether an observed effect is statistically significant or not.</p>
+<p>The level of significance is denoted by the Greek letter α (alpha) and represents the probability of making a Type I error. A Type I error occurs when we reject the null hypothesis (H0) when it is actually true. By choosing a level of significance, researchers define the risk they are willing to take when rejecting a true null hypothesis. Common levels of significance are 0.05 (5%) and 0.01 (1%).</p>
+<p>To better understand the role of the level of significance in hypothesis testing, let’s consider the following steps:</p>
+<p>Formulate the null hypothesis (H0) and the alternative hypothesis (H1): The null hypothesis typically states that there is no effect or relationship between variables, while the alternative hypothesis states that there is an effect or relationship.</p>
+<p>Choose a level of significance (α): Determine the threshold for the probability of making a Type I error. For example, if α is set to 0.05, there is a 5% chance of rejecting a true null hypothesis.</p>
+<p>Perform the statistical test and calculate the test statistic: The test statistic is calculated using the sample data, and it helps determine how far the observed sample mean is from the hypothesized population mean. In the case of a single mean, a one-sample t-test is commonly used, and the test statistic is the t-value.</p>
+<p>Determine the critical value or p-value: Compare the calculated test statistic with the critical value or the p-value (probability value) to make a decision about the null hypothesis. The critical value is a threshold value that depends on the chosen level of significance and the distribution of the test statistic. The p-value represents the probability of obtaining a test statistic as extreme or more extreme than the observed test statistic under the assumption that the null hypothesis is true.</p>
+<p>Make a decision: If the test statistic is more extreme than the critical value, or if the p-value is less than the level of significance (α), reject the null hypothesis. Otherwise, fail to reject the null hypothesis.</p>
+</div>
+<div id="t-statistic" class="section level2" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> T-statistic<a class="anchor" aria-label="anchor" href="#t-statistic"><i class="fas fa-link"></i></a>
+</h2>
+<p>The t-statistic is a standardized measure used in hypothesis testing to compare the observed sample mean with the hypothesized population mean. It takes into account the sample mean, the hypothesized population mean, and the standard error of the mean. Mathematically, the t-statistic can be calculated using the following formula:</p>
+<p>t = (X̄ - μ) / (s / √n)</p>
+<p>where:</p>
+<p>t is the t-statistic
+X̄ is the sample mean
+μ is the hypothesized population mean
+s is the sample standard deviation
+n is the sample size</p>
+<div id="t-distribution" class="section level3" number="10.4.1">
+<h3>
+<span class="header-section-number">10.4.1</span> T-distribution<a class="anchor" aria-label="anchor" href="#t-distribution"><i class="fas fa-link"></i></a>
+</h3>
+<p>The t-distribution, also known as the Student’s t-distribution, is a probability distribution that is used when the population standard deviation is unknown and the sample size is small. It is similar to the normal distribution but has thicker tails, which accounts for the increased variability due to using the sample standard deviation as an estimate of the population standard deviation. The shape of the t-distribution depends on the degrees of freedom (df), which is related to the sample size (df = n - 1). As the sample size increases, the t-distribution approaches the normal distribution.</p>
+<p>To calculate the t-statistic in R, you can use the following code:</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Sample data</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">14</span>, <span class="fl">16</span>, <span class="fl">18</span>, <span class="fl">20</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Hypothesized population mean</span></span>
+<span><span class="va">hypothesized_mean</span> <span class="op">&lt;-</span> <span class="fl">15</span></span>
+<span></span>
+<span><span class="co"># Calculate the sample mean, standard deviation, and size</span></span>
+<span><span class="va">sample_mean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="va">sample_sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate the t-statistic</span></span>
+<span><span class="va">t_statistic</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sample_mean</span> <span class="op">-</span> <span class="va">hypothesized_mean</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">sample_sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">sample_size</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the t-statistic</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">t_statistic</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.7071068</span></span></code></pre></div>
+<p>To perform a one-sample t-test in R, which calculates the t-statistic and p-value automatically, you can use the t.test() function:</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Perform a one-sample t-test</span></span>
+<span><span class="va">t_test_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">data</span>, mu <span class="op">=</span> <span class="va">hypothesized_mean</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the t-test result</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">t_test_result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  One Sample t-test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  data</span></span>
+<span><span class="co">#&gt; t = 0.70711, df = 4, p-value = 0.5185</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true mean is not equal to 15</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  12.07351 19.92649</span></span>
+<span><span class="co">#&gt; sample estimates:</span></span>
+<span><span class="co">#&gt; mean of x </span></span>
+<span><span class="co">#&gt;        16</span></span></code></pre></div>
+</div>
+<div id="intepreting-normality-evidence" class="section level3" number="10.4.2">
+<h3>
+<span class="header-section-number">10.4.2</span> Intepreting Normality Evidence<a class="anchor" aria-label="anchor" href="#intepreting-normality-evidence"><i class="fas fa-link"></i></a>
+</h3>
+<p>When using a t-test, the assumption of normality is important. The data should follow a normal distribution to ensure the validity of the test results. To assess the normality of the data, we can use visual methods (histograms, Q-Q plots) and statistical tests (e.g., Shapiro-Wilk test).</p>
+<p>This is important because the t-test assumes that the data follow a normal distribution, and verifying this assumption helps ensure the validity of the test results.</p>
+<p>To generate normality evidence after performing a t-test, you can use the following methods:</p>
+<p>Visual methods: Histograms and Q-Q plots can provide a visual assessment of the normality of the data.</p>
+<p>Statistical tests: Shapiro-Wilk test and Kolmogorov-Smirnov test are commonly used to test for normality. These tests generate p-values, which can be compared with a chosen significance level (e.g., 0.05) to determine if the data deviate significantly from normality.</p>
+<p>In R, you can create a histogram and Q-Q plot using the following code:</p>
+<ol style="list-style-type: decimal">
+<li>Create a histogram and Q-Q plot:</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Sample data</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">14</span>, <span class="fl">16</span>, <span class="fl">18</span>, <span class="fl">20</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create a histogram</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span>, color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="09-hypothesistesting_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Create a Q-Q plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">data</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="09-hypothesistesting_files/figure-html/unnamed-chunk-3-2.png" width="672"></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Perform the Shapiro-Wilk test:</li>
+</ol>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Perform the Shapiro-Wilk test</span></span>
+<span><span class="va">shapiro_test_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the test result</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shapiro_test_result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  data</span></span>
+<span><span class="co">#&gt; W = 0.98676, p-value = 0.9672</span></span></code></pre></div>
+<p>To interpret the normality evidence, follow these guidelines:</p>
+<p>Visual methods: Inspect the histogram and Q-Q plot. If the histogram is roughly bell-shaped and the points on the Q-Q plot fall approximately on the reference line, the data can be considered approximately normally distributed.</p>
+<p>Statistical tests: Check the p-values of the normality tests. If the p-value is greater than the chosen significance level (e.g., 0.05), the null hypothesis (i.e., the data follow a normal distribution) cannot be rejected. This suggests that the data do not deviate significantly from normality.</p>
+<p>Keep in mind that no single method is foolproof, and it’s often a good idea to use a combination of visual and statistical methods to assess normality. If the data appear to be non-normal, you might consider using non-parametric alternatives to the t-test or transforming the data to achieve normality.</p>
+</div>
+</div>
+<div id="statistical-power" class="section level2" number="10.5">
+<h2>
+<span class="header-section-number">10.5</span> Statistical Power<a class="anchor" aria-label="anchor" href="#statistical-power"><i class="fas fa-link"></i></a>
+</h2>
+<p>Statistical power is the probability of correctly rejecting the null hypothesis when it is false, which means not committing a Type II error. Power is influenced by factors such as sample size, effect size, and the chosen significance level (α). Power analysis helps researchers determine the appropriate sample size needed to achieve a desired level of power, typically 0.8 or higher.</p>
+<p>To perform power analysis in R, you can use the pwr package, which provides a set of functions for power calculations in various statistical tests, including the t-test.</p>
+<p>Here’s a step-by-step procedure for generating and testing power using R:</p>
+<ol style="list-style-type: decimal">
+<li>Install and load the pwr package:</li>
+</ol>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Load the pwr package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heliosdrm/pwr">pwr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'pwr' was built under R version 4.2.3</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Define the parameters for power analysis. You will need to specify the effect size (Cohen’s d), sample size, and significance level (α):</li>
+</ol>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Define parameters for power analysis</span></span>
+<span><span class="va">effect_size</span> <span class="op">&lt;-</span> <span class="fl">0.8</span>  <span class="co"># Cohen's d</span></span>
+<span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
+<span><span class="va">significance_level</span> <span class="op">&lt;-</span> <span class="fl">0.05</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Use the <strong>pwr.t.test()</strong> function to calculate the power for a one-sample t-test:</li>
+</ol>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calculate the power for a one-sample t-test</span></span>
+<span><span class="va">power_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">500</span>,</span>
+<span>                           d <span class="op">=</span> <span class="va">effect_size</span>,</span>
+<span>                           sig.level <span class="op">=</span> <span class="va">significance_level</span>,</span>
+<span>                           type <span class="op">=</span> <span class="st">"one.sample"</span>,</span>
+<span>                           alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the power result</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">power_result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;      One-sample t test power calculation </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;               n = 500</span></span>
+<span><span class="co">#&gt;               d = 0.8</span></span>
+<span><span class="co">#&gt;       sig.level = 0.05</span></span>
+<span><span class="co">#&gt;           power = 1</span></span>
+<span><span class="co">#&gt;     alternative = two.sided</span></span></code></pre></div>
+<p>The output will show the calculated power, sample size, effect size, and significance level. If the power is below the desired level (e.g., 0.8), you can adjust the sample size or effect size and recalculate the power to determine the necessary changes for achieving the desired power level.</p>
+<p>It’s essential to consider the practical implications of the effect size and sample size when planning a study. A large effect size may be easier to detect but might not occur frequently in real-world situations. Conversely, a small effect size might be more difficult to detect and may require a larger sample size to achieve adequate power.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></div>
+<div class="next"><a href="inferences-between-two-means.html"><span class="header-section-number">11</span> Inferences between two means</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#hypothesis-testing"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li>
+<a class="nav-link" href="#hypothesis"><span class="header-section-number">10.1</span> Hypothesis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#null-hypothesis-h0"><span class="header-section-number">10.1.1</span> Null hypothesis (H0):</a></li>
+<li><a class="nav-link" href="#alternative-hypothesis-h1"><span class="header-section-number">10.1.2</span> Alternative hypothesis (H1):</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#decision-type-error"><span class="header-section-number">10.2</span> Decision Type Error</a></li>
+<li><a class="nav-link" href="#level-of-signficance"><span class="header-section-number">10.3</span> Level of Signficance</a></li>
+<li>
+<a class="nav-link" href="#t-statistic"><span class="header-section-number">10.4</span> T-statistic</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#t-distribution"><span class="header-section-number">10.4.1</span> T-distribution</a></li>
+<li><a class="nav-link" href="#intepreting-normality-evidence"><span class="header-section-number">10.4.2</span> Intepreting Normality Evidence</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#statistical-power"><span class="header-section-number">10.5</span> Statistical Power</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/09-hypothesistesting.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/09-hypothesistesting.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-11.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

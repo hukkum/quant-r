@@ -55,14 +55,15 @@
 <li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
 <li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
 <li><a class="active" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
-<li><a class="" href="hypothesis-signifance-testing.html"><span class="header-section-number">10</span> Hypothesis Signifance Testing</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">13</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">14</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">15</span> Tukey’s post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">16</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">17</span> G* Power</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li><a class="" href="inferences-between-two-means.html"><span class="header-section-number">11</span> Inferences between two means</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">12</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">13</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">14</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">15</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">16</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">17</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">18</span> G* Power</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -112,22 +113,71 @@
 <p>Discrete probability distributions describe the probabilities of outcomes for discrete random variables (e.g., number of heads in coin tosses), while continuous probability distributions describe the probabilities of outcomes for continuous random variables (e.g., height of individuals). Discrete distributions can be visualized using bar plots, and continuous distributions can be visualized using probability density functions or cumulative distribution functions.</p>
 
 <p>#Sampling distribution</p>
+<p>A sampling distribution is the probability distribution of a sample statistic (e.g., sample mean, sample proportion) obtained from a population. It helps to understand the variability of the sample statistic and the likelihood of obtaining different sample statistics from the population.</p>
 </div>
-<div id="point-estimate" class="section level2" number="9.7">
+<div id="central-limit-theorem" class="section level2" number="9.7">
 <h2>
-<span class="header-section-number">9.7</span> Point Estimate<a class="anchor" aria-label="anchor" href="#point-estimate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7</span> Central Limit Theorem<a class="anchor" aria-label="anchor" href="#central-limit-theorem"><i class="fas fa-link"></i></a>
 </h2>
+<p>The CLT states that, for a large enough sample size (usually n ≥ 30), the distribution of the sample means approaches a normal distribution, regardless of the shape of the population distribution. The mean of the sampling distribution is equal to the population mean (μ), and the standard deviation (standard error) is equal to the population standard deviation (σ) divided by the square root of the sample size (n).</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Set seed for reproducibility</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Define population parameters</span></span>
+<span><span class="va">population_mean</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="va">population_sd</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span></span>
+<span><span class="co"># Define sample size and number of samples</span></span>
+<span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
+<span><span class="va">num_samples</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span>
+<span></span>
+<span><span class="co"># Generate random samples and calculate sample means</span></span>
+<span><span class="va">sample_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">num_samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">sample_size</span>, mean <span class="op">=</span> <span class="va">population_mean</span>, sd <span class="op">=</span> <span class="va">population_sd</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot the distribution of sample means</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">sample_means</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sample_means</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">..density..</span><span class="op">)</span>, bins <span class="op">=</span> <span class="fl">30</span>, fill <span class="op">=</span> <span class="st">"lightblue"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Sampling Distribution of the Mean"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Sample Means"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Density"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: The dot-dot notation (`..density..`) was deprecated in</span></span>
+<span><span class="co">#&gt; ggplot2 3.4.0.</span></span>
+<span><span class="co">#&gt; ℹ Please use `after_stat(density)` instead.</span></span></code></pre></div>
+<div class="inline-figure"><img src="08-samplingdistribution_files/figure-html/unnamed-chunk-1-1.png" width="672"></div>
 </div>
-<div id="confidence-interval" class="section level2" number="9.8">
+<div id="confidence-intervals" class="section level2" number="9.8">
 <h2>
-<span class="header-section-number">9.8</span> Confidence Interval<a class="anchor" aria-label="anchor" href="#confidence-interval"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.8</span> Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
 </h2>
+<p>Confidence intervals are a range of values within which the true population parameter is likely to fall, with a specified level of confidence (e.g., 95%). Confidence intervals provide an estimate of the precision and uncertainty of the sample statistic.</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Define the sample data</span></span>
+<span><span class="va">sample_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">15</span>, <span class="fl">18</span>, <span class="fl">20</span>, <span class="fl">22</span>, <span class="fl">24</span>, <span class="fl">25</span>, <span class="fl">28</span>, <span class="fl">30</span>, <span class="fl">32</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate the sample mean and standard deviation</span></span>
+<span><span class="va">sample_mean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">)</span></span>
+<span><span class="va">sample_sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate the standard error</span></span>
+<span><span class="va">standard_error</span> <span class="op">&lt;-</span> <span class="va">sample_sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate the 95% confidence interval</span></span>
+<span><span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fl">0.05</span></span>
+<span><span class="va">critical_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">alpha</span> <span class="op">/</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">margin_of_error</span> <span class="op">&lt;-</span> <span class="va">critical_value</span> <span class="op">*</span> <span class="va">standard_error</span></span>
+<span><span class="va">confidence_interval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">sample_mean</span> <span class="op">-</span> <span class="va">margin_of_error</span>, <span class="va">sample_mean</span> <span class="op">+</span> <span class="va">margin_of_error</span><span class="op">)</span></span></code></pre></div>
 
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></div>
-<div class="next"><a href="hypothesis-signifance-testing.html"><span class="header-section-number">10</span> Hypothesis Signifance Testing</a></div>
+<div class="next"><a href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -138,8 +188,8 @@
 <li><a class="nav-link" href="#independence"><span class="header-section-number">9.4</span> Independence:</a></li>
 <li><a class="nav-link" href="#bayes-theorem"><span class="header-section-number">9.5</span> Bayes’ Theorem:</a></li>
 <li><a class="nav-link" href="#discrete-and-continuous-probability-distributions"><span class="header-section-number">9.6</span> Discrete and Continuous Probability Distributions:</a></li>
-<li><a class="nav-link" href="#point-estimate"><span class="header-section-number">9.7</span> Point Estimate</a></li>
-<li><a class="nav-link" href="#confidence-interval"><span class="header-section-number">9.8</span> Confidence Interval</a></li>
+<li><a class="nav-link" href="#central-limit-theorem"><span class="header-section-number">9.7</span> Central Limit Theorem</a></li>
+<li><a class="nav-link" href="#confidence-intervals"><span class="header-section-number">9.8</span> Confidence Intervals</a></li>
 </ul>
 
       <div class="book-extra">
@@ -157,7 +207,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-05.</p>
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
