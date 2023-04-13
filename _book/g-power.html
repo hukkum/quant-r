@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 21 G* Power | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
-<meta name="description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta name="description" content="Power analysis is an essential step in research planning to determine the probability of detecting an effect of a certain size when it exists. In the context of hypothesis testing, power is the...">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
 <meta property="og:title" content="Chapter 21 G* Power | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://r.lesson3.io/g-power.html">
-<meta property="og:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta property="og:description" content="Power analysis is an essential step in research planning to determine the probability of detecting an effect of a certain size when it exists. In the context of hypothesis testing, power is the...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 21 G* Power | Quantitative Methods - R Cookbook">
-<meta name="twitter:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta name="twitter:description" content="Power analysis is an essential step in research planning to determine the probability of detecting an effect of a certain size when it exists. In the context of hypothesis testing, power is the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -64,7 +64,7 @@
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
 <li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
 <li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">19</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></li>
 <li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
 <li><a class="active" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -79,15 +79,68 @@
 <h1>
 <span class="header-section-number">21</span> G* Power<a class="anchor" aria-label="anchor" href="#g-power"><i class="fas fa-link"></i></a>
 </h1>
+<p>Power analysis is an essential step in research planning to determine the probability of detecting an effect of a certain size when it exists. In the context of hypothesis testing, power is the probability of correctly rejecting the null hypothesis when it is false.</p>
+<p>G* Power is a statistical software tool used for power analysis and sample size calculation in various research designs. The significance of G* Power in educational research lies in its ability to help researchers design and plan their studies more effectively. By conducting power analyses, researchers can:</p>
+<p><strong>Determine the appropriate sample size</strong>: G*Power allows researchers to estimate the minimum sample size required to achieve a desired level of statistical power, considering the effect size and alpha level (significance level). This helps to ensure that the study is adequately powered and reduces the risk of Type II errors (failing to reject a false null hypothesis).</p>
+<p><strong>Assess the power of a study</strong>: G*Power can be used to estimate the power of a study given the sample size, effect size, and alpha level. This helps researchers understand the likelihood of detecting a meaningful effect if it exists, and aids in the interpretation of the study results.</p>
+<p><strong>Sensitivity analysis</strong>: G*Power can also be used to conduct sensitivity analyses, which determine the smallest effect size that a study is capable of detecting with adequate power. Sensitivity analysis helps researchers understand the limitations of their study and refine their research questions or hypotheses accordingly.</p>
+<div id="gpower-in-r" class="section level2" number="21.1">
+<h2>
+<span class="header-section-number">21.1</span> G*Power in R<a class="anchor" aria-label="anchor" href="#gpower-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>To calculate G*Power using R, we can use the pwr package, which is specifically designed for power analysis and sample size calculation. First, you’ll need to install and load the pwr package:</p>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pwr"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heliosdrm/pwr">pwr</a></span><span class="op">)</span></span></code></pre></div>
+<p>Once you’ve loaded the pwr package, you can use various functions to perform power analysis for different types of tests. Here are a few examples:</p>
+<div id="for-a-t-test-two-sample-equal-sample-sizes-and-equal-variance" class="section level3" number="21.1.1">
+<h3>
+<span class="header-section-number">21.1.1</span> For a t-test (two-sample, equal sample sizes, and equal variance)<a class="anchor" aria-label="anchor" href="#for-a-t-test-two-sample-equal-sample-sizes-and-equal-variance"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="cn">NULL</span>, d <span class="op">=</span> <span class="va">effect_size</span>, sig.level <span class="op">=</span> <span class="fl">0.05</span>, power <span class="op">=</span> <span class="fl">0.8</span>, type <span class="op">=</span> <span class="st">"two.sample"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="for-correlation" class="section level3" number="21.1.2">
+<h3>
+<span class="header-section-number">21.1.2</span> For Correlation<a class="anchor" aria-label="anchor" href="#for-correlation"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.r.test.html">pwr.r.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="cn">NULL</span>, r <span class="op">=</span> <span class="va">effect_size</span>, sig.level <span class="op">=</span> <span class="fl">0.05</span>, power <span class="op">=</span> <span class="fl">0.8</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="for-a-chi-squared-test" class="section level3" number="21.1.3">
+<h3>
+<span class="header-section-number">21.1.3</span> For a chi-squared test:<a class="anchor" aria-label="anchor" href="#for-a-chi-squared-test"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.chisq.test.html">pwr.chisq.test</a></span><span class="op">(</span>w <span class="op">=</span> <span class="va">effect_size</span>, N <span class="op">=</span> <span class="va">total_sample_size</span>, df <span class="op">=</span> <span class="va">degrees_of_freedom</span>, sig.level <span class="op">=</span> <span class="fl">0.05</span>, power <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="for-a-one-way-anova" class="section level3" number="21.1.4">
+<h3>
+<span class="header-section-number">21.1.4</span> For a one-way ANOVA:<a class="anchor" aria-label="anchor" href="#for-a-one-way-anova"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.anova.test.html">pwr.anova.test</a></span><span class="op">(</span>k <span class="op">=</span> <span class="va">number_of_groups</span>, n <span class="op">=</span> <span class="va">sample_size_per_group</span>, f <span class="op">=</span> <span class="va">effect_size</span>, sig.level <span class="op">=</span> <span class="fl">0.05</span>, power <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 
 
+</div>
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></div>
 <div class="next"><a href="references.html">References</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#g-power"><span class="header-section-number">21</span> G* Power</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#g-power"><span class="header-section-number">21</span> G* Power</a></li>
+<li>
+<a class="nav-link" href="#gpower-in-r"><span class="header-section-number">21.1</span> G*Power in R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#for-a-t-test-two-sample-equal-sample-sizes-and-equal-variance"><span class="header-section-number">21.1.1</span> For a t-test (two-sample, equal sample sizes, and equal variance)</a></li>
+<li><a class="nav-link" href="#for-correlation"><span class="header-section-number">21.1.2</span> For Correlation</a></li>
+<li><a class="nav-link" href="#for-a-chi-squared-test"><span class="header-section-number">21.1.3</span> For a chi-squared test:</a></li>
+<li><a class="nav-link" href="#for-a-one-way-anova"><span class="header-section-number">21.1.4</span> For a one-way ANOVA:</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -104,7 +157,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-12.</p>
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

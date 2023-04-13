@@ -43,7 +43,32 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 19</span> Post hoc tests</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
+<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
+<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
+<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
+<li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
+<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
+<li><a class="active" href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
@@ -67,7 +92,7 @@
 </h2>
 <p>After running a one-way ANOVA using the aov() function, as shown in the previous answer, you can use the multcomp package to perform Tukey’s post hoc test.</p>
 <p>We will create a new variable in our dataframe named “Factors”where we will define the Sport variable as nominal and giving them cetain names.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Read the CSV file</span></span>
 <span><span class="va">ourdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"exampledata/Ch11_distress.csv"</span><span class="op">)</span></span>
@@ -95,7 +120,7 @@
 <span><span class="co">#&gt;  3rd Qu.:3.25   3rd Qu.:25.00                </span></span>
 <span><span class="co">#&gt;  Max.   :4.00   Max.   :30.00</span></span></code></pre></div>
 <p>Then we generate one way ANOVA using the new factor varaible.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Perform one-way ANOVA</span></span>
 <span><span class="va">anova_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Distress</span> <span class="op">~</span> <span class="va">SportF</span>, data <span class="op">=</span> <span class="va">ourdata</span><span class="op">)</span></span>
 <span></span>
@@ -108,7 +133,7 @@
 <span><span class="co">#&gt; Signif. codes:  </span></span>
 <span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
 <p>Then we do post hoc test,</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the necessary packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: package 'multcomp' was built under R version 4.2.3</span></span>
@@ -145,11 +170,11 @@
 <span><span class="co">#&gt; territory - target == 0      6.500      3.005   2.163</span></span>
 <span><span class="co">#&gt; territory - fielding == 0    4.125      3.005   1.373</span></span>
 <span><span class="co">#&gt;                           Pr(&gt;|t|)    </span></span>
-<span><span class="co">#&gt; target - movement == 0      0.1355    </span></span>
-<span><span class="co">#&gt; fielding - movement == 0    0.0251 *  </span></span>
+<span><span class="co">#&gt; target - movement == 0      0.1357    </span></span>
+<span><span class="co">#&gt; fielding - movement == 0    0.0249 *  </span></span>
 <span><span class="co">#&gt; territory - movement == 0   &lt;0.001 ***</span></span>
 <span><span class="co">#&gt; fielding - target == 0      0.8582    </span></span>
-<span><span class="co">#&gt; territory - target == 0     0.1586    </span></span>
+<span><span class="co">#&gt; territory - target == 0     0.1585    </span></span>
 <span><span class="co">#&gt; territory - fielding == 0   0.5262    </span></span>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  </span></span>
@@ -166,18 +191,18 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Fit: aov(formula = Distress ~ SportF, data = ourdata)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Quantile = 2.7288</span></span>
+<span><span class="co">#&gt; Quantile = 2.7272</span></span>
 <span><span class="co">#&gt; 95% family-wise confidence level</span></span>
 <span><span class="co">#&gt;  </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Linear Hypotheses:</span></span>
 <span><span class="co">#&gt;                           Estimate lwr     upr    </span></span>
-<span><span class="co">#&gt; target - movement == 0     6.7500  -1.4492 14.9492</span></span>
-<span><span class="co">#&gt; fielding - movement == 0   9.1250   0.9258 17.3242</span></span>
-<span><span class="co">#&gt; territory - movement == 0 13.2500   5.0508 21.4492</span></span>
-<span><span class="co">#&gt; fielding - target == 0     2.3750  -5.8242 10.5742</span></span>
-<span><span class="co">#&gt; territory - target == 0    6.5000  -1.6992 14.6992</span></span>
-<span><span class="co">#&gt; territory - fielding == 0  4.1250  -4.0742 12.3242</span></span></code></pre></div>
+<span><span class="co">#&gt; target - movement == 0     6.7500  -1.4443 14.9443</span></span>
+<span><span class="co">#&gt; fielding - movement == 0   9.1250   0.9307 17.3193</span></span>
+<span><span class="co">#&gt; territory - movement == 0 13.2500   5.0557 21.4443</span></span>
+<span><span class="co">#&gt; fielding - target == 0     2.3750  -5.8193 10.5693</span></span>
+<span><span class="co">#&gt; territory - target == 0    6.5000  -1.6943 14.6943</span></span>
+<span><span class="co">#&gt; territory - fielding == 0  4.1250  -4.0693 12.3193</span></span></code></pre></div>
 <p>The first part of the output shows the estimated mean differences between groups, standard errors, t-values, and adjusted p-values. The second part of the output presents the confidence intervals for the pairwise comparisons.</p>
 <p>Here’s a breakdown of the output:</p>
 <p>Estimate: The estimated mean difference between each pair of groups.
@@ -191,15 +216,20 @@ Pr(&gt;|t|): The adjusted p-value for each pairwise comparison, controlling for 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></div>
+<div class="next"><a href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#post-hoc-tests"><span class="header-section-number">19</span> Post hoc tests</a></li>
+<li><a class="nav-link" href="#tukeys-post-hoc-tests"><span class="header-section-number">19.1</span> Tukey’s Post Hoc Tests</a></li>
+<li><a class="nav-link" href="#performing-tukeys-post-hoc-tests-using-r"><span class="header-section-number">19.2</span> Performing Tukey’s Post Hoc Tests using R</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/15-posthoc.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/15-posthoc.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -211,7 +241,7 @@ Pr(&gt;|t|): The adjusted p-value for each pairwise comparison, controlling for 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-12.</p>
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

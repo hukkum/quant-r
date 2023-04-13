@@ -1,5 +1,101 @@
 # Chi Square Tests
+Chi-square tests are non-parametric statistical tests used to determine whether there is a significant relationship between variables or if the observed frequencies in a sample are consistent with expected frequencies. There are two main types of chi-square tests: the chi-square goodness of fit test and the chi-square test of independence (or association).
 
 ## Chi Square Goodness of Fit Test
+This test is used to determine whether the observed frequencies in a sample match the expected frequencies based on a specified distribution. It is a univariate test, meaning it involves only one categorical variable. The null hypothesis for the goodness of fit test is that the observed frequencies are consistent with the expected frequencies.
+
+The test statistic (χ²) is calculated as follows:
+
+χ² = Σ [(O_i - E_i)² / E_i]
+
+where O_i are the observed frequencies, E_i are the expected frequencies, and Σ represents the summation across all categories.
+
+If the calculated χ² value is large, it indicates that there is a significant difference between the observed and expected frequencies, and we reject the null hypothesis.
+
+### Performing Chi Square Goodness of Fit
+Let's take a simple example first.
+Suppose we have a school with 200 students, and we know the distribution of students' grades as A, B, C, and D should follow a specific proportion: 25% A, 35% B, 25% C, and 15% D. We want to know if the observed grade distribution in our school matches this expected distribution.
+
+First, we'll create a table with observed grade frequencies:
+
+
+```r
+observed <- c(A = 40, B = 80, C = 50, D = 30)
+```
+
+Next, we'll define the expected proportions and calculate the expected frequencies:
+
+
+```r
+expected_proportions <- c(A = 0.25, B = 0.35, C = 0.25, D = 0.15)
+total_students <- sum(observed)
+expected <- total_students * expected_proportions
+```
+
+Now, we'll perform the chi-square goodness of fit test using the chisq.test() function. chisq.test performs chi-squared contingency table tests and goodness-of-fit tests.
+
+
+```r
+chisq_gof <- chisq.test(observed, p = expected_proportions)
+chisq_gof
+#> 
+#> 	Chi-squared test for given probabilities
+#> 
+#> data:  observed
+#> X-squared = 3.4286, df = 3, p-value = 0.3301
+```
+
+Let's break down each part of the output:
+
+X-squared = 3.4286: This is the chi-square test statistic calculated from the observed frequencies and expected frequencies. It quantifies the difference between the observed distribution and the expected distribution.
+
+df = 3: This is the degrees of freedom for the test, calculated as the number of categories minus 1. In this case, there are 4 grade categories (A, B, C, D), so the degrees of freedom is 4 - 1 = 3.
+
+p-value = 0.3301: This is the p-value associated with the test statistic, and it represents the probability of observing a chi-square test statistic as extreme or more extreme than the one calculated if the null hypothesis were true. The null hypothesis states that the observed distribution of grades follows the expected distribution.
+
+Based on this output, the p-value (0.3301) is greater than the common significance level of 0.05. Therefore, we fail to reject the null hypothesis, and we cannot conclude that there is a significant difference between the observed distribution of grades and the expected distribution in the school. In other words, the observed grade distribution is consistent with the expected distribution according to the chi-square goodness of fit test.
+
 
 ## Chi Sqaure test of association
+
+This test is used to determine whether there is a significant association between two categorical variables in a contingency table. The null hypothesis for the test of independence is that the two variables are independent, meaning there is no association between them.
+
+The test statistic (χ²) is calculated similarly to the goodness of fit test, but with a contingency table:
+
+χ² = Σ [(O_ij - E_ij)² / E_ij]
+
+where O_ij are the observed frequencies in the contingency table, E_ij are the expected frequencies (calculated as (row total × column total) / grand total), and Σ represents the summation across all cells in the table.
+
+If the calculated χ² value is large, it indicates that there is a significant association between the two variables, and we reject the null hypothesis.
+
+
+Both chi-square tests have some assumptions, including that the data are categorical, the sample is random, and the categories are mutually exclusive and exhaustive. Additionally, the expected frequencies should be sufficiently large (typically, at least 5) for the test to be valid.
+
+In data analysis and research, these tests are helpful for understanding whether the distribution of a categorical variable fits a particular pattern or whether two categorical variables are associated with each other, which can provide insights into potential relationships or associations in the data.
+
+### Performing Chi-sqaure test of independence
+
+Let's say we want to know if there is an association between the students' grades and their participation in extracurricular activities. We have a contingency table with the observed frequencies.
+
+
+```r
+observed_table <- matrix(c(20, 20, 60, 20, 30, 20, 10, 20), nrow = 2, byrow = TRUE)
+colnames(observed_table) <- c("A", "B", "C", "D")
+rownames(observed_table) <- c("Participate", "Not_Participate")
+```
+
+To perform the chi-square test of independence, we'll use the chisq.test() function:
+
+
+```r
+chisq_independence <- chisq.test(observed_table)
+chisq_independence
+#> 
+#> 	Pearson's Chi-squared test
+#> 
+#> data:  observed_table
+#> X-squared = 30.952, df = 3, p-value = 8.699e-07
+```
+
+Based on this output, the p-value (8.699e-07) is much smaller than the common significance level of 0.05. Therefore, we reject the null hypothesis and conclude that there is a significant association between the two categorical variables. In other words, the distribution of grades is not independent of the groups, and there is a relationship between the group membership and the grade distribution according to Pearson's chi-square test of independece. 
+
