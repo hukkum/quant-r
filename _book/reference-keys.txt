@@ -1,12 +1,6 @@
 acknolwedgement
 conventions-used-in-the-book
-rdrr-live-r-console
 example-data
-additional-resources
-basic-statistical-concepts
-data-types
-types-of-variable
-types-of-scales-of-measurement-of-variables
 r-basics
 installing-r-base-package.
 download-r-studio
@@ -18,12 +12,17 @@ documentation-websites
 books
 website
 cheatsheet
+basic-statistical-concepts
+data-types
+types-of-variable
+types-of-scales-of-measurement-of-variables
 loading-data-in-r
 entering-data-in-r
 importing-csv-file
 importing-spss-and-stata-file
 importing-excel-file
 data-representation
+frequency-tables
 histograms
 bar-graphs
 pie-charts
@@ -106,4 +105,3 @@ for-a-t-test-two-sample-equal-sample-sizes-and-equal-variance
 for-correlation
 for-a-chi-squared-test
 for-a-one-way-anova
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg

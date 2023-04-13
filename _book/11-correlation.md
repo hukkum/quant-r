@@ -13,6 +13,7 @@ Xi and Yi are the individual data points for variables X and Y, respectively X_m
 
 ```r
 library(readr)
+#> Warning: package 'readr' was built under R version 4.2.2
 # Read the CSV file into a data frame
 cordata <- read_csv("exampledata/Ch10_kidspets.csv")
 #> Rows: 5 Columns: 2

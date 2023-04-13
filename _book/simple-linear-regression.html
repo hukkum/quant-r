@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 16 Simple Linear Regression | Quantitative Methods - R Cookbook</title>
+<title>Chapter 16 Simple Linear Regression | Quantitative Methods Using R</title>
 <meta name="author" content="Subash Parajuli">
 <meta name="description" content="Simple linear regression is a statistical method used to model the relationship between a single independent variable (predictor) and a dependent variable (outcome). It is a basic technique that...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Chapter 16 Simple Linear Regression | Quantitative Methods - R Cookbook">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
+<meta property="og:title" content="Chapter 16 Simple Linear Regression | Quantitative Methods Using R">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://r.lesson3.io/simple-linear-regression.html">
+<meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/simple-linear-regression.html">
 <meta property="og:description" content="Simple linear regression is a statistical method used to model the relationship between a single independent variable (predictor) and a dependent variable (outcome). It is a basic technique that...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 16 Simple Linear Regression | Quantitative Methods - R Cookbook">
+<meta name="twitter:title" content="Chapter 16 Simple Linear Regression | Quantitative Methods Using R">
 <meta name="twitter:description" content="Simple linear regression is a statistical method used to model the relationship between a single independent variable (predictor) and a dependent variable (outcome). It is a basic technique that...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +21,28 @@
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -32,7 +54,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Quantitative Methods - R Cookbook</a>
+        <a href="index.html" title="">Quantitative Methods Using R</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -46,8 +68,8 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
 <li><a class="" href="preface.html">Preface</a></li>
-<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
-<li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">2</span> Basic Statistical Concepts</a></li>
 <li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
 <li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
 <li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
@@ -101,23 +123,24 @@ the predicted values (based on the line). This method is called the
 least squares estimation.</p>
 <p>To better understand simple linear regression, let’s consider a
 scatterplot with two variables X and Y:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="simple-linear-regression.html#cb50-1" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb50-2"><a href="simple-linear-regression.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span></span>
-<span id="cb50-3"><a href="simple-linear-regression.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span>       •</span>
-<span id="cb50-4"><a href="simple-linear-regression.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>     •</span>
-<span id="cb50-5"><a href="simple-linear-regression.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   •</span>
-<span id="cb50-6"><a href="simple-linear-regression.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> •</span>
-<span id="cb50-7"><a href="simple-linear-regression.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+----------------</span></span>
-<span id="cb50-8"><a href="simple-linear-regression.html#cb50-8" aria-hidden="true" tabindex="-1"></a>  x</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="simple-linear-regression.html#cb52-1" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb52-2"><a href="simple-linear-regression.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span></span>
+<span id="cb52-3"><a href="simple-linear-regression.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span>       •</span>
+<span id="cb52-4"><a href="simple-linear-regression.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>     •</span>
+<span id="cb52-5"><a href="simple-linear-regression.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   •</span>
+<span id="cb52-6"><a href="simple-linear-regression.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> •</span>
+<span id="cb52-7"><a href="simple-linear-regression.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+----------------</span></span>
+<span id="cb52-8"><a href="simple-linear-regression.html#cb52-8" aria-hidden="true" tabindex="-1"></a>  x</span></code></pre></div>
 <div id="regression-using-r" class="section level2" number="16.1">
 <h2>
 <span class="header-section-number">16.1</span> Regression using R<a class="anchor" aria-label="anchor" href="#regression-using-r"><i class="fas fa-link"></i></a>
 </h2>
 <p>To perform simple linear regression in R using the psych package, we can
 use the following code:</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'readr' was built under R version 4.2.2</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: package 'psych' was built under R version 4.2.3</span></span>
 <span></span>
@@ -185,9 +208,10 @@ model’s goodness of fit and diagnostic statistics.</p>
 <span class="header-section-number">16.2</span> Scatter Plot<a class="anchor" aria-label="anchor" href="#scatter-plot"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can create a scatter plot of the data and add the regression line using the ggplot2 package:</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'ggplot2' was built under R version 4.2.3</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'ggplot2'</span></span>
 <span><span class="co">#&gt; The following objects are masked from 'package:psych':</span></span>
@@ -233,7 +257,7 @@ model’s goodness of fit and diagnostic statistics.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-13.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

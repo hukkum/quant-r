@@ -1,10 +1,9 @@
 Welcome! 
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+This is the rpeository to Quantitative Methods Using R. 
 
-This template provides a skeleton file structure that you can edit to create your book. 
+This is built on on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
 
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
 
 Additional resources:
 

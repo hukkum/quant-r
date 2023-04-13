@@ -38,6 +38,9 @@ Now, we'll perform the chi-square goodness of fit test using the chisq.test() fu
 ```r
 chisq_gof <- chisq.test(observed, p = expected_proportions)
 chisq_gof
+```
+
+```
 #> 
 #> 	Chi-squared test for given probabilities
 #> 

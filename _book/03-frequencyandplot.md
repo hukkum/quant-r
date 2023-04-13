@@ -1,6 +1,7 @@
 # Data Representation
 
-\## Frequency Tables: A frequency table displays the number of occurrences (frequencies) for each category or value in a data set. It is particularly useful for summarizing categorical data or discrete numerical data.
+## Frequency Tables 
+A frequency table displays the number of occurrences (frequencies) for each category or value in a data set. It is particularly useful for summarizing categorical data or discrete numerical data.
 
 
 ```r
@@ -9,6 +10,9 @@ data <- c("A", "A", "B", "A", "B", "C", "C", "A", "B", "C")
 
 # Frequency table
 table(data)
+```
+
+```
 #> data
 #> A B C 
 #> 4 3 3

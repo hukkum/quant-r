@@ -32,7 +32,7 @@ expected <- total_students * expected_proportions
 
 Now, we'll perform the chi-square goodness of fit test using the chisq.test() function. chisq.test performs chi-squared contingency table tests and goodness-of-fit tests.
 
-````{r}
+````{r collapse=FALSE}
 chisq_gof <- chisq.test(observed, p = expected_proportions)
 chisq_gof
 ````

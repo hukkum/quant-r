@@ -15,6 +15,7 @@ We can use R inbuilt cov() function to calculate covariance.
 
 ```r
 library(readr)
+#> Warning: package 'readr' was built under R version 4.2.2
 # Read the CSV file into a data frame
 covdata <- read_csv("exampledata/Ch10_kidspets.csv")
 #> Rows: 5 Columns: 2
