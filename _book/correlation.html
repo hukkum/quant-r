@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 13 Correlation | Quantitative Methods - R Cookbook</title>
+<title>Chapter 15 Correlation | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
-<meta name="description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta name="description" content="Correlation is a standardized measure of the linear relationship between two variables. Pearson’s correlation coefficient (r), the most commonly used correlation measure, ranges from -1 to 1, with...">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Chapter 13 Correlation | Quantitative Methods - R Cookbook">
+<meta property="og:title" content="Chapter 15 Correlation | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://r.lesson3.io/correlation.html">
-<meta property="og:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta property="og:description" content="Correlation is a standardized measure of the linear relationship between two variables. Pearson’s correlation coefficient (r), the most commonly used correlation measure, ranges from -1 to 1, with...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 13 Correlation | Quantitative Methods - R Cookbook">
-<meta name="twitter:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta name="twitter:title" content="Chapter 15 Correlation | Quantitative Methods - R Cookbook">
+<meta name="twitter:description" content="Correlation is a standardized measure of the linear relationship between two variables. Pearson’s correlation coefficient (r), the most commonly used correlation measure, ranges from -1 to 1, with...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -58,13 +58,15 @@
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
 <li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
 <li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
-<li><a class="active" href="correlation.html"><span class="header-section-number">13</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">14</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">15</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">16</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">17</span> Tukey’s post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">18</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">19</span> G* Power</a></li>
+<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="active" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">19</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -73,18 +75,46 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="correlation" class="section level1" number="13">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="correlation" class="section level1" number="15">
 <h1>
-<span class="header-section-number">13</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation"><i class="fas fa-link"></i></a>
 </h1>
+<p>Correlation is a standardized measure of the linear relationship between two variables. Pearson’s correlation coefficient (r), the most commonly used correlation measure, ranges from -1 to 1, with -1 indicating a perfect negative relationship, 1 indicating a perfect positive relationship, and 0 indicating no linear relationship.</p>
+<p>Mathematically, Pearson’s correlation coefficient (r) can be calculated using the following formula:</p>
+<p>r = Σ((Xi - X_mean) * (Yi - Y_mean)) / (sqrt(Σ(Xi - X_mean)^2) * sqrt(Σ(Yi - Y_mean)^2))</p>
+<p>where:</p>
+<p>Xi and Yi are the individual data points for variables X and Y, respectively X_mean and Y_mean are the means of variables X and Y, respectively Σ denotes the sum over all data points This formula calculates the correlation coefficient by dividing the covariance of X and Y by the product of their standard deviations.</p>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="co"># Read the CSV file into a data frame</span></span>
+<span><span class="va">cordata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"exampledata/Ch10_kidspets.csv"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 5 Columns: 2</span></span>
+<span><span class="co">#&gt; ── Column specification ────────────────────────────────────</span></span>
+<span><span class="co">#&gt; Delimiter: ","</span></span>
+<span><span class="co">#&gt; dbl (2): Children, Pets</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span></span>
+<span><span class="co"># Calculate the covariance between two variables (e.g., var1 and var2)</span></span>
+<span><span class="va">correlation</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">cordata</span><span class="op">$</span><span class="va">Children</span>, <span class="va">cordata</span><span class="op">$</span><span class="va">Pets</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">correlation</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.9</span></span></code></pre></div>
+<p>To interpret the result:</p>
+<ul>
+<li>A correlation coefficient close to 1 indicates a strong positive relationship between the variables, meaning that as one variable increases, the other variable also tends to increase.</li>
+<li>A correlation coefficient close to -1 indicates a strong negative relationship, meaning that as one variable increases, the other variable tends to decrease.</li>
+<li>A correlation coefficient close to 0 suggests that there is no linear relationship between the two variables.</li>
+</ul>
+<p>A significant correlation between two variables indicates that there is a relationship between them, but it does not necessarily mean that one variable causes the other. Additional research and analysis may be needed to establish causality.</p>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></div>
-<div class="next"><a href="simple-linear-regression.html"><span class="header-section-number">14</span> Simple Linear Regression</a></div>
+<div class="prev"><a href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></div>
+<div class="next"><a href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#correlation"><span class="header-section-number">13</span> Correlation</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#correlation"><span class="header-section-number">15</span> Correlation</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

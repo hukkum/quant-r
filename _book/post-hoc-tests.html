@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 19 Post hoc tests | Quantitative Methods - R Cookbook</title>
+<meta name="author" content="Subash Parajuli">
+<meta name="description" content="Post hoc tests are statistical analyses performed after an ANOVA or other omnibus tests to determine which specific group means are significantly different from each other. These tests are...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 19 Post hoc tests | Quantitative Methods - R Cookbook">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://r.lesson3.io/post-hoc-tests.html">
+<meta property="og:description" content="Post hoc tests are statistical analyses performed after an ANOVA or other omnibus tests to determine which specific group means are significantly different from each other. These tests are...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 19 Post hoc tests | Quantitative Methods - R Cookbook">
+<meta name="twitter:description" content="Post hoc tests are statistical analyses performed after an ANOVA or other omnibus tests to determine which specific group means are significantly different from each other. These tests are...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Quantitative Methods - R Cookbook</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 19</span> Post hoc tests</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="post-hoc-tests" class="section level1" number="19">
+<h1>
+<span class="header-section-number">19</span> Post hoc tests<a class="anchor" aria-label="anchor" href="#post-hoc-tests"><i class="fas fa-link"></i></a>
+</h1>
+<p>Post hoc tests are statistical analyses performed after an ANOVA or other omnibus tests to determine which specific group means are significantly different from each other. These tests are necessary because ANOVA only tells you if there’s a significant difference between groups but doesn’t identify which groups are different.</p>
+<div id="tukeys-post-hoc-tests" class="section level2" number="19.1">
+<h2>
+<span class="header-section-number">19.1</span> Tukey’s Post Hoc Tests<a class="anchor" aria-label="anchor" href="#tukeys-post-hoc-tests"><i class="fas fa-link"></i></a>
+</h2>
+<p>Tukey’s post hoc test, also known as Tukey’s Honestly Significant Difference (HSD) test, is a widely used method for performing multiple comparisons. It is important because it controls the family-wise error rate (FWER), which is the probability of making at least one Type I error (false positive) when performing multiple tests. By controlling the FWER, Tukey’s HSD test helps to reduce the risk of identifying false significant differences between groups due to chance alone.</p>
+</div>
+<div id="performing-tukeys-post-hoc-tests-using-r" class="section level2" number="19.2">
+<h2>
+<span class="header-section-number">19.2</span> Performing Tukey’s Post Hoc Tests using R<a class="anchor" aria-label="anchor" href="#performing-tukeys-post-hoc-tests-using-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>After running a one-way ANOVA using the aov() function, as shown in the previous answer, you can use the multcomp package to perform Tukey’s post hoc test.</p>
+<p>We will create a new variable in our dataframe named “Factors”where we will define the Sport variable as nominal and giving them cetain names.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Read the CSV file</span></span>
+<span><span class="va">ourdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"exampledata/Ch11_distress.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Inspect the data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Sport Distress</span></span>
+<span><span class="co">#&gt; 1     1       15</span></span>
+<span><span class="co">#&gt; 2     1       10</span></span>
+<span><span class="co">#&gt; 3     1       12</span></span>
+<span><span class="co">#&gt; 4     1        8</span></span>
+<span><span class="co">#&gt; 5     1       21</span></span>
+<span><span class="co">#&gt; 6     1        7</span></span>
+<span></span>
+<span><span class="co"># Creating new variable as factors</span></span>
+<span><span class="va">ourdata</span><span class="op">$</span><span class="va">SportF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Sport</span>, labels<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"movement"</span>, <span class="st">"target"</span>, <span class="st">"fielding"</span>, <span class="st">"territory"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Always good idea to verify. </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      Sport         Distress           SportF </span></span>
+<span><span class="co">#&gt;  Min.   :1.00   Min.   : 3.00   movement :8  </span></span>
+<span><span class="co">#&gt;  1st Qu.:1.75   1st Qu.:12.00   target   :8  </span></span>
+<span><span class="co">#&gt;  Median :2.50   Median :20.00   fielding :8  </span></span>
+<span><span class="co">#&gt;  Mean   :2.50   Mean   :18.41   territory:8  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:3.25   3rd Qu.:25.00                </span></span>
+<span><span class="co">#&gt;  Max.   :4.00   Max.   :30.00</span></span></code></pre></div>
+<p>Then we generate one way ANOVA using the new factor varaible.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Perform one-way ANOVA</span></span>
+<span><span class="va">anova_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Distress</span> <span class="op">~</span> <span class="va">SportF</span>, data <span class="op">=</span> <span class="va">ourdata</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display the result</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova_result</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             Df Sum Sq Mean Sq F value  Pr(&gt;F)   </span></span>
+<span><span class="co">#&gt; SportF       3  738.6  246.20   6.818 0.00136 **</span></span>
+<span><span class="co">#&gt; Residuals   28 1011.1   36.11                   </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
+<p>Then we do post hoc test,</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load the necessary packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'multcomp' was built under R version 4.2.3</span></span>
+<span><span class="co">#&gt; Loading required package: mvtnorm</span></span>
+<span><span class="co">#&gt; Loading required package: survival</span></span>
+<span><span class="co">#&gt; Loading required package: TH.data</span></span>
+<span><span class="co">#&gt; Warning: package 'TH.data' was built under R version 4.2.3</span></span>
+<span><span class="co">#&gt; Loading required package: MASS</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'TH.data'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:MASS':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     geyser</span></span>
+<span></span>
+<span><span class="co"># Run Tukey's HSD post hoc test</span></span>
+<span><span class="va">tukey_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">glht</a></span><span class="op">(</span><span class="va">anova_result</span>, linfct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">mcp</a></span><span class="op">(</span>SportF <span class="op">=</span> <span class="st">"Tukey"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Summary of Tukey's HSD test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">tukey_results</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Simultaneous Tests for General Linear Hypotheses</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Multiple Comparisons of Means: Tukey Contrasts</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Fit: aov(formula = Distress ~ SportF, data = ourdata)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Linear Hypotheses:</span></span>
+<span><span class="co">#&gt;                           Estimate Std. Error t value</span></span>
+<span><span class="co">#&gt; target - movement == 0       6.750      3.005   2.247</span></span>
+<span><span class="co">#&gt; fielding - movement == 0     9.125      3.005   3.037</span></span>
+<span><span class="co">#&gt; territory - movement == 0   13.250      3.005   4.410</span></span>
+<span><span class="co">#&gt; fielding - target == 0       2.375      3.005   0.790</span></span>
+<span><span class="co">#&gt; territory - target == 0      6.500      3.005   2.163</span></span>
+<span><span class="co">#&gt; territory - fielding == 0    4.125      3.005   1.373</span></span>
+<span><span class="co">#&gt;                           Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; target - movement == 0      0.1355    </span></span>
+<span><span class="co">#&gt; fielding - movement == 0    0.0251 *  </span></span>
+<span><span class="co">#&gt; territory - movement == 0   &lt;0.001 ***</span></span>
+<span><span class="co">#&gt; fielding - target == 0      0.8582    </span></span>
+<span><span class="co">#&gt; territory - target == 0     0.1586    </span></span>
+<span><span class="co">#&gt; territory - fielding == 0   0.5262    </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; (Adjusted p values reported -- single-step method)</span></span>
+<span></span>
+<span><span class="co"># Confidence intervals for the pairwise comparisons</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">tukey_results</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Simultaneous Confidence Intervals</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Multiple Comparisons of Means: Tukey Contrasts</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Fit: aov(formula = Distress ~ SportF, data = ourdata)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Quantile = 2.7288</span></span>
+<span><span class="co">#&gt; 95% family-wise confidence level</span></span>
+<span><span class="co">#&gt;  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Linear Hypotheses:</span></span>
+<span><span class="co">#&gt;                           Estimate lwr     upr    </span></span>
+<span><span class="co">#&gt; target - movement == 0     6.7500  -1.4492 14.9492</span></span>
+<span><span class="co">#&gt; fielding - movement == 0   9.1250   0.9258 17.3242</span></span>
+<span><span class="co">#&gt; territory - movement == 0 13.2500   5.0508 21.4492</span></span>
+<span><span class="co">#&gt; fielding - target == 0     2.3750  -5.8242 10.5742</span></span>
+<span><span class="co">#&gt; territory - target == 0    6.5000  -1.6992 14.6992</span></span>
+<span><span class="co">#&gt; territory - fielding == 0  4.1250  -4.0742 12.3242</span></span></code></pre></div>
+<p>The first part of the output shows the estimated mean differences between groups, standard errors, t-values, and adjusted p-values. The second part of the output presents the confidence intervals for the pairwise comparisons.</p>
+<p>Here’s a breakdown of the output:</p>
+<p>Estimate: The estimated mean difference between each pair of groups.
+Std. Error: The standard error associated with each estimate.
+t value: The t-statistic for each pairwise comparison.
+Pr(&gt;|t|): The adjusted p-value for each pairwise comparison, controlling for multiple comparisons (single-step method).</p>
+<p>In this case, the fielding vs. movement comparison and the territory vs. movement comparison are significant at the 0.05 and 0.001 levels, respectively.</p>
+<p>The second part of the output provides simultaneous confidence intervals for the pairwise comparisons. The ‘lwr’ and ‘upr’ columns represent the lower and upper bounds of the 95% confidence intervals, respectively. If a confidence interval does not include zero, it indicates a significant difference between the corresponding pair of group means.</p>
+<p>From the confidence intervals, we can see that the fielding vs. movement and territory vs. movement comparisons have intervals that do not include zero, which is consistent with the significant adjusted p-values found in the first part of the output.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quantitative Methods - R Cookbook</strong>" was written by Subash Parajuli. It was last built on 2023-04-12.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

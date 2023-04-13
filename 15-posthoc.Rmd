@@ -1,1 +1,74 @@
-# Tukey's post hoc tests
+# Post hoc tests
+
+Post hoc tests are statistical analyses performed after an ANOVA or other omnibus tests to determine which specific group means are significantly different from each other. These tests are necessary because ANOVA only tells you if there's a significant difference between groups but doesn't identify which groups are different.
+
+## Tukey's Post Hoc Tests
+Tukey's post hoc test, also known as Tukey's Honestly Significant Difference (HSD) test, is a widely used method for performing multiple comparisons. It is important because it controls the family-wise error rate (FWER), which is the probability of making at least one Type I error (false positive) when performing multiple tests. By controlling the FWER, Tukey's HSD test helps to reduce the risk of identifying false significant differences between groups due to chance alone.
+
+
+## Performing Tukey's Post Hoc Tests using R
+After running a one-way ANOVA using the aov() function, as shown in the previous answer, you can use the multcomp package to perform Tukey's post hoc test.
+
+We will create a new variable in our dataframe named "Factors"where we will define the Sport variable as nominal and giving them cetain names. 
+
+````{r}
+
+# Read the CSV file
+ourdata <- read.csv("exampledata/Ch11_distress.csv")
+
+# Inspect the data
+head(ourdata)
+
+# Creating new variable as factors
+ourdata$SportF <- factor(ourdata$Sport, labels= c("movement", "target", "fielding", "territory"))
+
+#Always good idea to verify. 
+summary(ourdata)
+````
+
+Then we generate one way ANOVA using the new factor varaible. 
+````{r}
+# Perform one-way ANOVA
+anova_result <- aov(Distress ~ SportF, data = ourdata)
+
+# Display the result
+summary(anova_result)
+````
+Then we do post hoc test, 
+
+````{r}
+# Load the necessary packages
+library(multcomp)
+
+# Run Tukey's HSD post hoc test
+tukey_results <- glht(anova_result, linfct = mcp(SportF = "Tukey"))
+
+# Summary of Tukey's HSD test
+summary(tukey_results)
+
+# Confidence intervals for the pairwise comparisons
+confint(tukey_results)
+
+````
+
+The first part of the output shows the estimated mean differences between groups, standard errors, t-values, and adjusted p-values. The second part of the output presents the confidence intervals for the pairwise comparisons.
+
+Here's a breakdown of the output:
+
+Estimate: The estimated mean difference between each pair of groups.
+Std. Error: The standard error associated with each estimate.
+t value: The t-statistic for each pairwise comparison.
+Pr(>|t|): The adjusted p-value for each pairwise comparison, controlling for multiple comparisons (single-step method).
+
+In this case, the fielding vs. movement comparison and the territory vs. movement comparison are significant at the 0.05 and 0.001 levels, respectively.
+
+The second part of the output provides simultaneous confidence intervals for the pairwise comparisons. The 'lwr' and 'upr' columns represent the lower and upper bounds of the 95% confidence intervals, respectively. If a confidence interval does not include zero, it indicates a significant difference between the corresponding pair of group means.
+
+From the confidence intervals, we can see that the fielding vs. movement and territory vs. movement comparisons have intervals that do not include zero, which is consistent with the significant adjusted p-values found in the first part of the output.
+
+
+
+
+
+
+

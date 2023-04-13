@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 19 G* Power | Quantitative Methods - R Cookbook</title>
+<title>Chapter 21 G* Power | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
 <meta name="description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Chapter 19 G* Power | Quantitative Methods - R Cookbook">
+<meta property="og:title" content="Chapter 21 G* Power | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://r.lesson3.io/g-power.html">
 <meta property="og:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 19 G* Power | Quantitative Methods - R Cookbook">
+<meta name="twitter:title" content="Chapter 21 G* Power | Quantitative Methods - R Cookbook">
 <meta name="twitter:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -58,13 +58,15 @@
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
 <li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
 <li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">13</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">14</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">15</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">16</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">17</span> Tukey’s post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">18</span> Chi Square Tests</a></li>
-<li><a class="active" href="g-power.html"><span class="header-section-number">19</span> G* Power</a></li>
+<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">19</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li><a class="active" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -73,19 +75,19 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="g-power" class="section level1" number="19">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="g-power" class="section level1" number="21">
 <h1>
-<span class="header-section-number">19</span> G* Power<a class="anchor" aria-label="anchor" href="#g-power"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21</span> G* Power<a class="anchor" aria-label="anchor" href="#g-power"><i class="fas fa-link"></i></a>
 </h1>
 
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="chi-square-tests.html"><span class="header-section-number">18</span> Chi Square Tests</a></div>
+<div class="prev"><a href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></div>
 <div class="next"><a href="references.html">References</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#g-power"><span class="header-section-number">19</span> G* Power</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#g-power"><span class="header-section-number">21</span> G* Power</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

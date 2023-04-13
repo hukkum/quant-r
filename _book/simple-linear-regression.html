@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 14 Simple Linear Regression | Quantitative Methods - R Cookbook</title>
+<title>Chapter 16 Simple Linear Regression | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
-<meta name="description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta name="description" content="Simple linear regression is a statistical method used to model the relationship between a single independent variable (predictor) and a dependent variable (outcome). It is a basic technique that...">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Chapter 14 Simple Linear Regression | Quantitative Methods - R Cookbook">
+<meta property="og:title" content="Chapter 16 Simple Linear Regression | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://r.lesson3.io/simple-linear-regression.html">
-<meta property="og:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta property="og:description" content="Simple linear regression is a statistical method used to model the relationship between a single independent variable (predictor) and a dependent variable (outcome). It is a basic technique that...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 14 Simple Linear Regression | Quantitative Methods - R Cookbook">
-<meta name="twitter:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta name="twitter:title" content="Chapter 16 Simple Linear Regression | Quantitative Methods - R Cookbook">
+<meta name="twitter:description" content="Simple linear regression is a statistical method used to model the relationship between a single independent variable (predictor) and a dependent variable (outcome). It is a basic technique that...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -58,13 +58,15 @@
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
 <li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
 <li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">13</span> Correlation</a></li>
-<li><a class="active" href="simple-linear-regression.html"><span class="header-section-number">14</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">15</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">16</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">17</span> Tukey’s post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">18</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">19</span> G* Power</a></li>
+<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
+<li><a class="active" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">19</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -73,18 +75,148 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="simple-linear-regression" class="section level1" number="14">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="simple-linear-regression" class="section level1" number="16">
 <h1>
-<span class="header-section-number">14</span> Simple Linear Regression<a class="anchor" aria-label="anchor" href="#simple-linear-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">16</span> Simple Linear Regression<a class="anchor" aria-label="anchor" href="#simple-linear-regression"><i class="fas fa-link"></i></a>
 </h1>
+<p>Simple linear regression is a statistical method used to model the
+relationship between a single independent variable (predictor) and a
+dependent variable (outcome). It is a basic technique that can help
+researchers understand the association between two continuous variables
+and make predictions based on the observed data.</p>
+<p>In simple linear regression, we try to find the best-fitting straight
+line through the data points on a scatterplot. The line represents the
+predicted value of the dependent variable (Y) for a given value of the
+independent variable (X). The equation for the line is as follows:</p>
+<p>Y = b0 + b1X + ε</p>
+<p>Here:</p>
+<p>Y is the dependent variable (outcome) X is the independent variable
+(predictor) b0 is the intercept, which represents the value of Y when X
+is zero b1 is the slope, which represents the change in Y for a one-unit
+increase in X ε is the error term, which accounts for the difference
+between the actual and predicted values of Y In simple linear
+regression, the goal is to find the values of b0 and b1 that minimize
+the sum of the squared differences between the observed values of Y and
+the predicted values (based on the line). This method is called the
+least squares estimation.</p>
+<p>To better understand simple linear regression, let’s consider a
+scatterplot with two variables X and Y:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="simple-linear-regression.html#cb50-1" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb50-2"><a href="simple-linear-regression.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span></span>
+<span id="cb50-3"><a href="simple-linear-regression.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span>       •</span>
+<span id="cb50-4"><a href="simple-linear-regression.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>     •</span>
+<span id="cb50-5"><a href="simple-linear-regression.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   •</span>
+<span id="cb50-6"><a href="simple-linear-regression.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> •</span>
+<span id="cb50-7"><a href="simple-linear-regression.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+----------------</span></span>
+<span id="cb50-8"><a href="simple-linear-regression.html#cb50-8" aria-hidden="true" tabindex="-1"></a>  x</span></code></pre></div>
+<div id="regression-using-r" class="section level2" number="16.1">
+<h2>
+<span class="header-section-number">16.1</span> Regression using R<a class="anchor" aria-label="anchor" href="#regression-using-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>To perform simple linear regression in R using the psych package, we can
+use the following code:</p>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'psych' was built under R version 4.2.3</span></span>
+<span></span>
+<span><span class="co"># Read the CSV file into a data frame</span></span>
+<span><span class="va">data_file</span> <span class="op">&lt;-</span> <span class="st">"exampledata/Empsuccess.csv"</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">data_file</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 10 Columns: 2</span></span>
+<span><span class="co">#&gt; ── Column specification ────────────────────────────────────</span></span>
+<span><span class="co">#&gt; Delimiter: ","</span></span>
+<span><span class="co">#&gt; dbl (2): Optimism, Success</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span></span>
+<span><span class="co"># Perform simple linear regression</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Success</span> <span class="op">~</span> <span class="va">Optimism</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display the model summary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; lm(formula = Success ~ Optimism, data = data)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residuals:</span></span>
+<span><span class="co">#&gt;     Min      1Q  Median      3Q     Max </span></span>
+<span><span class="co">#&gt; -4.4380 -1.9932  0.1626  2.2568  3.7118 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; (Intercept)  8.86473    4.56965   1.940 0.088358 .  </span></span>
+<span><span class="co">#&gt; Optimism     0.52496    0.08034   6.535 0.000181 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residual standard error: 3.165 on 8 degrees of freedom</span></span>
+<span><span class="co">#&gt; Multiple R-squared:  0.8422, Adjusted R-squared:  0.8225 </span></span>
+<span><span class="co">#&gt; F-statistic:  42.7 on 1 and 8 DF,  p-value: 0.0001814</span></span></code></pre></div>
+<p>The output is the summary of a simple linear regression model fitted to
+the data, where Success is the dependent variable (outcome), and represents the score on the employment success scale.
+Optimism is the independent variable (predictor),represents the scores on the work optimism scale.</p>
+<p>Let’s break it down piece by piece:</p>
+<p><strong>Residuals</strong>: Residuals are the differences between the observed and
+predicted values of the dependent variable. The summary provides the
+minimum, 1st quartile, median, 3rd quartile, and maximum residuals. This
+information helps us understand the spread of the residuals, which
+should ideally be evenly distributed and close to zero.</p>
+<p><strong>Coefficients</strong>: The coefficients table provides the estimates,
+standard errors, t-values, and p-values for the intercept and predictor
+variable (Optimism).</p>
+<p>The estimated intercept (b₀) is 8.86473, and the estimated slope (b₁)
+for the Optimism predictor is 0.52496. This means that the linear
+regression equation is:</p>
+<p>Y = 8.86473 + 0.52496 * Optimism</p>
+<p>The p-value for the intercept is 0.088358, which is greater than 0.05,
+suggesting that the intercept is not statistically significant at the
+0.05 level. The p-value for the Optimism predictor is 0.000181, which is
+less than 0.001, indicating that Optimism is statistically significant
+at the 0.001 level.</p>
+<p><strong>Model fit and diagnostics</strong>: The output provides information on the
+model’s goodness of fit and diagnostic statistics.</p>
+</div>
+<div id="scatter-plot" class="section level2" number="16.2">
+<h2>
+<span class="header-section-number">16.2</span> Scatter Plot<a class="anchor" aria-label="anchor" href="#scatter-plot"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can create a scatter plot of the data and add the regression line using the ggplot2 package:</p>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'ggplot2'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:psych':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     %+%, alpha</span></span>
+<span></span>
+<span><span class="co"># Create a scatterplot with the regression line</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Optimism</span>, y <span class="op">=</span> <span class="va">Success</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Optimism"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Success"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Simple Linear Regression"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre></div>
+<div class="inline-figure"><img src="12-simple-linear-regression_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
 
 </div>
+</div>
   <div class="chapter-nav">
-<div class="prev"><a href="correlation.html"><span class="header-section-number">13</span> Correlation</a></div>
-<div class="next"><a href="multiple-regression.html"><span class="header-section-number">15</span> Multiple Regression</a></div>
+<div class="prev"><a href="correlation.html"><span class="header-section-number">15</span> Correlation</a></div>
+<div class="next"><a href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#simple-linear-regression"><span class="header-section-number">14</span> Simple Linear Regression</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#simple-linear-regression"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="nav-link" href="#regression-using-r"><span class="header-section-number">16.1</span> Regression using R</a></li>
+<li><a class="nav-link" href="#scatter-plot"><span class="header-section-number">16.2</span> Scatter Plot</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

@@ -58,13 +58,15 @@
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
 <li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
 <li><a class="active" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">13</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">14</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">15</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">16</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">17</span> Tukey’s post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">18</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">19</span> G* Power</a></li>
+<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
+<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">19</span> Tukey’s post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -190,14 +192,21 @@
 <span><span class="co">#&gt; sample estimates:</span></span>
 <span><span class="co">#&gt; mean difference </span></span>
 <span><span class="co">#&gt;               5</span></span></code></pre></div>
-
-<p>#Covariance</p>
+<p>The output of the paired t-test includes several pieces of information:</p>
+<p>t-value: The calculated t-statistic is 7.3193. This value represents the difference between the means of the pretest and posttest scores, in terms of standard deviations.</p>
+<p>Degrees of freedom (df): The degrees of freedom for this t-test is 9, which is calculated as the number of pairs minus 1 (n - 1).</p>
+<p>p-value: The p-value is 4.472e-05 (0.00004472), which is the probability of observing a t-value as extreme or more extreme than the calculated t-value, assuming the null hypothesis (no significant difference between the means of the paired differences) is true.</p>
+<p>Alternative hypothesis: The output states that the alternative hypothesis is that the true mean difference is not equal to 0.</p>
+<p>95% confidence interval: The confidence interval is [3.454652, 6.545348], which means that we can be 95% confident that the true population mean difference lies within this interval.</p>
+<p>Sample estimates: The mean difference between the pretest and posttest scores is 5.</p>
+<p>Based on this output, since the p-value (0.00004472) is less than the common significance level (0.05), we can reject the null hypothesis and conclude that there is a significant difference between the pretest and posttest scores in the swimdata dataset. The positive mean difference (5) indicates that, on average, the posttest scores are higher than the pretest scores. The 95% confidence interval suggests that the true population mean difference lies between 3.454652 and 6.545348.</p>
+<p>If the assumptions of the paired t-test are met and the p-value is less than the chosen significance level, you can conclude that there is a significant difference between the means of the paired differences. Otherwise, if the assumptions are violated, you should consider alternative statistical tests or data transformation methods.</p>
 
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></div>
-<div class="next"><a href="correlation.html"><span class="header-section-number">13</span> Correlation</a></div>
+<div class="next"><a href="covariance.html"><span class="header-section-number">13</span> Covariance</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav"><li>

@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 16 One way ANOVA | Quantitative Methods - R Cookbook</title>
+<title>Chapter 18 One way ANOVA | Quantitative Methods - R Cookbook</title>
 <meta name="author" content="Subash Parajuli">
-<meta name="description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta name="description" content="One-way Analysis of Variance (ANOVA) is a statistical method used to analyze the differences between the means of three or more groups. It is a fixed-effects model, which means that it assumes...">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Chapter 16 One way ANOVA | Quantitative Methods - R Cookbook">
+<meta property="og:title" content="Chapter 18 One way ANOVA | Quantitative Methods - R Cookbook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://r.lesson3.io/one-way-anova.html">
-<meta property="og:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta property="og:description" content="One-way Analysis of Variance (ANOVA) is a statistical method used to analyze the differences between the means of three or more groups. It is a fixed-effects model, which means that it assumes...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 16 One way ANOVA | Quantitative Methods - R Cookbook">
-<meta name="twitter:description" content="This cookbook covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.">
+<meta name="twitter:title" content="Chapter 18 One way ANOVA | Quantitative Methods - R Cookbook">
+<meta name="twitter:description" content="One-way Analysis of Variance (ANOVA) is a statistical method used to analyze the differences between the means of three or more groups. It is a fixed-effects model, which means that it assumes...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -43,53 +43,161 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="preface.html">Preface</a></li>
-<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">1</span> Basic Statistical Concepts</a></li>
-<li><a class="" href="r-basics.html"><span class="header-section-number">2</span> R Basics</a></li>
-<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
-<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
-<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
-<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
-<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
-<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
-<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
-<li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">13</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">14</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">15</span> Multiple Regression</a></li>
-<li><a class="active" href="one-way-anova.html"><span class="header-section-number">16</span> One way ANOVA</a></li>
-<li><a class="" href="tukeys-post-hoc-tests.html"><span class="header-section-number">17</span> Tukey’s post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">18</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">19</span> G* Power</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 18</span> One way ANOVA</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-way-anova" class="section level1" number="16">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-way-anova" class="section level1" number="18">
 <h1>
-<span class="header-section-number">16</span> One way ANOVA<a class="anchor" aria-label="anchor" href="#one-way-anova"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18</span> One way ANOVA<a class="anchor" aria-label="anchor" href="#one-way-anova"><i class="fas fa-link"></i></a>
 </h1>
+<p>One-way Analysis of Variance (ANOVA) is a statistical method used to analyze the differences between the means of three or more groups. It is a fixed-effects model, which means that it assumes that the levels of the independent variable (the factor) are fixed and have been specifically chosen by the researcher. In educational research, one-way ANOVA can be used to compare the mean scores of students from different schools, teaching methods, or grade levels.</p>
+<p>The basic idea behind one-way ANOVA is to partition the total variation in the dependent variable into two components: between-group variation and within-group variation. Between-group variation represents the differences in the means between the groups, while within-group variation represents the differences within each group that can be attributed to random error or individual differences.</p>
+<p>Mathematically, the one-way ANOVA model can be represented as:</p>
+<p>Y_ij = μ + α_i + ε_ij</p>
+<p>Where:</p>
+<p>Y_ij is the observation for the j-th individual in the i-th group
+μ is the overall mean of the dependent variable
+α_i is the effect of the i-th group (the difference between the group mean and the overall mean)
+ε_ij is the error term (the residual difference between the observed value and the predicted value)</p>
+<div id="characteristics" class="section level2" number="18.1">
+<h2>
+<span class="header-section-number">18.1</span> Characteristics<a class="anchor" aria-label="anchor" href="#characteristics"><i class="fas fa-link"></i></a>
+</h2>
+<p>The characteristics of one-way ANOVA include:</p>
+<p>One independent variable (factor) with at least three levels (groups): One-way ANOVA is designed to analyze the differences between the means of three or more groups. The independent variable should be categorical, and each level represents a distinct category.</p>
+<p>Independent observations: The observations in each group should be independent of each other, which means that the outcome for one individual should not influence the outcome for another individual.</p>
+<p>Normality: The dependent variable should be approximately normally distributed within each group. This assumption can be checked using graphical techniques (e.g., histograms or Q-Q plots) or formal tests (e.g., Shapiro-Wilk test).</p>
+<p>Homogeneity of variances: The variances of the dependent variable should be approximately equal across all groups. This assumption can be checked using Levene’s test or Bartlett’s test.</p>
+<p>Interval or ratio scale of measurement: The dependent variable should be measured on an interval or ratio scale, which means that the differences between the values have meaning, and there is a true zero point.</p>
+<p>One-way ANOVA is a powerful technique for comparing the means of multiple groups, allowing researchers to determine whether there are any statistically significant differences between them.</p>
+</div>
+<div id="performing-one-way-anova-using-r" class="section level2" number="18.2">
+<h2>
+<span class="header-section-number">18.2</span> Performing one Way ANOVA using R<a class="anchor" aria-label="anchor" href="#performing-one-way-anova-using-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>The base R aov() function and the <strong>car</strong> package are used for the actual ANOVA and homogeneity tests.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'psych' was built under R version 4.2.3</span></span>
+<span></span>
+<span><span class="co"># Read the CSV file</span></span>
+<span><span class="va">ourdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"exampledata/Ch11_distress.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Inspect the data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Sport Distress</span></span>
+<span><span class="co">#&gt; 1     1       15</span></span>
+<span><span class="co">#&gt; 2     1       10</span></span>
+<span><span class="co">#&gt; 3     1       12</span></span>
+<span><span class="co">#&gt; 4     1        8</span></span>
+<span><span class="co">#&gt; 5     1       21</span></span>
+<span><span class="co">#&gt; 6     1        7</span></span>
+<span></span>
+<span><span class="co">#Summary Statistics</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      Sport         Distress    </span></span>
+<span><span class="co">#&gt;  Min.   :1.00   Min.   : 3.00  </span></span>
+<span><span class="co">#&gt;  1st Qu.:1.75   1st Qu.:12.00  </span></span>
+<span><span class="co">#&gt;  Median :2.50   Median :20.00  </span></span>
+<span><span class="co">#&gt;  Mean   :2.50   Mean   :18.41  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:3.25   3rd Qu.:25.00  </span></span>
+<span><span class="co">#&gt;  Max.   :4.00   Max.   :30.00</span></span>
+<span></span>
+<span><span class="co"># Perform one-way ANOVA</span></span>
+<span><span class="va">anova_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Distress</span> <span class="op">~</span> <span class="va">Sport</span>, data <span class="op">=</span> <span class="va">ourdata</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display the result</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova_result</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             Df Sum Sq Mean Sq F value   Pr(&gt;F)    </span></span>
+<span><span class="co">#&gt; Sport        1  709.8   709.8   20.48 8.87e-05 ***</span></span>
+<span><span class="co">#&gt; Residuals   30 1039.9    34.7                     </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
+<p>Lets break down the output:
+Let’s break it down:</p>
+<p>Df (Degrees of Freedom): The degrees of freedom for the “Sport” factor is 1, and for the “Residuals” (error term) is 30. The degrees of freedom are used in the calculation of the F value.</p>
+<p>Sum Sq (Sum of Squares): The sum of squares for the “Sport” factor is 709.8, and for the “Residuals” is 1039.9. The sum of squares represents the variation in the data that is accounted for by the factor (Sport) and the error term (Residuals).</p>
+<p>Mean Sq (Mean Squares): The mean squares for the “Sport” factor is 709.8, and for the “Residuals” is 34.7. Mean squares are calculated by dividing the sum of squares by the degrees of freedom.</p>
+<p>F value: The F value is 20.48. This is the test statistic for the one-way ANOVA, which is calculated by dividing the mean square for the “Sport” factor by the mean square for the “Residuals”. The F value is used to determine if there is a statistically significant difference between the group means.</p>
+<p>p-value: The p-value for the “Sport” factor is 8.87e-05 (0.0000887). This is the probability of observing an F value as extreme as the one calculated (20.48) if there were no true differences between the group means (null hypothesis).
+Since the p-value (0.0000887) is less than the significance level (0.05), we can conclude that there is a statistically significant difference between the group means for the “Sport” factor(choice of participation).</p>
+<p>We can also check the homogeneity, normality and effect size.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Perform Shapiro-Wilk test for normality for each group</span></span>
+<span><span class="va">shapiro_test1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Distress</span><span class="op">[</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Sport</span><span class="op">==</span><span class="st">"1"</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">shapiro_test2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Distress</span><span class="op">[</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Sport</span><span class="op">==</span><span class="st">"2"</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">shapiro_test3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Distress</span><span class="op">[</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Sport</span><span class="op">==</span><span class="st">"3"</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">shapiro_test4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Distress</span><span class="op">[</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Sport</span><span class="op">==</span><span class="st">"4"</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display the results</span></span>
+<span><span class="va">shapiro_test1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  ourdata$Distress[ourdata$Sport == "1"]</span></span>
+<span><span class="co">#&gt; W = 0.9847, p-value = 0.9823</span></span>
+<span><span class="va">shapiro_test2</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  ourdata$Distress[ourdata$Sport == "2"]</span></span>
+<span><span class="co">#&gt; W = 0.93162, p-value = 0.531</span></span>
+<span><span class="va">shapiro_test3</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  ourdata$Distress[ourdata$Sport == "3"]</span></span>
+<span><span class="co">#&gt; W = 0.90504, p-value = 0.3204</span></span>
+<span><span class="va">shapiro_test4</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  ourdata$Distress[ourdata$Sport == "4"]</span></span>
+<span><span class="co">#&gt; W = 0.93347, p-value = 0.5482</span></span>
+<span></span>
+<span><span class="co"># Load car library for Levene's test</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'car' was built under R version 4.2.3</span></span>
+<span><span class="co">#&gt; Loading required package: carData</span></span>
+<span><span class="co">#&gt; Warning: package 'carData' was built under R version 4.2.3</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'car'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:psych':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     logit</span></span>
+<span></span>
+<span><span class="co"># Perform Levene's test</span></span>
+<span><span class="va">levene_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/car/man/leveneTest.html">leveneTest</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Distress</span>, <span class="va">ourdata</span><span class="op">$</span><span class="va">Sport</span> <span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in leveneTest.default(ourdata$Distress,</span></span>
+<span><span class="co">#&gt; ourdata$Sport): ourdata$Sport coerced to factor.</span></span>
+<span></span>
+<span><span class="co"># Display the result</span></span>
+<span><span class="va">levene_test</span></span>
+<span><span class="co">#&gt; Levene's Test for Homogeneity of Variance (center = median)</span></span>
+<span><span class="co">#&gt;       Df F value Pr(&gt;F)</span></span>
+<span><span class="co">#&gt; group  3  0.6039  0.618</span></span>
+<span><span class="co">#&gt;       28</span></span></code></pre></div>
+<p>The Shapiro-Wilk test is used to assess whether the sample data comes from a normally distributed population.All four sports, The p-values in all four sports are greater than the significance level of 0.05, indicating that we cannot reject the null hypothesis that the data is normally distributed. This suggests that the ‘Distress’ variable within each sport group is likely to be normally distributed, which is an important assumption for parametric statistical tests such as the one-way ANOVA.</p>
+<p>Levene’s test is used to assess if the variances of different groups are equal, which is an important assumption for one-way ANOVA. The p-value from Levene’s test indicates that the assumption of homogeneity of variances is met for the data. This supports the use of one-way ANOVA to analyze differences between the group means.</p>
 
 </div>
+</div>
   <div class="chapter-nav">
-<div class="prev"><a href="multiple-regression.html"><span class="header-section-number">15</span> Multiple Regression</a></div>
-<div class="next"><a href="tukeys-post-hoc-tests.html"><span class="header-section-number">17</span> Tukey’s post hoc tests</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#one-way-anova"><span class="header-section-number">16</span> One way ANOVA</a></li></ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/14-one-way-anova.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/14-one-way-anova.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
