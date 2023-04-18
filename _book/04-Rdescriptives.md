@@ -94,3 +94,51 @@ var(data)
 sd(data)
 #> [1] 2.738613
 ```
+
+## Calculating descriptives from a dataset table
+
+To create a descriptive summary of a particular column in a CSV file using R, you can follow these steps:
+
+Import the CSV file into R using the read.csv() function. This function reads the CSV file and creates a data frame.
+
+Use R's built-in functions or the psych package to calculate the descriptive summary statistics of the selected column.
+
+Here's an example using a CSV file with a column named "test_scores":
+
+
+```r
+# Import the CSV file
+data <- read.csv("your_file.csv")
+
+# Calculate descriptive summary statistics for the "test_scores" column
+
+# Mean
+mean(data$test_scores)
+
+# Median
+median(data$test_scores)
+
+# Mode (using the "modeest" package)
+library(modeest)
+mfv(data$test_scores)
+
+# Range
+range(data$test_scores)
+
+# Interquartile Range (IQR)
+IQR(data$test_scores)
+
+# Variance
+var(data$test_scores)
+
+# Standard Deviation
+sd(data$test_scores)
+
+# Alternatively, you can use the "psych" package to generate multiple summary statistics at once
+install.packages("psych")
+library(psych)
+psych::describe(data$test_scores)
+
+```
+
+

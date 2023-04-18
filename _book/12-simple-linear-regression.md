@@ -55,7 +55,6 @@ use the following code:
 ```r
 # Load required packages
 library(readr)
-#> Warning: package 'readr' was built under R version 4.2.2
 library(psych)
 #> Warning: package 'psych' was built under R version 4.2.3
 
@@ -135,7 +134,6 @@ We can create a scatter plot of the data and add the regression line using the g
 ```r
 # Load required packages
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.2.3
 #> 
 #> Attaching package: 'ggplot2'
 #> The following objects are masked from 'package:psych':

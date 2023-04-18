@@ -7,8 +7,8 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 url: https://bookdown.org/subashparajuli/quant-r/
 github-repo: hukkum/quant-r
-# cover-image: path to the social sharing image like images/cover.jpg
-description: |
+cover-image: cover.jpg
+description:
   This book covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.
 biblio-style: apalike 
 link-citations: true 
@@ -41,7 +41,7 @@ This book is based on a 3 credit semester course "Quantitative Methods - I" as t
 
 -   **Interpret** the results of statistical analyses.
 
-```{r include=FALSE}
+```{r include=TRUE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'

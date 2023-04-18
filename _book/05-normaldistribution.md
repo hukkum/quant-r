@@ -34,7 +34,6 @@ Normal distribution, consider the following example using R:
 ```r
 # Load required libraries
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.2.3
 
 # Define the mean and standard deviation
 mean <- 0

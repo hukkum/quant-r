@@ -10,7 +10,6 @@ The CLT states that, for a large enough sample size (usually n ≥ 30), the dist
 ```r
 # Load required libraries
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.2.3
 
 # Set seed for reproducibility
 set.seed(123)
@@ -37,9 +36,6 @@ ggplot(data.frame(sample_means), aes(x = sample_means)) +
 #> Warning: The dot-dot notation (`..density..`) was deprecated in
 #> ggplot2 3.4.0.
 #> ℹ Please use `after_stat(density)` instead.
-#> This warning is displayed once every 8 hours.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where
-#> this warning was generated.
 ```
 
 <img src="08-samplingdistribution_files/figure-html/unnamed-chunk-1-1.png" width="672" />

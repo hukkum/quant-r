@@ -7,14 +7,16 @@
 <title>Chapter 1 R Basics | Quantitative Methods Using R</title>
 <meta name="author" content="Subash Parajuli">
 <meta name="description" content="This sections covers everything you need to get run statistical analysis using R. Just like other programming language, R also has a base package and an Integrated Development Environment. Base...">
-<meta name="generator" content="bookdown 0.33 with bs4_book()">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
 <meta property="og:title" content="Chapter 1 R Basics | Quantitative Methods Using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/r-basics.html">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <meta property="og:description" content="This sections covers everything you need to get run statistical analysis using R. Just like other programming language, R also has a base package and an Integrated Development Environment. Base...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 1 R Basics | Quantitative Methods Using R">
 <meta name="twitter:description" content="This sections covers everything you need to get run statistical analysis using R. Just like other programming language, R also has a base package and an Integrated Development Environment. Base...">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -106,7 +108,7 @@
 <h2>
 <span class="header-section-number">1.1</span> Installing R base package.<a class="anchor" aria-label="anchor" href="#installing-r-base-package."><i class="fas fa-link"></i></a>
 </h2>
-<p>R base package can be downloaded from <a href="https://cran.r-project.org/">official website</a> of R. Once, you enter inside the website select the package for your operating system, download the file and install it. To ensure R is successfully installed, you should be able to run it from your command prompt or terminal using R command. Type q() to quit R console.</p>
+<p>R base package can be downloaded from <a href="https://cran.r-project.org/">official website</a> of R. Once, you enter inside the website select the package for your operating system, download the file and install it. To ensure R is successfully installed, you should be able to run it from your command prompt or terminal using <code>R</code> command. Type <code><a href="https://rdrr.io/r/base/quit.html">q()</a></code> to quit R console.</p>
 <pre><code>$ R
 
 R version 4.2.1 (2022-06-23 ucrt) -- "Funny-Looking Kid"
@@ -133,6 +135,11 @@ Type 'q()' to quit R.
 <span class="header-section-number">1.1.1</span> Download R studio<a class="anchor" aria-label="anchor" href="#download-r-studio"><i class="fas fa-link"></i></a>
 </h3>
 <p>Well, we do not need to do everything from command or terminal. R community has also a fully fledged development environment called R Studio which is free to use and very user friendly to work in R. You can download R studio from <a href="https://posit.co/download/rstudio-desktop/">here</a>.</p>
+<p>The following resources provide an overview and introduction to the various components of R Studio:</p>
+<ul>
+<li><p><a href="https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf"><strong>RStudio IDE Cheat Sheet</strong></a></p></li>
+<li><p><a href="https://support.rstudio.com/hc/en-us/articles/201141096-Getting-Started-with-RStudio"><strong>Getting Started with RStudio</strong></a></p></li>
+</ul>
 <p>This tutorial will help you understand the basic overview and components of R studio.</p>
 </div>
 </div>
@@ -140,12 +147,13 @@ Type 'q()' to quit R.
 <h2>
 <span class="header-section-number">1.2</span> R Packages<a class="anchor" aria-label="anchor" href="#r-packages"><i class="fas fa-link"></i></a>
 </h2>
-<p>While R is simply a statistically programming language, the R packages developed by R community has been one of the key reason of its robustness, reproducibility and flexibility. Many statistics programmers have developed 100s of packages which we can run even complex statistics functions with single line of code.</p>
+<p>While R is simply a statistically programming language, the R packages developed by R community has been one of the key reason of its robustness, reproducibility and flexibility. Many statistics programmers have developed 100s of packages which we can run even complex statistics functions with single line of code. We will be using a few key packages throughout our examples and also discuss about those packages.</p>
 </div>
 <div id="r-console" class="section level2" number="1.3">
 <h2>
 <span class="header-section-number">1.3</span> R Console<a class="anchor" aria-label="anchor" href="#r-console"><i class="fas fa-link"></i></a>
 </h2>
+<p>The R Console is the interactive command-line interface for R, where you can enter commands and see their output. It’s an essential component of RStudio, and you can use it for various tasks such as data manipulation, statistical analysis, and creating graphics.</p>
 </div>
 <div id="getting-help" class="section level2" number="1.4">
 <h2>
@@ -166,29 +174,40 @@ args(log) # Description of the command.}</code></pre>
 </div>
 <div id="r-community-and-resources" class="section level2" number="1.5">
 <h2>
-<span class="header-section-number">1.5</span> R Community and Resources<a class="anchor" aria-label="anchor" href="#r-community-and-resources"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5</span> <strong>R Community and Resources</strong><a class="anchor" aria-label="anchor" href="#r-community-and-resources"><i class="fas fa-link"></i></a>
 </h2>
-<p>R has a huge community of developers and supporters. Following resources may be very useful for you to move ahead during your research and experiments.</p>
+<p>R has a large community of developers and supporters. The following resources may be helpful as you progress in your research and experiments with R:</p>
 <div id="documentation-websites" class="section level3" number="1.5.1">
 <h3>
-<span class="header-section-number">1.5.1</span> Documentation / Websites<a class="anchor" aria-label="anchor" href="#documentation-websites"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.1</span> <strong>Documentation / Websites</strong><a class="anchor" aria-label="anchor" href="#documentation-websites"><i class="fas fa-link"></i></a>
 </h3>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://www.rdocumentation.org/"><strong>R Documentation</strong></a></p></li>
+<li><p><a href="https://www.r-bloggers.com/"><strong>R-bloggers</strong></a></p></li>
+<li><p><a href="https://community.rstudio.com/"><strong>RStudio Community</strong></a></p></li>
+<li><p><a href="https://stackoverflow.com/questions/tagged/r"><strong>Stack Overflow</strong></a></p></li>
+</ol>
 </div>
 <div id="books" class="section level3" number="1.5.2">
 <h3>
-<span class="header-section-number">1.5.2</span> Books<a class="anchor" aria-label="anchor" href="#books"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.2</span> <strong>Books</strong><a class="anchor" aria-label="anchor" href="#books"><i class="fas fa-link"></i></a>
 </h3>
+<ol style="list-style-type: decimal">
+<li><p>Field, A., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage Publications.</p></li>
+<li><p>Kabacoff, R. I. (2015). R in action: Data analysis and graphics with R. Manning Publications Co.</p></li>
+<li><p>Navarro, D. J. (2015). Learning statistics with R: A tutorial for psychology students and other beginners. University of Adelaide.</p></li>
+<li><p>Wickham, H. (2014). Advanced R. CRC Press.</p></li>
+<li><p>Wilke, C. O. (2019). Fundamentals of Data Visualization: A Primer on Making Informative and Compelling Figures. O’Reilly Media.</p></li>
+</ol>
 </div>
-<div id="website" class="section level3" number="1.5.3">
+<div id="cheatsheets" class="section level3" number="1.5.3">
 <h3>
-<span class="header-section-number">1.5.3</span> Website<a class="anchor" aria-label="anchor" href="#website"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.3</span> <strong>Cheatsheets</strong><a class="anchor" aria-label="anchor" href="#cheatsheets"><i class="fas fa-link"></i></a>
 </h3>
-</div>
-<div id="cheatsheet" class="section level3" number="1.5.4">
-<h3>
-<span class="header-section-number">1.5.4</span> Cheatsheet<a class="anchor" aria-label="anchor" href="#cheatsheet"><i class="fas fa-link"></i></a>
-</h3>
-
+<ol style="list-style-type: decimal">
+<li><p><a href="https://rstudio.com/resources/cheatsheets/"><strong>RStudio Cheatsheets</strong></a></p></li>
+<li><p><a href="https://www.datacamp.com/community/data-science-cheatsheets"><strong>DataCamp Cheatsheets</strong></a></p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -209,8 +228,7 @@ args(log) # Description of the command.}</code></pre>
 <a class="nav-link" href="#r-community-and-resources"><span class="header-section-number">1.5</span> R Community and Resources</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#documentation-websites"><span class="header-section-number">1.5.1</span> Documentation / Websites</a></li>
 <li><a class="nav-link" href="#books"><span class="header-section-number">1.5.2</span> Books</a></li>
-<li><a class="nav-link" href="#website"><span class="header-section-number">1.5.3</span> Website</a></li>
-<li><a class="nav-link" href="#cheatsheet"><span class="header-section-number">1.5.4</span> Cheatsheet</a></li>
+<li><a class="nav-link" href="#cheatsheets"><span class="header-section-number">1.5.3</span> Cheatsheets</a></li>
 </ul>
 </li>
 </ul>
@@ -230,7 +248,7 @@ args(log) # Description of the command.}</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-13.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

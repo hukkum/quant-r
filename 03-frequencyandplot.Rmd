@@ -1,4 +1,5 @@
 # Data Representation
+Data representation refers to the process of presenting data in a visual or graphical format that makes it easier to understand and interpret. Examples of data representation techniques in educational psychology might include creating line graphs to show changes in student performance over time, using pie charts to compare student achievement across different demographic groups, or using scatter plots to explore the relationship between two or more variables in a study.
 
 ## Frequency Tables 
 A frequency table displays the number of occurrences (frequencies) for each category or value in a data set. It is particularly useful for summarizing categorical data or discrete numerical data.

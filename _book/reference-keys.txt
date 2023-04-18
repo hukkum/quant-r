@@ -10,8 +10,7 @@ getting-help
 r-community-and-resources
 documentation-websites
 books
-website
-cheatsheet
+cheatsheets
 basic-statistical-concepts
 data-types
 types-of-variable
@@ -38,6 +37,7 @@ interquartile-range-iqr
 variance
 standard-deviation
 calculating-measures-of-dispersion-using-r
+calculating-descriptives-from-a-dataset-table
 normal-distribution
 skewness-and-kurtosis
 skewness
