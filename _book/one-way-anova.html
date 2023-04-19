@@ -83,7 +83,7 @@
 <li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
 <li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
 <li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
 <li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
 <li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
@@ -129,7 +129,7 @@
 <span class="header-section-number">18.2</span> Performing one Way ANOVA using R<a class="anchor" aria-label="anchor" href="#performing-one-way-anova-using-r"><i class="fas fa-link"></i></a>
 </h2>
 <p>The base R aov() function and the <strong>car</strong> package are used for the actual ANOVA and homogeneity tests.</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: package 'psych' was built under R version 4.2.3</span></span>
@@ -177,7 +177,7 @@ Let’s break it down:</p>
 <p>p-value: The p-value for the “Sport” factor is 8.87e-05 (0.0000887). This is the probability of observing an F value as extreme as the one calculated (20.48) if there were no true differences between the group means (null hypothesis).
 Since the p-value (0.0000887) is less than the significance level (0.05), we can conclude that there is a statistically significant difference between the group means for the “Sport” factor(choice of participation).</p>
 <p>We can also check the homogeneity, normality and effect size.</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Perform Shapiro-Wilk test for normality for each group</span></span>
 <span><span class="va">shapiro_test1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Distress</span><span class="op">[</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Sport</span><span class="op">==</span><span class="st">"1"</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">shapiro_test2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Distress</span><span class="op">[</span><span class="va">ourdata</span><span class="op">$</span><span class="va">Sport</span><span class="op">==</span><span class="st">"2"</span><span class="op">]</span><span class="op">)</span></span>
@@ -263,7 +263,7 @@ Since the p-value (0.0000887) is less than the significance level (0.05), we can
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-17.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

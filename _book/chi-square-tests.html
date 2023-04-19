@@ -83,7 +83,7 @@
 <li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
 <li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
 <li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
 <li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
 <li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
@@ -120,15 +120,15 @@
 <p>Let’s take a simple example first.
 Suppose we have a school with 200 students, and we know the distribution of students’ grades as A, B, C, and D should follow a specific proportion: 25% A, 35% B, 25% C, and 15% D. We want to know if the observed grade distribution in our school matches this expected distribution.</p>
 <p>First, we’ll create a table with observed grade frequencies:</p>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">observed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">40</span>, B <span class="op">=</span> <span class="fl">80</span>, C <span class="op">=</span> <span class="fl">50</span>, D <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code></pre></div>
 <p>Next, we’ll define the expected proportions and calculate the expected frequencies:</p>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">expected_proportions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">0.25</span>, B <span class="op">=</span> <span class="fl">0.35</span>, C <span class="op">=</span> <span class="fl">0.25</span>, D <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></span>
 <span><span class="va">total_students</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">observed</span><span class="op">)</span></span>
 <span><span class="va">expected</span> <span class="op">&lt;-</span> <span class="va">total_students</span> <span class="op">*</span> <span class="va">expected_proportions</span></span></code></pre></div>
 <p>Now, we’ll perform the chi-square goodness of fit test using the chisq.test() function. chisq.test performs chi-squared contingency table tests and goodness-of-fit tests.</p>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">chisq_gof</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">observed</span>, p <span class="op">=</span> <span class="va">expected_proportions</span><span class="op">)</span></span>
 <span><span class="va">chisq_gof</span></span></code></pre></div>
 <pre><code>#&gt; 
@@ -159,12 +159,12 @@ Suppose we have a school with 200 students, and we know the distribution of stud
 <span class="header-section-number">20.2.1</span> Performing Chi-sqaure test of independence<a class="anchor" aria-label="anchor" href="#performing-chi-sqaure-test-of-independence"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let’s say we want to know if there is an association between the students’ grades and their participation in extracurricular activities. We have a contingency table with the observed frequencies.</p>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">observed_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">20</span>, <span class="fl">60</span>, <span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">20</span>, <span class="fl">10</span>, <span class="fl">20</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">observed_table</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">observed_table</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Participate"</span>, <span class="st">"Not_Participate"</span><span class="op">)</span></span></code></pre></div>
 <p>To perform the chi-square test of independence, we’ll use the chisq.test() function:</p>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">chisq_independence</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">observed_table</span><span class="op">)</span></span>
 <span><span class="va">chisq_independence</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -207,7 +207,7 @@ Suppose we have a school with 200 students, and we know the distribution of stud
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-17.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

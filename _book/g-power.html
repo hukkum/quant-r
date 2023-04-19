@@ -83,7 +83,7 @@
 <li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
 <li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
 <li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
 <li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
 <li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
@@ -113,7 +113,7 @@
 <span class="header-section-number">21.1</span> G*Power in R<a class="anchor" aria-label="anchor" href="#gpower-in-r"><i class="fas fa-link"></i></a>
 </h2>
 <p>To calculate G*Power using R, we can use the pwr package, which is specifically designed for power analysis and sample size calculation. First, you’ll need to install and load the pwr package:</p>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pwr"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heliosdrm/pwr">pwr</a></span><span class="op">)</span></span></code></pre></div>
 <p>Once you’ve loaded the pwr package, you can use various functions to perform power analysis for different types of tests. Here are a few examples:</p>
@@ -121,28 +121,28 @@
 <h3>
 <span class="header-section-number">21.1.1</span> For a t-test (two-sample, equal sample sizes, and equal variance)<a class="anchor" aria-label="anchor" href="#for-a-t-test-two-sample-equal-sample-sizes-and-equal-variance"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="cn">NULL</span>, d <span class="op">=</span> <span class="va">effect_size</span>, sig.level <span class="op">=</span> <span class="fl">0.05</span>, power <span class="op">=</span> <span class="fl">0.8</span>, type <span class="op">=</span> <span class="st">"two.sample"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="for-correlation" class="section level3" number="21.1.2">
 <h3>
 <span class="header-section-number">21.1.2</span> For Correlation<a class="anchor" aria-label="anchor" href="#for-correlation"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.r.test.html">pwr.r.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="cn">NULL</span>, r <span class="op">=</span> <span class="va">effect_size</span>, sig.level <span class="op">=</span> <span class="fl">0.05</span>, power <span class="op">=</span> <span class="fl">0.8</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="for-a-chi-squared-test" class="section level3" number="21.1.3">
 <h3>
 <span class="header-section-number">21.1.3</span> For a chi-squared test:<a class="anchor" aria-label="anchor" href="#for-a-chi-squared-test"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.chisq.test.html">pwr.chisq.test</a></span><span class="op">(</span>w <span class="op">=</span> <span class="va">effect_size</span>, N <span class="op">=</span> <span class="va">total_sample_size</span>, df <span class="op">=</span> <span class="va">degrees_of_freedom</span>, sig.level <span class="op">=</span> <span class="fl">0.05</span>, power <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="for-a-one-way-anova" class="section level3" number="21.1.4">
 <h3>
 <span class="header-section-number">21.1.4</span> For a one-way ANOVA:<a class="anchor" aria-label="anchor" href="#for-a-one-way-anova"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.anova.test.html">pwr.anova.test</a></span><span class="op">(</span>k <span class="op">=</span> <span class="va">number_of_groups</span>, n <span class="op">=</span> <span class="va">sample_size_per_group</span>, f <span class="op">=</span> <span class="va">effect_size</span>, sig.level <span class="op">=</span> <span class="fl">0.05</span>, power <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 
 
@@ -181,7 +181,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-17.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

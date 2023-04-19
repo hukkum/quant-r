@@ -1,22 +1,56 @@
 # Data Representation
-Data representation refers to the process of presenting data in a visual or graphical format that makes it easier to understand and interpret. Examples of data representation techniques in educational psychology might include creating line graphs to show changes in student performance over time, using pie charts to compare student achievement across different demographic groups, or using scatter plots to explore the relationship between two or more variables in a study.
+Data representation refers to the process of presenting data in a visual or graphical format that makes it easier to understand and interpret. It is crucial to effectively represent data to communicate research findings, identify trends, and explore relationships between variables. 
+
+Examples of data representation techniques in educational psychology might include creating line graphs to show changes in student performance over time, using pie charts to compare student achievement across different demographic groups, or using scatter plots to explore the relationship between two or more variables in a study.
+
+ `ggplot2` is a powerful data visualization package in R, created by Hadley Wickham. It is based on the Grammar of Graphics, a framework that allows you to build complex and customizable plots by layering components. ggplot2 enables the creation of a wide variety of visually appealing and informative graphics with a relatively concise and consistent syntax.
+ ggplot(gapminder, aes(x = lifeExp)): This initializes a ggplot2 plot using the gapminder dataset. The aes() function sets the aesthetic mappings for the plot. In this case, the x-axis is mapped to the lifeExp variable from the dataset, which represents life expectancy.
+
+geom_histogram(binwidth = 5): This adds a histogram layer to the plot. The binwidth parameter is set to 5, which means that the data will be divided into bins of width 5. The height of each bar in the histogram represents the frequency (count) of data points within each bin.
+
+xlab("Life Expectancy"): This adds a label to the x-axis, naming it "Life Expectancy".
+
+ylab("Frequency"): This adds a label to the y-axis, naming it "Frequency".
+
+## Loading your data
+You can import or load your data as we discussed in Chapter 3. In these  exmaples, I will be loading gapminder dataset which is available as a package in R. 
+
+
+```r
+# Load required packages
+library(ggplot2)
+library(gapminder)
+
+# Preview the dataset
+head(gapminder)
+```
+
 
 ## Frequency Tables 
 A frequency table displays the number of occurrences (frequencies) for each category or value in a data set. It is particularly useful for summarizing categorical data or discrete numerical data.
 
 
 ```r
-# Example data
-data <- c("A", "A", "B", "A", "B", "C", "C", "A", "B", "C")
-
-# Frequency table
-table(data)
+# Load required packages
+library(ggplot2)
+library(gapminder)
 ```
 
 ```
-#> data
-#> A B C 
-#> 4 3 3
+#> Warning: package 'gapminder' was built under R version
+#> 4.2.3
+```
+
+```r
+# Create a frequency table for continent
+continent_freq <- table(gapminder$continent)
+continent_freq
+```
+
+```
+#> 
+#>   Africa Americas     Asia   Europe  Oceania 
+#>      624      300      396      360       24
 ```
 
 ## Histograms:
@@ -25,14 +59,20 @@ Histograms are used to visualize the distribution of continuous or discrete nume
 
 
 ```r
-# Example data
-data_numeric <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-
-# Histogram
-hist(data_numeric)
+# Histogram for life expectancy using ggplot2
+ggplot(gapminder, aes(x = lifeExp)) + geom_histogram(binwidth = 5) + xlab("Life Expectancy") + ylab("Frequency")
 ```
 
-<img src="03-frequencyandplot_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="03-frequencyandplot_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+The `aes()` function sets the aesthetic mappings for the plot. In this case, the x-axis is mapped to the lifeExp variable from the dataset, which represents life expectancy.
+
+`geom_histogram(binwidth = 5)`adds a histogram layer to the plot. The binwidth parameter is set to 5, which means that the data will be divided into bins of width 5. The height of each bar in the histogram represents the frequency (count) of data points within each bin.
+
+`xlab("Life Expectancy")` adds a label to the x-axis, naming it "Life Expectancy".
+
+`ylab("Frequency")`adds a label to the y-axis, naming it "Frequency".
+
 
 ## Bar Graphs:
 
@@ -40,23 +80,26 @@ Bar graphs are used for displaying categorical data. Each category is represente
 
 
 ```r
-#Bar graph
-barplot(table(data))
-```
-
-<img src="03-frequencyandplot_files/figure-html/unnamed-chunk-3-1.png" width="672" />
-
-## Pie Charts:
-
-Pie charts represent categorical data as slices of a circle. The size of each slice is proportional to the frequency of each category. Pie charts are useful for visualizing relative proportions of categories.
-
-
-```r
-#Pie chart
-pie(table(data))
+# Bar graph of continents using ggplot2
+ggplot(gapminder, aes(x = continent)) + geom_bar()
 ```
 
 <img src="03-frequencyandplot_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
+## Pie Charts:
+
+Pie charts represent categorical data as slices of a circle. The size of each slice is proportional to the frequency of each category. Pie charts are useful for visualizing relative proportions of categories. Drawing piechart in `ggplot2` package requires transofrming a bar plot to polar coordinates, however, its much easier with `plotrix` package. You can install this package using `install.packages(plotrix)`.
+
+
+```r
+# Load necessary package
+library(plotrix)
+
+# Pie chart for continents
+pie3D(table(gapminder$continent), labels = names(table(gapminder$continent)), main = "Proportion of Continents")
+```
+
+<img src="03-frequencyandplot_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 ## Box Plots:
 
@@ -64,9 +107,33 @@ Box plots are used for visualizing the distribution of continuous or discrete nu
 
 
 ```r
-boxplot(data_numeric)
+# Box plot of life expectancy by continent using ggplot2
+ggplot(gapminder, aes(x = continent, y = lifeExp)) + geom_boxplot()
 ```
 
-<img src="03-frequencyandplot_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="03-frequencyandplot_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
-Each of these data representation techniques serves a different purpose and is suited for different types of data. By understanding when to use each method, you can effectively communicate your data insights and findings.
+## Scatter Plots
+Scatter plots are used to display the relationship between two continuous variables. They can be particularly helpful in identifying trends, correlations, and potential outliers in the data.
+
+
+```r
+# Scatter plot of life expectancy vs. GDP per capita using ggplot2
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point() + scale_x_log10()
+```
+
+<img src="03-frequencyandplot_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+
+## Line Graphs
+Line graphs are used to display the relationship between a continuous variable and a discrete or ordinal variable, often representing change over time. They can be particularly useful for identifying trends and patterns in time-series data.
+
+
+```r
+# Line graph of average life expectancy over time using ggplot2
+gapminder_agg <- aggregate(lifeExp ~ year, data = gapminder, mean)
+ggplot(gapminder_agg, aes(x = year, y = lifeExp)) + geom_line()
+```
+
+<img src="03-frequencyandplot_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
+

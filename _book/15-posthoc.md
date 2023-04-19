@@ -96,11 +96,11 @@ summary(tukey_results)
 #> territory - target == 0      6.500      3.005   2.163
 #> territory - fielding == 0    4.125      3.005   1.373
 #>                           Pr(>|t|)    
-#> target - movement == 0      0.1357    
-#> fielding - movement == 0    0.0247 *  
+#> target - movement == 0      0.1354    
+#> fielding - movement == 0    0.0252 *  
 #> territory - movement == 0   <0.001 ***
-#> fielding - target == 0      0.8582    
-#> territory - target == 0     0.1587    
+#> fielding - target == 0      0.8581    
+#> territory - target == 0     0.1585    
 #> territory - fielding == 0   0.5262    
 #> ---
 #> Signif. codes:  
@@ -117,18 +117,18 @@ confint(tukey_results)
 #> 
 #> Fit: aov(formula = Distress ~ SportF, data = ourdata)
 #> 
-#> Quantile = 2.7308
+#> Quantile = 2.7309
 #> 95% family-wise confidence level
 #>  
 #> 
 #> Linear Hypotheses:
 #>                           Estimate lwr     upr    
-#> target - movement == 0     6.7500  -1.4550 14.9550
-#> fielding - movement == 0   9.1250   0.9200 17.3300
-#> territory - movement == 0 13.2500   5.0450 21.4550
-#> fielding - target == 0     2.3750  -5.8300 10.5800
-#> territory - target == 0    6.5000  -1.7050 14.7050
-#> territory - fielding == 0  4.1250  -4.0800 12.3300
+#> target - movement == 0     6.7500  -1.4554 14.9554
+#> fielding - movement == 0   9.1250   0.9196 17.3304
+#> territory - movement == 0 13.2500   5.0446 21.4554
+#> fielding - target == 0     2.3750  -5.8304 10.5804
+#> territory - target == 0    6.5000  -1.7054 14.7054
+#> territory - fielding == 0  4.1250  -4.0804 12.3304
 ```
 
 The first part of the output shows the estimated mean differences between groups, standard errors, t-values, and adjusted p-values. The second part of the output presents the confidence intervals for the pairwise comparisons.

@@ -21,11 +21,14 @@ importing-csv-file
 importing-spss-and-stata-file
 importing-excel-file
 data-representation
+loading-your-data
 frequency-tables
 histograms
 bar-graphs
 pie-charts
 box-plots
+scatter-plots
+line-graphs
 describing-data-in-r
 central-tendency
 mean
@@ -73,7 +76,7 @@ performing-the-paired-t-test-using-r
 data-screening-procedures
 performing-the-paired-t-test
 covariance
-scatter-plots
+scatter-plots-1
 bivariate-measures-of-association
 scatterplots
 positive-linear-relationship

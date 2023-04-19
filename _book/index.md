@@ -1,7 +1,7 @@
 ---
 title: "Quantitative Methods Using R"
 author: "Subash Parajuli"
-date: "2023-04-17"
+date: "2023-04-19"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
