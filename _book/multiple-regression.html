@@ -1,30 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 17 Multiple Regression | Quantitative Methods Using R</title>
-<meta name="author" content="Subash Parajuli">
-<meta name="description" content="Multiple linear regression is an extension of simple linear regression, where you model the relationship between a single dependent (outcome) variable and multiple independent (predictor)...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Chapter 17 Multiple Regression | Quantitative Methods Using R">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/multiple-regression.html">
-<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
-<meta property="og:description" content="Multiple linear regression is an extension of simple linear regression, where you model the relationship between a single dependent (outcome) variable and multiple independent (predictor)...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 17 Multiple Regression | Quantitative Methods Using R">
-<meta name="twitter:description" content="Multiple linear regression is an extension of simple linear regression, where you model the relationship between a single dependent (outcome) variable and multiple independent (predictor)...">
-<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 17 Multiple Regression | Quantitative Methods Using R</title>
+
+    <meta name="author" content="Subash Parajuli" />
+  
+   <meta name="description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 17 Multiple Regression | Quantitative Methods Using R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/" />
+  <meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
+  <meta property="og:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 17 Multiple Regression | Quantitative Methods Using R" />
+  
+  <meta name="twitter:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+  <meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.4.2/transition.js"></script>
+    <script src="libs/bs3compat-0.4.2/tabs.js"></script>
+    <script src="libs/bs3compat-0.4.2/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-<style type="text/css">
+    <style type="text/css">
     /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
     div.csl-bib-body { }
     div.csl-entry {
@@ -46,13 +64,16 @@
       margin-left: 2em;
     }
   </style>
-<link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="style.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -64,45 +85,22 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="preface.html">Preface</a></li>
-<li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
-<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">2</span> Basic Statistical Concepts</a></li>
-<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
-<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
-<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
-<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
-<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
-<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
-<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
-<li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
-<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
-<li><a class="" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
-<li><a class="active" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
-<li><a class="" href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-regression" class="section level1" number="17">
-<h1>
-<span class="header-section-number">17</span> Multiple Regression<a class="anchor" aria-label="anchor" href="#multiple-regression"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="multiple-regression" class="section level1" number="17">
+<h1><span class="header-section-number">Chapter 17</span> Multiple Regression</h1>
 <p>Multiple linear regression is an extension of simple linear regression, where you model the relationship between a single dependent (outcome) variable and multiple independent (predictor) variables. The goal is to predict the dependent variable based on the values of the independent variables while accounting for the influence of each predictor variable.</p>
 <p>The multiple linear regression equation is as follows:</p>
 <p>Y = β0 + β1X1 + β2X2 + … + βnXn + ε</p>
@@ -113,60 +111,59 @@
 ε is the error term, representing the difference between the actual and predicted values of Y
 The regression coefficients (β1, β2, …, βn) represent the average change in the dependent variable for a one-unit increase in the corresponding independent variable, holding all other independent variables constant.</p>
 <p>We can perform linear regression in R using the <em>psych</em> package.</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Load the necessary libraries.</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: package 'psych' was built under R version 4.2.3</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: package 'tidyverse' was built under R version</span></span>
-<span><span class="co">#&gt; 4.2.3</span></span>
-<span><span class="co">#&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──</span></span>
-<span><span class="co">#&gt; ✔ dplyr     1.1.0     ✔ readr     2.1.4</span></span>
-<span><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0</span></span>
-<span><span class="co">#&gt; ✔ ggplot2   3.4.1     ✔ tibble    3.1.8</span></span>
-<span><span class="co">#&gt; ✔ lubridate 1.9.2     ✔ tidyr     1.3.0</span></span>
-<span><span class="co">#&gt; ✔ purrr     1.0.1     </span></span>
-<span><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
-<span><span class="co">#&gt; ✖ ggplot2::%+%()   masks psych::%+%()</span></span>
-<span><span class="co">#&gt; ✖ ggplot2::alpha() masks psych::alpha()</span></span>
-<span><span class="co">#&gt; ✖ dplyr::filter()  masks stats::filter()</span></span>
-<span><span class="co">#&gt; ✖ dplyr::lag()     masks stats::lag()</span></span>
-<span><span class="co">#&gt; ℹ Use the </span></span>
-<span></span>
-<span><span class="co"># Reading the CSV file. </span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"exampledata/Ch18_GGPA.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 11 Columns: 3</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; dbl (3): GRE_Total, UGPA, GGPA</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span></span>
-<span><span class="co"># Define the model. </span></span>
-<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">GGPA</span>  <span class="op">~</span><span class="va">UGPA</span> <span class="op">+</span> <span class="va">GRE_Total</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; lm(formula = GGPA ~ UGPA + GRE_Total, data = data)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Residuals:</span></span>
-<span><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span><span class="co">#&gt; -0.19943 -0.06029  0.02812  0.06216  0.17207 </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Coefficients:</span></span>
-<span><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span><span class="co">#&gt; (Intercept) 0.637906   0.326537   1.954 0.086517 .  </span></span>
-<span><span class="co">#&gt; UGPA        0.468670   0.093181   5.030 0.001015 ** </span></span>
-<span><span class="co">#&gt; GRE_Total   0.012463   0.002288   5.447 0.000611 ***</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  </span></span>
-<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Residual standard error: 0.1127 on 8 degrees of freedom</span></span>
-<span><span class="co">#&gt; Multiple R-squared:  0.9076, Adjusted R-squared:  0.8845 </span></span>
-<span><span class="co">#&gt; F-statistic: 39.29 on 2 and 8 DF,  p-value: 7.289e-05</span></span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="multiple-regression.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary libraries.</span></span>
+<span id="cb66-2"><a href="multiple-regression.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb66-3"><a href="multiple-regression.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;psych&#39; was built under R version 4.2.3</span></span>
+<span id="cb66-4"><a href="multiple-regression.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb66-5"><a href="multiple-regression.html#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;tidyverse&#39; was built under R version</span></span>
+<span id="cb66-6"><a href="multiple-regression.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4.2.3</span></span>
+<span id="cb66-7"><a href="multiple-regression.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──</span></span>
+<span id="cb66-8"><a href="multiple-regression.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ dplyr     1.1.0     ✔ readr     2.1.4</span></span>
+<span id="cb66-9"><a href="multiple-regression.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0</span></span>
+<span id="cb66-10"><a href="multiple-regression.html#cb66-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ ggplot2   3.4.1     ✔ tibble    3.1.8</span></span>
+<span id="cb66-11"><a href="multiple-regression.html#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ lubridate 1.9.2     ✔ tidyr     1.3.0</span></span>
+<span id="cb66-12"><a href="multiple-regression.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ purrr     1.0.1     </span></span>
+<span id="cb66-13"><a href="multiple-regression.html#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
+<span id="cb66-14"><a href="multiple-regression.html#cb66-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ ggplot2::%+%()   masks psych::%+%()</span></span>
+<span id="cb66-15"><a href="multiple-regression.html#cb66-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ ggplot2::alpha() masks psych::alpha()</span></span>
+<span id="cb66-16"><a href="multiple-regression.html#cb66-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::filter()  masks stats::filter()</span></span>
+<span id="cb66-17"><a href="multiple-regression.html#cb66-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()     masks stats::lag()</span></span>
+<span id="cb66-18"><a href="multiple-regression.html#cb66-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</span></span>
+<span id="cb66-19"><a href="multiple-regression.html#cb66-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-20"><a href="multiple-regression.html#cb66-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the CSV file. </span></span>
+<span id="cb66-21"><a href="multiple-regression.html#cb66-21" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;exampledata/Ch18_GGPA.csv&quot;</span>)</span>
+<span id="cb66-22"><a href="multiple-regression.html#cb66-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rows: 11 Columns: 3</span></span>
+<span id="cb66-23"><a href="multiple-regression.html#cb66-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────</span></span>
+<span id="cb66-24"><a href="multiple-regression.html#cb66-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb66-25"><a href="multiple-regression.html#cb66-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; dbl (3): GRE_Total, UGPA, GGPA</span></span>
+<span id="cb66-26"><a href="multiple-regression.html#cb66-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb66-27"><a href="multiple-regression.html#cb66-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb66-28"><a href="multiple-regression.html#cb66-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span id="cb66-29"><a href="multiple-regression.html#cb66-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-30"><a href="multiple-regression.html#cb66-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the model. </span></span>
+<span id="cb66-31"><a href="multiple-regression.html#cb66-31" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(GGPA  <span class="sc">~</span>UGPA <span class="sc">+</span> GRE_Total, <span class="at">data =</span> data)</span>
+<span id="cb66-32"><a href="multiple-regression.html#cb66-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-33"><a href="multiple-regression.html#cb66-33" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
+<span id="cb66-34"><a href="multiple-regression.html#cb66-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb66-35"><a href="multiple-regression.html#cb66-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb66-36"><a href="multiple-regression.html#cb66-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; lm(formula = GGPA ~ UGPA + GRE_Total, data = data)</span></span>
+<span id="cb66-37"><a href="multiple-regression.html#cb66-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb66-38"><a href="multiple-regression.html#cb66-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb66-39"><a href="multiple-regression.html#cb66-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb66-40"><a href="multiple-regression.html#cb66-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -0.19943 -0.06029  0.02812  0.06216  0.17207 </span></span>
+<span id="cb66-41"><a href="multiple-regression.html#cb66-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb66-42"><a href="multiple-regression.html#cb66-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb66-43"><a href="multiple-regression.html#cb66-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb66-44"><a href="multiple-regression.html#cb66-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept) 0.637906   0.326537   1.954 0.086517 .  </span></span>
+<span id="cb66-45"><a href="multiple-regression.html#cb66-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; UGPA        0.468670   0.093181   5.030 0.001015 ** </span></span>
+<span id="cb66-46"><a href="multiple-regression.html#cb66-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; GRE_Total   0.012463   0.002288   5.447 0.000611 ***</span></span>
+<span id="cb66-47"><a href="multiple-regression.html#cb66-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb66-48"><a href="multiple-regression.html#cb66-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  </span></span>
+<span id="cb66-49"><a href="multiple-regression.html#cb66-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb66-50"><a href="multiple-regression.html#cb66-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb66-51"><a href="multiple-regression.html#cb66-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.1127 on 8 degrees of freedom</span></span>
+<span id="cb66-52"><a href="multiple-regression.html#cb66-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.9076, Adjusted R-squared:  0.8845 </span></span>
+<span id="cb66-53"><a href="multiple-regression.html#cb66-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 39.29 on 2 and 8 DF,  p-value: 7.289e-05</span></span></code></pre></div>
 <p>The output shows us the regression coefficients, standard errors, t-values, and p-values for each independent variable. We can also see the R-squared value, adjusted R-squared value, and other model fit statistics.</p>
 <p>The summary statistics for the residuals are provided, including the minimum, first quartile (1Q), median, third quartile (3Q), and maximum values.</p>
 <p>The coefficients table provides the regression coefficients (Estimate), standard errors (Std. Error), t-values (t value), and p-values (Pr(&gt;|t|)) for each independent variable, as well as the intercept.</p>
@@ -178,9 +175,7 @@ UGPA is the first independent variable (Undergraduate GPA)
 GRE_Total is the second independent variable (Total GRE score)
 Significance codes: These indicate the level of statistical significance for each independent variable, with 0.001 (*), 0.01 (), 0.05 (.), and 0.1 ( ).</p>
 <div id="model-fit-statistics" class="section level3" number="17.0.1">
-<h3>
-<span class="header-section-number">17.0.1</span> Model Fit Statistics:<a class="anchor" aria-label="anchor" href="#model-fit-statistics"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">17.0.1</span> Model Fit Statistics:</h3>
 <p>Residual standard error: This is the standard deviation of the residuals, indicating the average difference between the actual and predicted values of the dependent variable.</p>
 <p>Multiple R-squared: This value represents the proportion of the total variability in the dependent variable explained by the independent variables in the model.</p>
 <p>Adjusted R-squared: This value adjusts the R-squared for the number of independent variables, providing a more accurate estimate of the model’s explanatory power when multiple predictors are included.</p>
@@ -188,28 +183,27 @@ Significance codes: These indicate the level of statistical significance for eac
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></div>
-<div class="next"><a href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li>
-<a class="nav-link" href="#multiple-regression"><span class="header-section-number">17</span> Multiple Regression</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#model-fit-statistics"><span class="header-section-number">17.0.1</span> Model Fit Statistics:</a></li></ul>
-</li></ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/13-multiple-regression.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/13-multiple-regression.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
     <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
@@ -221,5 +215,39 @@ Significance codes: These indicate the level of statistical significance for eac
 
 </div></div>
 </footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

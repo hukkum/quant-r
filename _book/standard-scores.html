@@ -1,30 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 8 Standard Scores | Quantitative Methods Using R</title>
-<meta name="author" content="Subash Parajuli">
-<meta name="description" content="Standard scores are a type of transformed scores that express individual data points in a dataset relative to the mean and standard deviation of that dataset. Standard scores allow for comparing...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Chapter 8 Standard Scores | Quantitative Methods Using R">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/standard-scores.html">
-<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
-<meta property="og:description" content="Standard scores are a type of transformed scores that express individual data points in a dataset relative to the mean and standard deviation of that dataset. Standard scores allow for comparing...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 8 Standard Scores | Quantitative Methods Using R">
-<meta name="twitter:description" content="Standard scores are a type of transformed scores that express individual data points in a dataset relative to the mean and standard deviation of that dataset. Standard scores allow for comparing...">
-<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 8 Standard Scores | Quantitative Methods Using R</title>
+
+    <meta name="author" content="Subash Parajuli" />
+  
+   <meta name="description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 8 Standard Scores | Quantitative Methods Using R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/" />
+  <meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
+  <meta property="og:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Standard Scores | Quantitative Methods Using R" />
+  
+  <meta name="twitter:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+  <meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.4.2/transition.js"></script>
+    <script src="libs/bs3compat-0.4.2/tabs.js"></script>
+    <script src="libs/bs3compat-0.4.2/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-<style type="text/css">
+    <style type="text/css">
     /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
     div.csl-bib-body { }
     div.csl-entry {
@@ -46,13 +64,16 @@
       margin-left: 2em;
     }
   </style>
-<link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="style.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -64,50 +85,25 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="preface.html">Preface</a></li>
-<li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
-<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">2</span> Basic Statistical Concepts</a></li>
-<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
-<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
-<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
-<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
-<li><a class="active" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
-<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
-<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
-<li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
-<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
-<li><a class="" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
-<li><a class="" href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="standard-scores" class="section level1" number="8">
-<h1>
-<span class="header-section-number">8</span> Standard Scores<a class="anchor" aria-label="anchor" href="#standard-scores"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="standard-scores" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Standard Scores</h1>
 <p>Standard scores are a type of transformed scores that express individual data points in a dataset relative to the mean and standard deviation of that dataset. Standard scores allow for comparing scores across different distributions or scales by placing them on a common scale. They provide a standardized measure of the position of a data point within its distribution, taking into account both the average value (mean) and the spread (standard deviation) of the data.</p>
 <div id="z--score" class="section level2" number="8.1">
-<h2>
-<span class="header-section-number">8.1</span> Z- Score<a class="anchor" aria-label="anchor" href="#z--score"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">8.1</span> Z- Score</h2>
 <p>A z-score is a type of standard score that is calculated by subtracting the mean (μ) from an individual data point (X) and dividing the result by the standard deviation (σ):</p>
 <p>z = (X - μ) / σ</p>
 <p>A z-score represents how many standard deviations a data point is from the mean. A positive z-score indicates that a data point is above the mean, while a negative z-score indicates that it is below the mean. A z-score of 0 corresponds to the mean of the distribution.</p>
@@ -116,26 +112,23 @@
 <p>Identifying outliers: Z-scores can help identify students who perform exceptionally well or poorly compared to the group mean. Outliers can provide insights into the effectiveness of teaching methods, identify areas for improvement, or recognize exceptional talent.</p>
 <p>Normalizing grades: In cases where the distribution of grades is skewed, converting raw scores to z-scores can provide a more equitable assessment of student performance. Z-scores can then be converted to percentiles, which represent the percentage of students who scored lower than a particular student, providing a standardized ranking within the group.</p>
 <p>To calculate z-scores in R, we can use the following code:</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Example data</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">60</span>, <span class="fl">65</span>, <span class="fl">70</span>, <span class="fl">75</span>, <span class="fl">80</span>, <span class="fl">85</span>, <span class="fl">90</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Calculate the mean and standard deviation</span></span>
-<span><span class="va">mean_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
-<span><span class="va">sd_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Calculate z-scores</span></span>
-<span><span class="va">z_scores</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">data</span> <span class="op">-</span> <span class="va">mean_data</span><span class="op">)</span> <span class="op">/</span> <span class="va">sd_data</span></span>
-<span></span>
-<span><span class="va">z_scores</span></span>
-<span><span class="co">#&gt; [1] -1.3887301 -0.9258201 -0.4629100  0.0000000  0.4629100</span></span>
-<span><span class="co">#&gt; [6]  0.9258201  1.3887301</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="standard-scores.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data</span></span>
+<span id="cb32-2"><a href="standard-scores.html#cb32-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">70</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>)</span>
+<span id="cb32-3"><a href="standard-scores.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="standard-scores.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean and standard deviation</span></span>
+<span id="cb32-5"><a href="standard-scores.html#cb32-5" aria-hidden="true" tabindex="-1"></a>mean_data <span class="ot">&lt;-</span> <span class="fu">mean</span>(data)</span>
+<span id="cb32-6"><a href="standard-scores.html#cb32-6" aria-hidden="true" tabindex="-1"></a>sd_data <span class="ot">&lt;-</span> <span class="fu">sd</span>(data)</span>
+<span id="cb32-7"><a href="standard-scores.html#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="standard-scores.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate z-scores</span></span>
+<span id="cb32-9"><a href="standard-scores.html#cb32-9" aria-hidden="true" tabindex="-1"></a>z_scores <span class="ot">&lt;-</span> (data <span class="sc">-</span> mean_data) <span class="sc">/</span> sd_data</span>
+<span id="cb32-10"><a href="standard-scores.html#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="standard-scores.html#cb32-11" aria-hidden="true" tabindex="-1"></a>z_scores</span>
+<span id="cb32-12"><a href="standard-scores.html#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] -1.3887301 -0.9258201 -0.4629100  0.0000000  0.4629100</span></span>
+<span id="cb32-13"><a href="standard-scores.html#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6]  0.9258201  1.3887301</span></span></code></pre></div>
 <p>By understanding and utilizing z-scores in education, educators and researchers can make more informed decisions about student performance, compare results across different assessments, and identify patterns or trends in student achievement.</p>
 </div>
 <div id="t--scores" class="section level2" number="8.2">
-<h2>
-<span class="header-section-number">8.2</span> T- Scores<a class="anchor" aria-label="anchor" href="#t--scores"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">8.2</span> T- Scores</h2>
 <p>A T-score is a type of standard score that is used to transform and standardize individual data points in a dataset. T-scores are similar to z-scores, but they use a different scaling factor to place the scores on a specific scale. T-scores are especially helpful when comparing scores across different distributions or scales.</p>
 <p>A T-score is calculated by subtracting the mean (μ) from an individual data point (X), dividing the result by the standard deviation (σ), and then multiplying the result by a scaling factor (usually 10) and adding a constant (usually 50):</p>
 <p>T = ((X - μ) / σ) * 10 + 50</p>
@@ -145,44 +138,40 @@
 <p>Norm-referenced interpretation: T-scores are often used in standardized testing to provide a norm-referenced interpretation of test scores. This enables the comparison of an individual’s performance to the performance of a reference group (e.g., age or grade peers).</p>
 <p>Clinical and psychological assessments: T-scores are commonly used in clinical and psychological assessments to interpret scores on various tests or questionnaires, allowing practitioners to compare an individual’s performance or symptoms to a normative sample.</p>
 <p>To calculate T-scores in R, you can use the following code:</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Example data</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">60</span>, <span class="fl">65</span>, <span class="fl">70</span>, <span class="fl">75</span>, <span class="fl">80</span>, <span class="fl">85</span>, <span class="fl">90</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Calculate the mean and standard deviation</span></span>
-<span><span class="va">mean_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
-<span><span class="va">sd_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Calculate T-scores</span></span>
-<span><span class="va">t_scores</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="op">(</span><span class="va">data</span> <span class="op">-</span> <span class="va">mean_data</span><span class="op">)</span> <span class="op">/</span> <span class="va">sd_data</span><span class="op">)</span> <span class="op">*</span> <span class="fl">10</span> <span class="op">+</span> <span class="fl">50</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="standard-scores.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data</span></span>
+<span id="cb33-2"><a href="standard-scores.html#cb33-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">70</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>)</span>
+<span id="cb33-3"><a href="standard-scores.html#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="standard-scores.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean and standard deviation</span></span>
+<span id="cb33-5"><a href="standard-scores.html#cb33-5" aria-hidden="true" tabindex="-1"></a>mean_data <span class="ot">&lt;-</span> <span class="fu">mean</span>(data)</span>
+<span id="cb33-6"><a href="standard-scores.html#cb33-6" aria-hidden="true" tabindex="-1"></a>sd_data <span class="ot">&lt;-</span> <span class="fu">sd</span>(data)</span>
+<span id="cb33-7"><a href="standard-scores.html#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="standard-scores.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate T-scores</span></span>
+<span id="cb33-9"><a href="standard-scores.html#cb33-9" aria-hidden="true" tabindex="-1"></a>t_scores <span class="ot">&lt;-</span> ((data <span class="sc">-</span> mean_data) <span class="sc">/</span> sd_data) <span class="sc">*</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">50</span></span></code></pre></div>
 <p>By understanding and utilizing T-scores, you can make more informed decisions about individual performance, compare results across different assessments, and identify patterns or trends in a standardized manner.</p>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></div>
-<div class="next"><a href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#standard-scores"><span class="header-section-number">8</span> Standard Scores</a></li>
-<li><a class="nav-link" href="#z--score"><span class="header-section-number">8.1</span> Z- Score</a></li>
-<li><a class="nav-link" href="#t--scores"><span class="header-section-number">8.2</span> T- Scores</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/06-standardscores.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/06-standardscores.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
     <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
@@ -194,5 +183,39 @@
 
 </div></div>
 </footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

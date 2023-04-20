@@ -1,30 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 14 Scatter Plots | Quantitative Methods Using R</title>
-<meta name="author" content="Subash Parajuli">
-<meta name="description" content="14.1 Bivariate Measures of Association Bivariate measures of association are statistical methods used to examine the strength, direction, and nature of the relationship between two variables. In...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
-<meta property="og:title" content="Chapter 14 Scatter Plots | Quantitative Methods Using R">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/scatter-plots-1.html">
-<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
-<meta property="og:description" content="14.1 Bivariate Measures of Association Bivariate measures of association are statistical methods used to examine the strength, direction, and nature of the relationship between two variables. In...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 14 Scatter Plots | Quantitative Methods Using R">
-<meta name="twitter:description" content="14.1 Bivariate Measures of Association Bivariate measures of association are statistical methods used to examine the strength, direction, and nature of the relationship between two variables. In...">
-<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 14 Scatter Plots | Quantitative Methods Using R</title>
+
+    <meta name="author" content="Subash Parajuli" />
+  
+   <meta name="description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 14 Scatter Plots | Quantitative Methods Using R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/" />
+  <meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
+  <meta property="og:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 14 Scatter Plots | Quantitative Methods Using R" />
+  
+  <meta name="twitter:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+  <meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.4.2/transition.js"></script>
+    <script src="libs/bs3compat-0.4.2/tabs.js"></script>
+    <script src="libs/bs3compat-0.4.2/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-<style type="text/css">
+    <style type="text/css">
     /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
     div.csl-bib-body { }
     div.csl-entry {
@@ -46,13 +64,16 @@
       margin-left: 2em;
     }
   </style>
-<link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="style.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -64,55 +85,28 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="preface.html">Preface</a></li>
-<li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
-<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">2</span> Basic Statistical Concepts</a></li>
-<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
-<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
-<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
-<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
-<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
-<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
-<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
-<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
-<li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
-<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
-<li><a class="active" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
-<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
-<li><a class="" href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></li>
-<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
-<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="scatter-plots-1" class="section level1" number="14">
-<h1>
-<span class="header-section-number">14</span> Scatter Plots<a class="anchor" aria-label="anchor" href="#scatter-plots-1"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="scatter-plots-1" class="section level1" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Scatter Plots</h1>
 <div id="bivariate-measures-of-association" class="section level2" number="14.1">
-<h2>
-<span class="header-section-number">14.1</span> Bivariate Measures of Association<a class="anchor" aria-label="anchor" href="#bivariate-measures-of-association"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">14.1</span> Bivariate Measures of Association</h2>
 <p>Bivariate measures of association are statistical methods used to examine the strength, direction, and nature of the relationship between two variables. In educational research, these measures help researchers understand the associations between different factors that may influence educational outcomes, such as student performance, teaching strategies, or resource allocation. By understanding these relationships, researchers can make informed decisions and develop effective interventions to improve educational outcomes.</p>
 </div>
 <div id="scatterplots" class="section level2" number="14.2">
-<h2>
-<span class="header-section-number">14.2</span> Scatterplots<a class="anchor" aria-label="anchor" href="#scatterplots"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">14.2</span> Scatterplots</h2>
 <p>Scatterplots are an important tool in understanding bivariate measures of association. A scatterplot is a graphical representation of the relationship between two variables, where each point on the plot represents a pair of observations from the two variables. The pattern of the points can give us an idea of the direction, strength, and shape of the relationship between the two variables.</p>
 <p>For example, in educational research, a scatterplot could be used to visualize the relationship between students’ reading scores and their math scores. By examining the scatterplot, researchers can identify whether there is a positive or negative relationship between the two variables, whether the relationship is linear or nonlinear, and how strong the association is.</p>
 <p>Here are some key insights that scatterplots can provide:</p>
@@ -120,139 +114,115 @@
 <p>Strength: The strength of the relationship can be determined by how closely the points follow a specific pattern (e.g., a straight line). A strong relationship has points closely following the pattern, while a weak relationship has points scattered more widely around the pattern.</p>
 <p>Shape: The shape of the relationship can be linear, nonlinear, or no relationship. A linear relationship follows a straight line, while a nonlinear relationship follows a curve or other non-straight pattern. No relationship means that the points are scattered randomly, indicating no association between the two variables.</p>
 <p>As an example, lets create five different types of plots here to see how they differ in terms of these attributes.</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Load ggplot2 package</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Create sample datasets</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">positive_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, y <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">negative_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, y <span class="op">=</span> <span class="fl">50</span><span class="op">:</span><span class="fl">1</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">nonlinear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, y <span class="op">=</span> <span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">500</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">no_relationship</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">clustered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">25</span>, mean <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">25</span>, mean <span class="op">=</span> <span class="fl">40</span><span class="op">)</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">25</span>, mean <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">25</span>, mean <span class="op">=</span> <span class="fl">50</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Function to create scatterplots</span></span>
-<span><span class="va">create_scatterplot</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">title</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"X"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Y"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># Generate scatterplots</span></span>
-<span><span class="va">positive_linear_plot</span> <span class="op">&lt;-</span> <span class="fu">create_scatterplot</span><span class="op">(</span><span class="va">positive_linear</span>, <span class="st">"Positive Linear Relationship"</span><span class="op">)</span></span>
-<span><span class="va">negative_linear_plot</span> <span class="op">&lt;-</span> <span class="fu">create_scatterplot</span><span class="op">(</span><span class="va">negative_linear</span>, <span class="st">"Negative Linear Relationship"</span><span class="op">)</span></span>
-<span><span class="va">nonlinear_plot</span> <span class="op">&lt;-</span> <span class="fu">create_scatterplot</span><span class="op">(</span><span class="va">nonlinear</span>, <span class="st">"Nonlinear Relationship"</span><span class="op">)</span></span>
-<span><span class="va">no_relationship_plot</span> <span class="op">&lt;-</span> <span class="fu">create_scatterplot</span><span class="op">(</span><span class="va">no_relationship</span>, <span class="st">"No Relationship"</span><span class="op">)</span></span>
-<span><span class="va">clustered_plot</span> <span class="op">&lt;-</span> <span class="fu">create_scatterplot</span><span class="op">(</span><span class="va">clustered</span>, <span class="st">"Clustered Relationship"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="scatter-plots-1.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load ggplot2 package</span></span>
+<span id="cb54-2"><a href="scatter-plots-1.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb54-3"><a href="scatter-plots-1.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="scatter-plots-1.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create sample datasets</span></span>
+<span id="cb54-5"><a href="scatter-plots-1.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb54-6"><a href="scatter-plots-1.html#cb54-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-7"><a href="scatter-plots-1.html#cb54-7" aria-hidden="true" tabindex="-1"></a>positive_linear <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">5</span>))</span>
+<span id="cb54-8"><a href="scatter-plots-1.html#cb54-8" aria-hidden="true" tabindex="-1"></a>negative_linear <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="at">y =</span> <span class="dv">50</span><span class="sc">:</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">5</span>))</span>
+<span id="cb54-9"><a href="scatter-plots-1.html#cb54-9" aria-hidden="true" tabindex="-1"></a>nonlinear <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="at">y =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">500</span>))</span>
+<span id="cb54-10"><a href="scatter-plots-1.html#cb54-10" aria-hidden="true" tabindex="-1"></a>no_relationship <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">50</span>))</span>
+<span id="cb54-11"><a href="scatter-plots-1.html#cb54-11" aria-hidden="true" tabindex="-1"></a>clustered <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> <span class="dv">20</span>), <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> <span class="dv">40</span>)), <span class="at">y =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> <span class="dv">30</span>), <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> <span class="dv">50</span>)))</span>
+<span id="cb54-12"><a href="scatter-plots-1.html#cb54-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-13"><a href="scatter-plots-1.html#cb54-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to create scatterplots</span></span>
+<span id="cb54-14"><a href="scatter-plots-1.html#cb54-14" aria-hidden="true" tabindex="-1"></a>create_scatterplot <span class="ot">&lt;-</span> <span class="cf">function</span>(data, title) {</span>
+<span id="cb54-15"><a href="scatter-plots-1.html#cb54-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb54-16"><a href="scatter-plots-1.html#cb54-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb54-17"><a href="scatter-plots-1.html#cb54-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;X&quot;</span>) <span class="sc">+</span></span>
+<span id="cb54-18"><a href="scatter-plots-1.html#cb54-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb54-19"><a href="scatter-plots-1.html#cb54-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(title) <span class="sc">+</span></span>
+<span id="cb54-20"><a href="scatter-plots-1.html#cb54-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb54-21"><a href="scatter-plots-1.html#cb54-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb54-22"><a href="scatter-plots-1.html#cb54-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-23"><a href="scatter-plots-1.html#cb54-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate scatterplots</span></span>
+<span id="cb54-24"><a href="scatter-plots-1.html#cb54-24" aria-hidden="true" tabindex="-1"></a>positive_linear_plot <span class="ot">&lt;-</span> <span class="fu">create_scatterplot</span>(positive_linear, <span class="st">&quot;Positive Linear Relationship&quot;</span>)</span>
+<span id="cb54-25"><a href="scatter-plots-1.html#cb54-25" aria-hidden="true" tabindex="-1"></a>negative_linear_plot <span class="ot">&lt;-</span> <span class="fu">create_scatterplot</span>(negative_linear, <span class="st">&quot;Negative Linear Relationship&quot;</span>)</span>
+<span id="cb54-26"><a href="scatter-plots-1.html#cb54-26" aria-hidden="true" tabindex="-1"></a>nonlinear_plot <span class="ot">&lt;-</span> <span class="fu">create_scatterplot</span>(nonlinear, <span class="st">&quot;Nonlinear Relationship&quot;</span>)</span>
+<span id="cb54-27"><a href="scatter-plots-1.html#cb54-27" aria-hidden="true" tabindex="-1"></a>no_relationship_plot <span class="ot">&lt;-</span> <span class="fu">create_scatterplot</span>(no_relationship, <span class="st">&quot;No Relationship&quot;</span>)</span>
+<span id="cb54-28"><a href="scatter-plots-1.html#cb54-28" aria-hidden="true" tabindex="-1"></a>clustered_plot <span class="ot">&lt;-</span> <span class="fu">create_scatterplot</span>(clustered, <span class="st">&quot;Clustered Relationship&quot;</span>)</span></code></pre></div>
 <p>This R code will generate 5 different possible scatterplots, each representing a different type of relationship. Lets display them individually and see how they show the relationship.</p>
 <div id="positive-linear-relationship" class="section level4" number="14.2.0.1">
-<h4>
-<span class="header-section-number">14.2.0.1</span> Positive linear relationship:<a class="anchor" aria-label="anchor" href="#positive-linear-relationship"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.2.0.1</span> Positive linear relationship:</h4>
 <p>The points in the scatterplot show an upward trend, indicating a positive relationship between the variables.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">positive_linear_plot</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="scatter-plots-1.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(positive_linear_plot)</span></code></pre></div>
+<p><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="negative-linear-relationship" class="section level4" number="14.2.0.2">
-<h4>
-<span class="header-section-number">14.2.0.2</span> Negative linear relationship<a class="anchor" aria-label="anchor" href="#negative-linear-relationship"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.2.0.2</span> Negative linear relationship</h4>
 <p>The points in the scatterplot show a downward trend, indicating a negative relationship between the variables.</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">negative_linear_plot</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="scatter-plots-1.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(negative_linear_plot)</span></code></pre></div>
+<p><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="nonlinear-relationship" class="section level4" number="14.2.0.3">
-<h4>
-<span class="header-section-number">14.2.0.3</span> Nonlinear relationship<a class="anchor" aria-label="anchor" href="#nonlinear-relationship"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.2.0.3</span> Nonlinear relationship</h4>
 <p>The points in the scatterplot follow a curve or other non-straight pattern, indicating a nonlinear relationship between the variables.</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">nonlinear_plot</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="scatter-plots-1.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(nonlinear_plot)</span></code></pre></div>
+<p><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="no-relationship" class="section level4" number="14.2.0.4">
-<h4>
-<span class="header-section-number">14.2.0.4</span> No relationship<a class="anchor" aria-label="anchor" href="#no-relationship"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.2.0.4</span> No relationship</h4>
 <p>The points in the scatterplot are scattered randomly, indicating no association between the variables.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">no_relationship_plot</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="scatter-plots-1.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(no_relationship_plot)</span></code></pre></div>
+<p><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="clustered-relationship" class="section level4" number="14.2.0.5">
-<h4>
-<span class="header-section-number">14.2.0.5</span> Clustered relationship<a class="anchor" aria-label="anchor" href="#clustered-relationship"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.2.0.5</span> Clustered relationship</h4>
 <p>The points in the scatterplot form clusters, indicating that the relationship between the variables may be more complex or that there may be other factors at play.</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">clustered_plot</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="scatter-plots-1.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(clustered_plot)</span></code></pre></div>
+<p><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>These scatterplots can help you visualize and understand the associations between different variables in your data.</p>
 </div>
 </div>
 <div id="generating-scatterplots-using-r" class="section level2" number="14.3">
-<h2>
-<span class="header-section-number">14.3</span> Generating Scatterplots using R<a class="anchor" aria-label="anchor" href="#generating-scatterplots-using-r"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">14.3</span> Generating Scatterplots using R</h2>
 <p>First, let’s install and load the ggplot2 package, and create a sample dataset:</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Load ggplot2 package</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Create a sample dataset</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>  reading_scores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">60</span>, <span class="fl">65</span>, <span class="fl">55</span>, <span class="fl">70</span>, <span class="fl">75</span>, <span class="fl">80</span>, <span class="fl">85</span>, <span class="fl">90</span>, <span class="fl">95</span><span class="op">)</span>,</span>
-<span>  math_scores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">60</span>, <span class="fl">70</span>, <span class="fl">50</span>, <span class="fl">75</span>, <span class="fl">80</span>, <span class="fl">85</span>, <span class="fl">90</span>, <span class="fl">95</span>, <span class="fl">100</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="scatter-plots-1.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load ggplot2 package</span></span>
+<span id="cb60-2"><a href="scatter-plots-1.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb60-3"><a href="scatter-plots-1.html#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="scatter-plots-1.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a sample dataset</span></span>
+<span id="cb60-5"><a href="scatter-plots-1.html#cb60-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb60-6"><a href="scatter-plots-1.html#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">reading_scores =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">55</span>, <span class="dv">70</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">95</span>),</span>
+<span id="cb60-7"><a href="scatter-plots-1.html#cb60-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">math_scores =</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">95</span>, <span class="dv">100</span>)</span>
+<span id="cb60-8"><a href="scatter-plots-1.html#cb60-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Now, we can create a scatterplot of reading_scores vs. math_scores.</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create a scatterplot</span></span>
-<span><span class="va">scatterplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">reading_scores</span>, y <span class="op">=</span> <span class="va">math_scores</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Reading Scores"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Math Scores"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Scatterplot of Reading Scores vs. Math Scores"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Display the scatterplot</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">scatterplot</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="scatter-plots-1.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatterplot</span></span>
+<span id="cb61-2"><a href="scatter-plots-1.html#cb61-2" aria-hidden="true" tabindex="-1"></a>scatterplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> reading_scores, <span class="at">y =</span> math_scores)) <span class="sc">+</span></span>
+<span id="cb61-3"><a href="scatter-plots-1.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb61-4"><a href="scatter-plots-1.html#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Reading Scores&quot;</span>) <span class="sc">+</span></span>
+<span id="cb61-5"><a href="scatter-plots-1.html#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Math Scores&quot;</span>) <span class="sc">+</span></span>
+<span id="cb61-6"><a href="scatter-plots-1.html#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Scatterplot of Reading Scores vs. Math Scores&quot;</span>) <span class="sc">+</span></span>
+<span id="cb61-7"><a href="scatter-plots-1.html#cb61-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb61-8"><a href="scatter-plots-1.html#cb61-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-9"><a href="scatter-plots-1.html#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the scatterplot</span></span>
+<span id="cb61-10"><a href="scatter-plots-1.html#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(scatterplot)</span></code></pre></div>
+<p><img src="10a-bivariate-scatterplot_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>In the example above, we used the ggplot2 package to create a scatterplot. The aes function maps the x and y axes to the reading_scores and math_scores variables, respectively. The geom_point function adds points to the scatterplot, representing the paired observations of reading_scores and math_scores. The xlab, ylab, ggtitle, and theme_minimal functions are used to customize the appearance of the scatterplot.</p>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="covariance.html"><span class="header-section-number">13</span> Covariance</a></div>
-<div class="next"><a href="correlation.html"><span class="header-section-number">15</span> Correlation</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#scatter-plots-1"><span class="header-section-number">14</span> Scatter Plots</a></li>
-<li><a class="nav-link" href="#bivariate-measures-of-association"><span class="header-section-number">14.1</span> Bivariate Measures of Association</a></li>
-<li><a class="nav-link" href="#scatterplots"><span class="header-section-number">14.2</span> Scatterplots</a></li>
-<li><a class="nav-link" href="#generating-scatterplots-using-r"><span class="header-section-number">14.3</span> Generating Scatterplots using R</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/10a-bivariate-scatterplot.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/10a-bivariate-scatterplot.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
     <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
@@ -264,5 +234,39 @@
 
 </div></div>
 </footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

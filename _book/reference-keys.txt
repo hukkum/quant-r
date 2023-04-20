@@ -12,6 +12,10 @@ documentation-websites
 books
 cheatsheets
 basic-statistical-concepts
+population-and-sample
+population
+population-parameters
+sample
 data-types
 types-of-variable
 types-of-scales-of-measurement-of-variables
@@ -31,7 +35,7 @@ scatter-plots
 line-graphs
 describing-data-in-r
 central-tendency
-mean
+sample-mean
 median
 mode
 measures-of-dispersion
@@ -39,10 +43,10 @@ range
 interquartile-range-iqr
 variance
 standard-deviation
-calculating-measures-of-dispersion-using-r
-calculating-descriptives-from-a-dataset-table
+the-psych-package---kitchen-knife-of-social-scientists
+the-describe-function
 normal-distribution
-skewness-and-kurtosis
+unit-normal-distribution
 skewness
 kurtosis
 generating-skewness-and-kurtosis-using-r

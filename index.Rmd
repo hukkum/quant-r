@@ -9,15 +9,17 @@ url: https://bookdown.org/subashparajuli/quant-r/
 github-repo: hukkum/quant-r
 cover-image: cover.jpg
 description:
-  This book covers practical worked out examples on introductory quantitative methods which you can easily apply to your datasets and also includes a disussion on how the recipe is working.
+  This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working.
 biblio-style: apalike 
 link-citations: true 
 csl: apa.csl
 ---
 
-# Welcome {.unnumbered}
+# Welcome! {.unnumbered}
 
-Welcome to Quantitative Methods Using R. This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working. We will cover descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation, simple regression, and chi-square tests. This book is designed to facilitate graduate students of Educational Psychology to develop their knowledge and understanding of various statistical concepts and procedures in R programming as a supplement resource.
+![](cover.jpg){style="align:center"}
+
+This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working. We will cover descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation, simple regression, and chi-square tests. This book is designed to facilitate graduate students of Educational Psychology to develop their knowledge and understanding of various statistical concepts and procedures in R programming as a supplement resource.
 
 ## General Objectives {.unnumbered}
 
@@ -41,7 +43,7 @@ This book is based on a 3 credit semester course "Quantitative Methods - I" as t
 
 -   **Interpret** the results of statistical analyses.
 
-```{r include=TRUE}
+```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'

@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Quantitative Methods Using R</title>
+
+    <meta name="author" content="Subash Parajuli" />
+  
+   <meta name="description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Quantitative Methods Using R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="<a href="https://bookdown.org/subashparajuli/quant-r/" class="uri">https://bookdown.org/subashparajuli/quant-r/</a>" />
+  <meta property="og:image" content="<a href="https://bookdown.org/subashparajuli/quant-r/" class="uri">https://bookdown.org/subashparajuli/quant-r/</a>/cover.jpg" />
+  <meta property="og:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Methods Using R" />
+  
+  <meta name="twitter:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
+  <meta name="twitter:image" content="<a href="https://bookdown.org/subashparajuli/quant-r/" class="uri">https://bookdown.org/subashparajuli/quant-r/</a>/cover.jpg" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.4.2/transition.js"></script>
+    <script src="libs/bs3compat-0.4.2/tabs.js"></script>
+    <script src="libs/bs3compat-0.4.2/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<!--bookdown:title:start-->
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Quantitative Methods Using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<!--bookdown:toc:end-->
+<!--bookdown:body:start-->
+<div id="welcome" class="section level1 unnumbered">
+<h1 class="unnumbered">Welcome!</h1>
+<p>Placeholder</p>
+<div id="general-objectives" class="section level2 unnumbered">
+<h2 class="unnumbered">General Objectives</h2>
+<!--chapter:end:index.Rmd-->
+</div>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1 class="unnumbered">Preface</h1>
+<p>Placeholder</p>
+<div id="acknolwedgement" class="section level2" number="0.1">
+<h2><span class="header-section-number">0.1</span> Acknolwedgement</h2>
+</div>
+<div id="conventions-used-in-the-book" class="section level2" number="0.2">
+<h2><span class="header-section-number">0.2</span> Conventions Used in the Book</h2>
+</div>
+<div id="example-data" class="section level2" number="0.3">
+<h2><span class="header-section-number">0.3</span> Example Data</h2>
+<!--chapter:end:00-preface.Rmd-->
+</div>
+</div>
+<div id="r-basics" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> R Basics</h1>
+<p>Placeholder</p>
+<div id="installing-r-base-package." class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Installing R base package.</h2>
+<div id="download-r-studio" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Download R studio</h3>
+</div>
+</div>
+<div id="r-packages" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> R Packages</h2>
+</div>
+<div id="r-console" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> R Console</h2>
+</div>
+<div id="getting-help" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Getting Help</h2>
+</div>
+<div id="r-community-and-resources" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> <strong>R Community and Resources</strong></h2>
+<div id="documentation-websites" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> <strong>Documentation / Websites</strong></h3>
+</div>
+<div id="books" class="section level3" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> <strong>Books</strong></h3>
+</div>
+<div id="cheatsheets" class="section level3" number="1.5.3">
+<h3><span class="header-section-number">1.5.3</span> <strong>Cheatsheets</strong></h3>
+<!--chapter:end:000-RBasics.Rmd-->
+</div>
+</div>
+</div>
+<div id="basic-statistical-concepts" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Basic Statistical Concepts</h1>
+<p>Placeholder</p>
+<div id="population-and-sample" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Population and Sample</h2>
+<div id="population" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Population</h3>
+</div>
+<div id="population-parameters" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Population Parameters:</h3>
+</div>
+<div id="sample" class="section level3" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Sample</h3>
+</div>
+</div>
+<div id="data-types" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Data Types</h2>
+</div>
+<div id="types-of-variable" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Types of variable</h2>
+</div>
+<div id="types-of-scales-of-measurement-of-variables" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Types of scales of measurement of variables</h2>
+<!--chapter:end:01-statconcept.Rmd-->
+</div>
+</div>
+<div id="loading-data-in-r" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Loading Data in R</h1>
+<p>Placeholder</p>
+<div id="entering-data-in-r" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Entering Data in R</h2>
+</div>
+<div id="importing-csv-file" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Importing CSV file</h2>
+</div>
+<div id="importing-spss-and-stata-file" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Importing SPSS and STATA file</h2>
+</div>
+<div id="importing-excel-file" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Importing Excel File</h2>
+<!--chapter:end:02-datainR.Rmd-->
+</div>
+</div>
+<div id="data-representation" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Data Representation</h1>
+<p>Placeholder</p>
+<div id="loading-your-data" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Loading your data</h2>
+</div>
+<div id="frequency-tables" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Frequency Tables</h2>
+</div>
+<div id="histograms" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Histograms:</h2>
+</div>
+<div id="bar-graphs" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Bar Graphs:</h2>
+</div>
+<div id="pie-charts" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Pie Charts:</h2>
+</div>
+<div id="box-plots" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Box Plots:</h2>
+</div>
+<div id="scatter-plots" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Scatter Plots</h2>
+</div>
+<div id="line-graphs" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Line Graphs</h2>
+<!--chapter:end:03-frequencyandplot.Rmd-->
+</div>
+</div>
+<div id="describing-data-in-r" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Describing Data in R</h1>
+<p>Placeholder</p>
+<div id="central-tendency" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Central Tendency:</h2>
+<div id="sample-mean" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Sample Mean</h3>
+</div>
+<div id="median" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Median</h3>
+</div>
+<div id="mode" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Mode</h3>
+</div>
+</div>
+<div id="measures-of-dispersion" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Measures of Dispersion</h2>
+<div id="range" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Range:</h3>
+</div>
+<div id="interquartile-range-iqr" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Interquartile Range (IQR):</h3>
+</div>
+<div id="variance" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Variance:</h3>
+</div>
+<div id="standard-deviation" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Standard Deviation:</h3>
+</div>
+</div>
+<div id="the-psych-package---kitchen-knife-of-social-scientists" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> The <code>psych</code> package - Kitchen knife of social scientists</h2>
+<div id="the-describe-function" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> The <code>describe()</code> Function</h3>
+<!--chapter:end:04-Rdescriptives.Rmd-->
+</div>
+</div>
+</div>
+<div id="normal-distribution" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Normal Distribution</h1>
+<p>Placeholder</p>
+<div id="unit-normal-distribution" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Unit Normal Distribution</h2>
+</div>
+<div id="skewness" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Skewness</h2>
+</div>
+<div id="kurtosis" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Kurtosis</h2>
+</div>
+<div id="generating-skewness-and-kurtosis-using-r" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Generating Skewness and Kurtosis using R</h2>
+<!--chapter:end:05-normaldistribution.Rmd-->
+</div>
+</div>
+<div id="standard-scores" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Standard Scores</h1>
+<p>Placeholder</p>
+<div id="z--score" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Z- Score</h2>
+</div>
+<div id="t--scores" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> T- Scores</h2>
+<!--chapter:end:06-standardscores.Rmd-->
+</div>
+</div>
+<div id="probability-and-inference" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Probability and Inference</h1>
+<div id="probability" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Probability:</h2>
+<p>Probability is a numerical measure of the likelihood that a particular event will occur. It ranges from 0 to 1, with 0 meaning the event is impossible and 1 meaning the event is certain. Probabilities can be represented graphically using bar plots or pie charts.</p>
+</div>
+<div id="sample-space" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Sample Space:</h2>
+<p>The sample space is the set of all possible outcomes for a given experiment or event. For example, in a coin toss experiment, the sample space is {Heads, Tails}. The sample space can be represented using Venn diagrams or tree diagrams.</p>
+</div>
+<div id="conditional-probability" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Conditional Probability:</h2>
+<p>Conditional probability refers to the probability of an event occurring given that another event has already occurred. It can be represented graphically using Venn diagrams, which show the intersections of events.</p>
+</div>
+<div id="independence" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Independence:</h2>
+<p>Two events are independent if the occurrence of one event does not affect the probability of the other event. Graphically, independence can be visualized using Venn diagrams or probability tables, where the probability of the intersection of two events is equal to the product of their individual probabilities.</p>
+</div>
+<div id="bayes-theorem" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Bayes’ Theorem:</h2>
+<p>Bayes’ theorem is a powerful tool for updating the probability of an event based on new evidence. It can be visualized using tree diagrams or probability tables, which show the updated probabilities after taking into account the new evidence.</p>
+</div>
+<div id="discrete-and-continuous-probability-distributions" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Discrete and Continuous Probability Distributions:</h2>
+<p>Discrete probability distributions describe the probabilities of outcomes for discrete random variables (e.g., number of heads in coin tosses), while continuous probability distributions describe the probabilities of outcomes for continuous random variables (e.g., height of individuals). Discrete distributions can be visualized using bar plots, and continuous distributions can be visualized using probability density functions or cumulative distribution functions.</p>
+<!--chapter:end:07-probabilityandinference.Rmd-->
+</div>
+<div id="central-limit-theorem" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Central Limit Theorem</h2>
+</div>
+<div id="confidence-intervals" class="section level2" number="8.8">
+<h2><span class="header-section-number">8.8</span> Confidence Intervals</h2>
+<!--chapter:end:08-samplingdistribution.Rmd-->
+</div>
+</div>
+<div id="hypothesis-testing" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Hypothesis Testing</h1>
+<p>Placeholder</p>
+<div id="hypothesis" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Hypothesis</h2>
+<div id="null-hypothesis-h0" class="section level3" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Null hypothesis (H0):</h3>
+</div>
+<div id="alternative-hypothesis-h1" class="section level3" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Alternative hypothesis (H1):</h3>
+</div>
+</div>
+<div id="decision-type-error" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Decision Type Error</h2>
+</div>
+<div id="level-of-signficance" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Level of Signficance</h2>
+</div>
+<div id="t-statistic" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> T-statistic</h2>
+<div id="t-distribution" class="section level3" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> T-distribution</h3>
+</div>
+<div id="intepreting-normality-evidence" class="section level3" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Intepreting Normality Evidence</h3>
+</div>
+</div>
+<div id="statistical-power" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Statistical Power</h2>
+<!--chapter:end:09-hypothesistesting.Rmd-->
+</div>
+</div>
+<div id="independent-samples-t---test" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Independent Samples T - Test</h1>
+<p>Placeholder</p>
+<div id="independent-samples-t-test" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Independent Samples t-test</h2>
+<div id="independent-t-test-using-r" class="section level3" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Independent t-test using R</h3>
+<!--chapter:end:091-independent-t-test.Rmd-->
+</div>
+</div>
+</div>
+<div id="paired-t-test" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Paired t-test</h1>
+<p>Placeholder</p>
+<div id="performing-the-paired-t-test-using-r" class="section level3" number="11.0.1">
+<h3><span class="header-section-number">11.0.1</span> <strong>Performing the paired t-test using R</strong></h3>
+</div>
+<div id="data-screening-procedures" class="section level3" number="11.0.2">
+<h3><span class="header-section-number">11.0.2</span> Data screening procedures</h3>
+</div>
+<div id="performing-the-paired-t-test" class="section level3" number="11.0.3">
+<h3><span class="header-section-number">11.0.3</span> Performing the paired t-test</h3>
+<!--chapter:end:092-paired-t-test.Rmd-->
+</div>
+</div>
+<div id="covariance" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Covariance</h1>
+<p>Placeholder</p>
+<!--chapter:end:10-covariance.Rmd-->
+</div>
+<div id="scatter-plots-1" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> Scatter Plots</h1>
+<p>Placeholder</p>
+<div id="bivariate-measures-of-association" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Bivariate Measures of Association</h2>
+</div>
+<div id="scatterplots" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> Scatterplots</h2>
+<div id="positive-linear-relationship" class="section level4" number="13.2.0.1">
+<h4><span class="header-section-number">13.2.0.1</span> Positive linear relationship:</h4>
+</div>
+<div id="negative-linear-relationship" class="section level4" number="13.2.0.2">
+<h4><span class="header-section-number">13.2.0.2</span> Negative linear relationship</h4>
+</div>
+<div id="nonlinear-relationship" class="section level4" number="13.2.0.3">
+<h4><span class="header-section-number">13.2.0.3</span> Nonlinear relationship</h4>
+</div>
+<div id="no-relationship" class="section level4" number="13.2.0.4">
+<h4><span class="header-section-number">13.2.0.4</span> No relationship</h4>
+</div>
+<div id="clustered-relationship" class="section level4" number="13.2.0.5">
+<h4><span class="header-section-number">13.2.0.5</span> Clustered relationship</h4>
+</div>
+</div>
+<div id="generating-scatterplots-using-r" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> Generating Scatterplots using R</h2>
+<!--chapter:end:10a-bivariate-scatterplot.Rmd-->
+</div>
+</div>
+<div id="correlation" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Correlation</h1>
+<p>Placeholder</p>
+<!--chapter:end:11-correlation.Rmd-->
+</div>
+<div id="simple-linear-regression" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Simple Linear Regression</h1>
+<p>Placeholder</p>
+<div id="regression-using-r" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Regression using R</h2>
+</div>
+<div id="scatter-plot" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> Scatter Plot</h2>
+<!--chapter:end:12-simple-linear-regression.Rmd-->
+</div>
+</div>
+<div id="multiple-regression" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Multiple Regression</h1>
+<p>Placeholder</p>
+<div id="model-fit-statistics" class="section level3" number="16.0.1">
+<h3><span class="header-section-number">16.0.1</span> Model Fit Statistics:</h3>
+<!--chapter:end:13-multiple-regression.Rmd-->
+</div>
+</div>
+<div id="one-way-anova" class="section level1" number="17">
+<h1><span class="header-section-number">17</span> One way ANOVA</h1>
+<p>Placeholder</p>
+<div id="characteristics" class="section level2" number="17.1">
+<h2><span class="header-section-number">17.1</span> Characteristics</h2>
+</div>
+<div id="performing-one-way-anova-using-r" class="section level2" number="17.2">
+<h2><span class="header-section-number">17.2</span> Performing one Way ANOVA using R</h2>
+<!--chapter:end:14-one-way-anova.Rmd-->
+</div>
+</div>
+<div id="post-hoc-tests" class="section level1" number="18">
+<h1><span class="header-section-number">18</span> Post hoc tests</h1>
+<p>Placeholder</p>
+<div id="tukeys-post-hoc-tests" class="section level2" number="18.1">
+<h2><span class="header-section-number">18.1</span> Tukey’s Post Hoc Tests</h2>
+</div>
+<div id="performing-tukeys-post-hoc-tests-using-r" class="section level2" number="18.2">
+<h2><span class="header-section-number">18.2</span> Performing Tukey’s Post Hoc Tests using R</h2>
+<!--chapter:end:15-posthoc.Rmd-->
+</div>
+</div>
+<div id="chi-square-tests" class="section level1" number="19">
+<h1><span class="header-section-number">19</span> Chi Square Tests</h1>
+<p>Placeholder</p>
+<div id="chi-square-goodness-of-fit-test" class="section level2" number="19.1">
+<h2><span class="header-section-number">19.1</span> Chi Square Goodness of Fit Test</h2>
+<div id="performing-chi-square-goodness-of-fit" class="section level3" number="19.1.1">
+<h3><span class="header-section-number">19.1.1</span> Performing Chi Square Goodness of Fit</h3>
+</div>
+</div>
+<div id="chi-sqaure-test-of-association" class="section level2" number="19.2">
+<h2><span class="header-section-number">19.2</span> Chi Sqaure test of association</h2>
+<div id="performing-chi-sqaure-test-of-independence" class="section level3" number="19.2.1">
+<h3><span class="header-section-number">19.2.1</span> Performing Chi-sqaure test of independence</h3>
+<!--chapter:end:16-chi-square.Rmd-->
+</div>
+</div>
+</div>
+<div id="g-power" class="section level1" number="20">
+<h1><span class="header-section-number">20</span> G* Power</h1>
+<p>Placeholder</p>
+<div id="gpower-in-r" class="section level2" number="20.1">
+<h2><span class="header-section-number">20.1</span> G*Power in R</h2>
+<div id="for-a-t-test-two-sample-equal-sample-sizes-and-equal-variance" class="section level3" number="20.1.1">
+<h3><span class="header-section-number">20.1.1</span> For a t-test (two-sample, equal sample sizes, and equal variance)</h3>
+</div>
+<div id="for-correlation" class="section level3" number="20.1.2">
+<h3><span class="header-section-number">20.1.2</span> For Correlation</h3>
+</div>
+<div id="for-a-chi-squared-test" class="section level3" number="20.1.3">
+<h3><span class="header-section-number">20.1.3</span> For a chi-squared test:</h3>
+</div>
+<div id="for-a-one-way-anova" class="section level3" number="20.1.4">
+<h3><span class="header-section-number">20.1.4</span> For a one-way ANOVA:</h3>
+<!--chapter:end:16-g-power.Rmd-->
+<!--chapter:end:17-binary-logistic-regression.Rmd-->
+</div>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1 class="unnumbered">References</h1>
+<!--chapter:end:20-references.Rmd-->
+</div>
+<!--bookdown:body:end-->
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+</body>
+
+</html>

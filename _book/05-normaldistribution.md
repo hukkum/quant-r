@@ -6,7 +6,15 @@ editor_options:
 
 # Normal Distribution
 
-The Normal distribution is a continuous, symmetric, bell-shaped
+The normal distribution is a fundamental concept in statistics and probability theory. It is a bell-shaped, continuous probability distribution that is symmetrical and fully determined by two parameters: the mean (μ) and the standard deviation (σ). The normal distribution is characterized by the following properties:
+
+- It is continuous and takes on all possible real values.
+- It is symmetric around the mean, which is the highest point of the curve.
+- It has a bell-shaped curve, with most of the data clustered around the mean and gradually decreasing in frequency as you move away from the mean.
+- It is fully specified by its mean and standard deviation, with the 68-95-99.7 rule describing how much of the data falls within one, two, or three standard deviations from the mean.
+- It is widely used to model many natural phenomena and measurements in the social and natural sciences.
+
+One of the key properties of the normal distribution is the 68-95-99.7 rule, also known as the empirical rule or the three-sigma rule. According to this rule, approximately 68% of the data falls within one standard deviation of the mean, 95% of the data falls within two standard deviations of the mean, and 99.7% of the data falls within three standard deviations of the mean. This property makes the normal distribution useful for making probabilistic statements about the data.The Normal distribution is a continuous, symmetric, bell-shaped
 distribution that is defined by two parameters: the mean (μ) and the
 standard deviation (σ).
 
@@ -20,15 +28,18 @@ the 68-95-99.7 rule.
 The probability density function (PDF) of the Normal distribution is
 given by:
 
-f(x) = (1 / (σ \* √(2π))) \* e\^(-1/2 \* ((x - μ) / σ)\^2)
+$f(x) = \frac{1}{\sigma \sqrt{2\pi}} \cdot e^{-\frac{1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}$
 
 Where:
 
 f(x) is the probability density at point x μ is the mean of the
 distribution σ is the standard deviation of the distribution e is the
 base of the natural logarithm (approximately 2.718) π is the
-mathematical constant Pi (approximately 3.141) To help you visualize the
-Normal distribution, consider the following example using R:
+mathematical constant Pi (approximately 3.141) .
+
+## Unit Normal Distribution
+
+A unit normal distribution is a normal distribution with a mean of 0 and a standard deviation of 1. It is also known as the standard normal distribution or the Z-distribution. The concept of a unit normal distribution is useful because any normal distribution can be transformed into a unit normal distribution through a process called standardization. Standardization involves subtracting the mean from each data point and then dividing by the standard deviation. This transforms the data into a Z-score, which represents the number of standard deviations away from the mean.
 
 
 ```r
@@ -48,10 +59,17 @@ pdf <- dnorm(x, mean = mean, sd = sd)
 # Create the plot
 ggplot() +
   geom_line(aes(x, pdf), color = "blue") +
+  geom_ribbon(aes(x = x, ymin = 0, ymax = pdf, fill = factor((x > mean - sd) & (x < mean + sd))), alpha = 0.3) +
+  geom_ribbon(aes(x = x, ymin = 0, ymax = pdf, fill = factor((x > mean - 2*sd) & (x < mean + 2*sd))), alpha = 0.3) +
+  geom_ribbon(aes(x = x, ymin = 0, ymax = pdf, fill = factor((x > mean - 3*sd) & (x < mean + 3*sd))), alpha = 0.3) +
   xlab("X") +
   ylab("Probability Density") +
   ggtitle("Normal Distribution (μ = 0, σ = 1)") +
+  scale_fill_manual(values = c("grey70", "grey50"), guide = FALSE) +
   theme_minimal()
+#> Warning: The `guide` argument in `scale_*()` cannot be `FALSE`. This
+#> was deprecated in ggplot2 3.3.4.
+#> ℹ Please use "none" instead.
 ```
 
 <img src="05-normaldistribution_files/figure-html/unnamed-chunk-1-1.png" width="672" />
@@ -63,16 +81,7 @@ bell-shaped curve of the distribution, illustrating how the data is
 symmetric around the mean and decreases as you move away from the
 center.
 
-ggplot2 is a powerful package to draw graphics. It implements the
-grammar of graphics (and hence its name). You can find the official
-documentation for ggplot2 here: <https://ggplot2.tidyverse.org> We can
-also use ggplot2 to create different descriptive graphs we create
-earlier and also customize as we want.
-
-Understanding the Normal distribution is crucial in statistics because
-many statistical tests and procedures are based on the assumption of
-Normality. It is also essential because, in practice, many naturally
-occurring phenomena approximately follow a Normal distribution.
+The normal distribution also relates to the concepts of skewness and kurtosis. Skewness refers to the degree of asymmetry in a distribution, with positive skewness indicating that the distribution is skewed to the right and negative skewness indicating that the distribution is skewed to the left. The normal distribution has a skewness of 0, indicating perfect symmetry. Kurtosis refers to the degree of peakedness in a distribution, with high kurtosis indicating a sharp peak and low kurtosis indicating a flat peak. The normal distribution has a kurtosis of 3, which is known as mesokurtic. Distributions with higher kurtosis are called leptokurtic and those with lower kurtosis are called platykurtic.
 
 # Skewness and Kurtosis
 
