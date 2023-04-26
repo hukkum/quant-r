@@ -127,6 +127,7 @@ In R, you can create a histogram and Q-Q plot using the following code:
 ```r
 # Load required libraries
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.2.3
 
 # Sample data
 data <- c(12, 14, 16, 18, 20)

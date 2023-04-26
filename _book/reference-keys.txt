@@ -47,6 +47,7 @@ the-psych-package---kitchen-knife-of-social-scientists
 the-describe-function
 normal-distribution
 unit-normal-distribution
+skewness-and-kurtosis
 skewness
 kurtosis
 generating-skewness-and-kurtosis-using-r

@@ -45,6 +45,7 @@ A unit normal distribution is a normal distribution with a mean of 0 and a stand
 ```r
 # Load required libraries
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.2.3
 
 # Define the mean and standard deviation
 mean <- 0
@@ -70,6 +71,9 @@ ggplot() +
 #> Warning: The `guide` argument in `scale_*()` cannot be `FALSE`. This
 #> was deprecated in ggplot2 3.3.4.
 #> ℹ Please use "none" instead.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
 ```
 
 <img src="05-normaldistribution_files/figure-html/unnamed-chunk-1-1.png" width="672" />

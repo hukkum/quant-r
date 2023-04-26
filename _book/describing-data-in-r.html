@@ -1,48 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>Chapter 5 Describing Data in R | Quantitative Methods Using R</title>
-
-    <meta name="author" content="Subash Parajuli" />
-  
-   <meta name="description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-   <meta name="generator" content="placeholder" />
-  <meta property="og:title" content="Chapter 5 Describing Data in R | Quantitative Methods Using R" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/" />
-  <meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
-  <meta property="og:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Describing Data in R | Quantitative Methods Using R" />
-  
-  <meta name="twitter:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-  <meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
-  <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
-    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
-    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-    <script src="libs/bs3compat-0.4.2/transition.js"></script>
-    <script src="libs/bs3compat-0.4.2/tabs.js"></script>
-    <script src="libs/bs3compat-0.4.2/bs3compat.js"></script>
-    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
-    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
-
-  <!-- CSS -->
-  <style type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 5 Describing Data in R | Quantitative Methods Using R</title>
+<meta name="author" content="Subash Parajuli">
+<meta name="description" content="Describing data is the process of summarizing and interpreting information that has been collected through research or observation. To describe data, we typically use statistical measures such as...">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
+<meta property="og:title" content="Chapter 5 Describing Data in R | Quantitative Methods Using R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/describing-data-in-r.html">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
+<meta property="og:description" content="Describing data is the process of summarizing and interpreting information that has been collected through research or observation. To describe data, we typically use statistical measures such as...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 5 Describing Data in R | Quantitative Methods Using R">
+<meta name="twitter:description" content="Describing data is the process of summarizing and interpreting information that has been collected through research or observation. To describe data, we typically use statistical measures such as...">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-    <style type="text/css">
+<style type="text/css">
     /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
     div.csl-bib-body { }
     div.csl-entry {
@@ -64,16 +46,13 @@
       margin-left: 2em;
     }
   </style>
-      <link rel="stylesheet" href="style.css" />
-  
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
-    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -85,85 +64,128 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
+</form>
 
-      <nav aria-label="Table of contents">
-        <h2>Table of contents</h2>
-        <div id="book-toc"></div>
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome!</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">2</span> Basic Statistical Concepts</a></li>
+<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="active" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
+<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
+<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
+<li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
+<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
+<li><a class="" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
+<li><a class="" href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
-    </div>
-  </header>
-
-  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
-<div id="describing-data-in-r" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Describing Data in R</h1>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="describing-data-in-r" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Describing Data in R<a class="anchor" aria-label="anchor" href="#describing-data-in-r"><i class="fas fa-link"></i></a>
+</h1>
 <p>Describing data is the process of summarizing and interpreting information that has been collected through research or observation.</p>
 <p>To describe data, we typically use statistical measures such as measures of central tendency (e.g., mean, median, mode) and measures of variability (e.g., range, variance, standard deviation). These measures help us to understand the distribution of the data, including how the data is spread out and whether it is skewed or symmetrical.</p>
 <p>When describing data, it’s important to consider the research question or hypothesis that is being investigated. By focusing on the relevant aspects of the data and using appropriate statistical and visual tools, we can better understand the underlying trends and relationships in the data and draw meaningful conclusions that can inform future research or educational practice.</p>
 <div id="central-tendency" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Central Tendency:</h2>
+<h2>
+<span class="header-section-number">5.1</span> Central Tendency:<a class="anchor" aria-label="anchor" href="#central-tendency"><i class="fas fa-link"></i></a>
+</h2>
 <p>Central tendency measures provide a single value that represents the center or “typical” value of a dataset. The primary measures of central tendency are the mean, median, and mode.</p>
 <div id="sample-mean" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Sample Mean</h3>
+<h3>
+<span class="header-section-number">5.1.1</span> Sample Mean<a class="anchor" aria-label="anchor" href="#sample-mean"><i class="fas fa-link"></i></a>
+</h3>
 <p>The sample mean is the average value of a variable in a sample. It is denoted by the symbol “x̄”.</p>
 <p>The sample mean, often referred to as the average, is the sum of all data points divided by the total number of data points. The mean is sensitive to extreme values (outliers) and may not always represent the true center of the data.</p>
 <p><span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\)</span></p>
 <p>where <span class="math inline">\(\bar{x}\)</span> is the mean, <span class="math inline">\(n\)</span> is the total number of data points, and <span class="math inline">\(x_i\)</span> are the individual data points.</p>
-<p>In R, we can calculate the mean using the <strong><code>mean()</code></strong> function. For example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="describing-data-in-r.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Mean test scores of all students in a school</span></span>
-<span id="cb22-2"><a href="describing-data-in-r.html#cb22-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">75</span>, <span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">70</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">80</span>)</span>
-<span id="cb22-3"><a href="describing-data-in-r.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(scores)</span>
-<span id="cb22-4"><a href="describing-data-in-r.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 82.5</span></span></code></pre></div>
+<p>In R, we can calculate the mean using the <strong><code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code></strong> function. For example:</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Example: Mean test scores of all students in a school</span></span>
+<span><span class="va">scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">80</span>, <span class="fl">85</span>, <span class="fl">90</span>, <span class="fl">75</span>, <span class="fl">95</span>, <span class="fl">85</span>, <span class="fl">70</span>, <span class="fl">75</span>, <span class="fl">90</span>, <span class="fl">80</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">scores</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 82.5</span></span></code></pre></div>
 </div>
 <div id="median" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Median</h3>
+<h3>
+<span class="header-section-number">5.1.2</span> Median<a class="anchor" aria-label="anchor" href="#median"><i class="fas fa-link"></i></a>
+</h3>
 <p>The median is the middle value of a dataset when it is sorted in ascending or descending order. If the dataset has an odd number of data points, the median is the middle value; if it has an even number of data points, the median is the average of the two middle values. The median is less sensitive to extreme values compared to the mean.</p>
 <p>t is represented as:</p>
 <p><span class="math inline">\(median = \begin{cases} x_{(n+1)/2} &amp;\text{if }n\text{ is odd}\ \frac{x_{n/2} + x_{(n/2)+1}}{2} &amp;\text{if }n\text{ is even} \end{cases}\)</span></p>
 <p>where <span class="math inline">\(n\)</span> is the total number of data points, and <span class="math inline">\(x_{(n+1)/2}\)</span> and <span class="math inline">\(x_{n/2}\)</span> are the middle values for odd and even <span class="math inline">\(n\)</span> respectively.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="describing-data-in-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Median income</span></span>
-<span id="cb23-2"><a href="describing-data-in-r.html#cb23-2" aria-hidden="true" tabindex="-1"></a>income <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25000</span>, <span class="dv">30000</span>, <span class="dv">35000</span>, <span class="dv">40000</span>, <span class="dv">45000</span>, <span class="dv">50000</span>) <span class="co"># income data</span></span>
-<span id="cb23-3"><a href="describing-data-in-r.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(income) <span class="co"># calculate the median</span></span>
-<span id="cb23-4"><a href="describing-data-in-r.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 37500</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Example: Median income</span></span>
+<span><span class="va">income</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25000</span>, <span class="fl">30000</span>, <span class="fl">35000</span>, <span class="fl">40000</span>, <span class="fl">45000</span>, <span class="fl">50000</span><span class="op">)</span> <span class="co"># income data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span> <span class="co"># calculate the median</span></span>
+<span><span class="co">#&gt; [1] 37500</span></span></code></pre></div>
 </div>
 <div id="mode" class="section level3" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Mode</h3>
+<h3>
+<span class="header-section-number">5.1.3</span> Mode<a class="anchor" aria-label="anchor" href="#mode"><i class="fas fa-link"></i></a>
+</h3>
 <p>The mode is the value that occurs most frequently in a dataset. A dataset can have more than one mode (multimodal) or no mode (no value occurs more than once). The mode can be used for both numerical and categorical data.</p>
 </div>
 </div>
 <div id="measures-of-dispersion" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Measures of Dispersion</h2>
+<h2>
+<span class="header-section-number">5.2</span> Measures of Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-dispersion"><i class="fas fa-link"></i></a>
+</h2>
 <p>Measures of dispersion are statistical values that describe the degree of spread or variability of a dataset. There are several measures of dispersion, including the range, interquartile range, variance, and standard deviation. In this section, we will discuss each measure of dispersion and its formula in detail.</p>
 <div id="range" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Range:</h3>
+<h3>
+<span class="header-section-number">5.2.1</span> Range:<a class="anchor" aria-label="anchor" href="#range"><i class="fas fa-link"></i></a>
+</h3>
 <p>The range is the simplest measure of dispersion that gives the difference between the maximum and minimum values in a dataset. It provides an idea of how spread out the data is. However, it is highly sensitive to outliers and does not provide information about the distribution’s shape. The formula for the range is as follows:</p>
 <span class="math display">\[\begin{equation}
 Range = Max(X) - Min(X)
 \end{equation}\]</span>
 <p>The range() function returns the difference between the maximum and minimum values in a dataset, providing a measure of the spread of data around them.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="describing-data-in-r.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example dataset</span></span>
-<span id="cb24-2"><a href="describing-data-in-r.html#cb24-2" aria-hidden="true" tabindex="-1"></a>income <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25000</span>, <span class="dv">30000</span>, <span class="dv">35000</span>, <span class="dv">40000</span>, <span class="dv">45000</span>, <span class="dv">50000</span>)</span>
-<span id="cb24-3"><a href="describing-data-in-r.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate range</span></span>
-<span id="cb24-4"><a href="describing-data-in-r.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(income)</span>
-<span id="cb24-5"><a href="describing-data-in-r.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25000 50000</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Example dataset</span></span>
+<span><span class="va">income</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25000</span>, <span class="fl">30000</span>, <span class="fl">35000</span>, <span class="fl">40000</span>, <span class="fl">45000</span>, <span class="fl">50000</span><span class="op">)</span></span>
+<span><span class="co"># Calculate range</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 25000 50000</span></span></code></pre></div>
 </div>
 <div id="interquartile-range-iqr" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Interquartile Range (IQR):</h3>
+<h3>
+<span class="header-section-number">5.2.2</span> Interquartile Range (IQR):<a class="anchor" aria-label="anchor" href="#interquartile-range-iqr"><i class="fas fa-link"></i></a>
+</h3>
 <p>The interquartile range (IQR) is the measure of dispersion that indicates the spread of the middle 50% of the data. It is less sensitive to outliers than the range. The IQR is defined as the difference between the first quartile (Q1, the 25th percentile) and the third quartile (Q3, the 75th percentile) of a dataset. The formula for IQR is as follows:</p>
 <span class="math display">\[\begin{equation}
 IQR = Q3 - Q1
 \end{equation}\]</span>
 <p>where Q1 is the first quartile and Q3 is the third quartile of the dataset.</p>
 <p>The IQR() function calculates the difference between the 75th percentile (Q3) and the 25th percentile (Q1) of a dataset, providing a measure of the spread of the middle 50% of the data.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="describing-data-in-r.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(income)</span>
-<span id="cb25-2"><a href="describing-data-in-r.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 12500</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 12500</span></span></code></pre></div>
 </div>
 <div id="variance" class="section level3" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Variance:</h3>
+<h3>
+<span class="header-section-number">5.2.3</span> Variance:<a class="anchor" aria-label="anchor" href="#variance"><i class="fas fa-link"></i></a>
+</h3>
 <p>The variance is a measure of dispersion that quantifies the average deviation of data points from the mean. It measures how far a set of numbers is spread out from their average value. The variance is expressed in squared units and is influenced by outliers. There are two types of variance: population variance and sample variance.</p>
 <p>Population variance is used when the entire population is available, while sample variance is used when only a sample of the population is available. The formula for population variance is as follows:</p>
 <span class="math display">\[\begin{equation}
@@ -175,13 +197,16 @@ IQR = Q3 - Q1
 s^2 = \frac{\sum(X - \bar{x})^2}{n - 1}
 \end{equation}\]</span>
 <p>where X is the data point, <span class="math inline">\(\bar{x}\)</span> is the mean of the sample, and n is the sample size.</p>
-<p><code>var()</code> function is used to calcultate the variance.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="describing-data-in-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate variance</span></span>
-<span id="cb26-2"><a href="describing-data-in-r.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(income)</span>
-<span id="cb26-3"><a href="describing-data-in-r.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 87500000</span></span></code></pre></div>
+<p><code><a href="https://rdrr.io/r/stats/cor.html">var()</a></code> function is used to calcultate the variance.</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calculate variance</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 87500000</span></span></code></pre></div>
 </div>
 <div id="standard-deviation" class="section level3" number="5.2.4">
-<h3><span class="header-section-number">5.2.4</span> Standard Deviation:</h3>
+<h3>
+<span class="header-section-number">5.2.4</span> Standard Deviation:<a class="anchor" aria-label="anchor" href="#standard-deviation"><i class="fas fa-link"></i></a>
+</h3>
 <p>The standard deviation is the square root of the variance. It is a widely used measure of dispersion that measures the average deviation of data points from the mean. It is expressed in the same units as the data and is sensitive to outliers, just like variance. There are two types of standard deviation: population standard deviation and sample standard deviation.</p>
 <p>The formula for population standard deviation is as follows:</p>
 <span class="math display">\[\begin{equation}
@@ -193,120 +218,147 @@ s^2 = \frac{\sum(X - \bar{x})^2}{n - 1}
 s = \sqrt{s^2}
 \end{equation}\]</span>
 <p>where s^2 is the sample variance.</p>
-<p><code>sd()</code> function is used to calculate the standard deviation.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="describing-data-in-r.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate standard deviation</span></span>
-<span id="cb27-2"><a href="describing-data-in-r.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(income)</span>
-<span id="cb27-3"><a href="describing-data-in-r.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 9354.143</span></span></code></pre></div>
+<p><code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> function is used to calculate the standard deviation.</p>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calculate standard deviation</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 9354.143</span></span></code></pre></div>
 </div>
 </div>
 <div id="the-psych-package---kitchen-knife-of-social-scientists" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> The <code>psych</code> package - Kitchen knife of social scientists</h2>
-<p>The psych package in R is a popular package for psychometrics and psychological research. It contains various functions for data manipulation, visualization, and statistical analysis. Some of the commonly used functions in the psych package include <code>describe()</code>, <code>alpha()</code>, and <code>fa()</code>.</p>
+<h2>
+<span class="header-section-number">5.3</span> The <code>psych</code> package - Kitchen knife of social scientists<a class="anchor" aria-label="anchor" href="#the-psych-package---kitchen-knife-of-social-scientists"><i class="fas fa-link"></i></a>
+</h2>
+<p>The psych package in R is a popular package for psychometrics and psychological research. It contains various functions for data manipulation, visualization, and statistical analysis. Some of the commonly used functions in the psych package include <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code>, <code><a href="https://rdrr.io/pkg/psych/man/alpha.html">alpha()</a></code>, and <code><a href="https://rdrr.io/pkg/psych/man/fa.html">fa()</a></code>.</p>
 <div id="the-describe-function" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> The <code>describe()</code> Function</h3>
+<h3>
+<span class="header-section-number">5.3.1</span> The <code>describe()</code> Function<a class="anchor" aria-label="anchor" href="#the-describe-function"><i class="fas fa-link"></i></a>
+</h3>
 <p>The describe() function in the psych package provides a summary of a dataset’s variables. It includes the number of observations, mean, standard deviation, minimum, maximum, and other useful statistics. Here’s an example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="describing-data-in-r.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages and dataset</span></span>
-<span id="cb28-2"><a href="describing-data-in-r.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb28-3"><a href="describing-data-in-r.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;psych&#39; was built under R version 4.2.3</span></span>
-<span id="cb28-4"><a href="describing-data-in-r.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb28-5"><a href="describing-data-in-r.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;ISLR&#39; was built under R version 4.2.3</span></span>
-<span id="cb28-6"><a href="describing-data-in-r.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;College&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required packages and dataset</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'psych' was built under R version 4.2.3</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.statlearning.com">ISLR</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'ISLR' was built under R version 4.2.3</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"College"</span><span class="op">)</span> </span></code></pre></div>
 <p>Descriptives of <em>income</em> dataset</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="describing-data-in-r.html#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-2"><a href="describing-data-in-r.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#view summary of the income data</span></span>
-<span id="cb29-3"><a href="describing-data-in-r.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(income)</span>
-<span id="cb29-4"><a href="describing-data-in-r.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    vars n  mean      sd median trimmed     mad   min   max</span></span>
-<span id="cb29-5"><a href="describing-data-in-r.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; X1    1 6 37500 9354.14  37500   37500 11119.5 25000 50000</span></span>
-<span id="cb29-6"><a href="describing-data-in-r.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    range skew kurtosis      se</span></span>
-<span id="cb29-7"><a href="describing-data-in-r.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; X1 25000    0     -1.8 3818.81</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co">#view summary of the income data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    vars n  mean      sd median trimmed     mad   min   max</span></span>
+<span><span class="co">#&gt; X1    1 6 37500 9354.14  37500   37500 11119.5 25000 50000</span></span>
+<span><span class="co">#&gt;    range skew kurtosis      se</span></span>
+<span><span class="co">#&gt; X1 25000    0     -1.8 3818.81</span></span></code></pre></div>
 <p>We will use the College dataset from the ISLR package <span class="citation">(<a href="references.html#ref-ISLR" role="doc-biblioref">James et al., 2021</a>)</span> . This dataset contains information on a number of colleges in the US, including variables such as acceptance rate, graduation rate, and median SAT score.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="describing-data-in-r.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View summary statistics of the college dataset</span></span>
-<span id="cb30-2"><a href="describing-data-in-r.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(College)</span>
-<span id="cb30-3"><a href="describing-data-in-r.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             vars   n     mean      sd median  trimmed</span></span>
-<span id="cb30-4"><a href="describing-data-in-r.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Private*       1 777     1.73    0.45    2.0     1.78</span></span>
-<span id="cb30-5"><a href="describing-data-in-r.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Apps           2 777  3001.64 3870.20 1558.0  2193.01</span></span>
-<span id="cb30-6"><a href="describing-data-in-r.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Accept         3 777  2018.80 2451.11 1110.0  1510.29</span></span>
-<span id="cb30-7"><a href="describing-data-in-r.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Enroll         4 777   779.97  929.18  434.0   575.95</span></span>
-<span id="cb30-8"><a href="describing-data-in-r.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Top10perc      5 777    27.56   17.64   23.0    25.13</span></span>
-<span id="cb30-9"><a href="describing-data-in-r.html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Top25perc      6 777    55.80   19.80   54.0    55.12</span></span>
-<span id="cb30-10"><a href="describing-data-in-r.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F.Undergrad    7 777  3699.91 4850.42 1707.0  2574.88</span></span>
-<span id="cb30-11"><a href="describing-data-in-r.html#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; P.Undergrad    8 777   855.30 1522.43  353.0   536.36</span></span>
-<span id="cb30-12"><a href="describing-data-in-r.html#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Outstate       9 777 10440.67 4023.02 9990.0 10181.66</span></span>
-<span id="cb30-13"><a href="describing-data-in-r.html#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Room.Board    10 777  4357.53 1096.70 4200.0  4301.70</span></span>
-<span id="cb30-14"><a href="describing-data-in-r.html#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Books         11 777   549.38  165.11  500.0   535.22</span></span>
-<span id="cb30-15"><a href="describing-data-in-r.html#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Personal      12 777  1340.64  677.07 1200.0  1268.35</span></span>
-<span id="cb30-16"><a href="describing-data-in-r.html#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; PhD           13 777    72.66   16.33   75.0    73.92</span></span>
-<span id="cb30-17"><a href="describing-data-in-r.html#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Terminal      14 777    79.70   14.72   82.0    81.10</span></span>
-<span id="cb30-18"><a href="describing-data-in-r.html#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; S.F.Ratio     15 777    14.09    3.96   13.6    13.94</span></span>
-<span id="cb30-19"><a href="describing-data-in-r.html#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; perc.alumni   16 777    22.74   12.39   21.0    21.86</span></span>
-<span id="cb30-20"><a href="describing-data-in-r.html#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Expend        17 777  9660.17 5221.77 8377.0  8823.70</span></span>
-<span id="cb30-21"><a href="describing-data-in-r.html#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Grad.Rate     18 777    65.46   17.18   65.0    65.60</span></span>
-<span id="cb30-22"><a href="describing-data-in-r.html#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 mad    min     max   range  skew kurtosis</span></span>
-<span id="cb30-23"><a href="describing-data-in-r.html#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Private*       0.00    1.0     2.0     1.0 -1.02    -0.96</span></span>
-<span id="cb30-24"><a href="describing-data-in-r.html#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Apps        1463.33   81.0 48094.0 48013.0  3.71    26.52</span></span>
-<span id="cb30-25"><a href="describing-data-in-r.html#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Accept      1008.17   72.0 26330.0 26258.0  3.40    18.75</span></span>
-<span id="cb30-26"><a href="describing-data-in-r.html#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Enroll       354.34   35.0  6392.0  6357.0  2.68     8.74</span></span>
-<span id="cb30-27"><a href="describing-data-in-r.html#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Top10perc     13.34    1.0    96.0    95.0  1.41     2.17</span></span>
-<span id="cb30-28"><a href="describing-data-in-r.html#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Top25perc     20.76    9.0   100.0    91.0  0.26    -0.57</span></span>
-<span id="cb30-29"><a href="describing-data-in-r.html#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F.Undergrad 1441.09  139.0 31643.0 31504.0  2.60     7.61</span></span>
-<span id="cb30-30"><a href="describing-data-in-r.html#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; P.Undergrad  449.23    1.0 21836.0 21835.0  5.67    54.52</span></span>
-<span id="cb30-31"><a href="describing-data-in-r.html#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Outstate    4121.63 2340.0 21700.0 19360.0  0.51    -0.43</span></span>
-<span id="cb30-32"><a href="describing-data-in-r.html#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Room.Board  1005.20 1780.0  8124.0  6344.0  0.48    -0.20</span></span>
-<span id="cb30-33"><a href="describing-data-in-r.html#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Books        148.26   96.0  2340.0  2244.0  3.47    28.06</span></span>
-<span id="cb30-34"><a href="describing-data-in-r.html#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Personal     593.04  250.0  6800.0  6550.0  1.74     7.04</span></span>
-<span id="cb30-35"><a href="describing-data-in-r.html#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; PhD           17.79    8.0   103.0    95.0 -0.77     0.54</span></span>
-<span id="cb30-36"><a href="describing-data-in-r.html#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Terminal      14.83   24.0   100.0    76.0 -0.81     0.22</span></span>
-<span id="cb30-37"><a href="describing-data-in-r.html#cb30-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; S.F.Ratio      3.41    2.5    39.8    37.3  0.66     2.52</span></span>
-<span id="cb30-38"><a href="describing-data-in-r.html#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; perc.alumni   13.34    0.0    64.0    64.0  0.60    -0.11</span></span>
-<span id="cb30-39"><a href="describing-data-in-r.html#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Expend      2730.95 3186.0 56233.0 53047.0  3.45    18.59</span></span>
-<span id="cb30-40"><a href="describing-data-in-r.html#cb30-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Grad.Rate     17.79   10.0   118.0   108.0 -0.11    -0.22</span></span>
-<span id="cb30-41"><a href="describing-data-in-r.html#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 se</span></span>
-<span id="cb30-42"><a href="describing-data-in-r.html#cb30-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Private*      0.02</span></span>
-<span id="cb30-43"><a href="describing-data-in-r.html#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Apps        138.84</span></span>
-<span id="cb30-44"><a href="describing-data-in-r.html#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Accept       87.93</span></span>
-<span id="cb30-45"><a href="describing-data-in-r.html#cb30-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Enroll       33.33</span></span>
-<span id="cb30-46"><a href="describing-data-in-r.html#cb30-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Top10perc     0.63</span></span>
-<span id="cb30-47"><a href="describing-data-in-r.html#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Top25perc     0.71</span></span>
-<span id="cb30-48"><a href="describing-data-in-r.html#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F.Undergrad 174.01</span></span>
-<span id="cb30-49"><a href="describing-data-in-r.html#cb30-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; P.Undergrad  54.62</span></span>
-<span id="cb30-50"><a href="describing-data-in-r.html#cb30-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Outstate    144.32</span></span>
-<span id="cb30-51"><a href="describing-data-in-r.html#cb30-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Room.Board   39.34</span></span>
-<span id="cb30-52"><a href="describing-data-in-r.html#cb30-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Books         5.92</span></span>
-<span id="cb30-53"><a href="describing-data-in-r.html#cb30-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Personal     24.29</span></span>
-<span id="cb30-54"><a href="describing-data-in-r.html#cb30-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; PhD           0.59</span></span>
-<span id="cb30-55"><a href="describing-data-in-r.html#cb30-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Terminal      0.53</span></span>
-<span id="cb30-56"><a href="describing-data-in-r.html#cb30-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; S.F.Ratio     0.14</span></span>
-<span id="cb30-57"><a href="describing-data-in-r.html#cb30-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; perc.alumni   0.44</span></span>
-<span id="cb30-58"><a href="describing-data-in-r.html#cb30-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Expend      187.33</span></span>
-<span id="cb30-59"><a href="describing-data-in-r.html#cb30-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Grad.Rate     0.62</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># View summary statistics of the college dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">College</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             vars   n     mean      sd median  trimmed</span></span>
+<span><span class="co">#&gt; Private*       1 777     1.73    0.45    2.0     1.78</span></span>
+<span><span class="co">#&gt; Apps           2 777  3001.64 3870.20 1558.0  2193.01</span></span>
+<span><span class="co">#&gt; Accept         3 777  2018.80 2451.11 1110.0  1510.29</span></span>
+<span><span class="co">#&gt; Enroll         4 777   779.97  929.18  434.0   575.95</span></span>
+<span><span class="co">#&gt; Top10perc      5 777    27.56   17.64   23.0    25.13</span></span>
+<span><span class="co">#&gt; Top25perc      6 777    55.80   19.80   54.0    55.12</span></span>
+<span><span class="co">#&gt; F.Undergrad    7 777  3699.91 4850.42 1707.0  2574.88</span></span>
+<span><span class="co">#&gt; P.Undergrad    8 777   855.30 1522.43  353.0   536.36</span></span>
+<span><span class="co">#&gt; Outstate       9 777 10440.67 4023.02 9990.0 10181.66</span></span>
+<span><span class="co">#&gt; Room.Board    10 777  4357.53 1096.70 4200.0  4301.70</span></span>
+<span><span class="co">#&gt; Books         11 777   549.38  165.11  500.0   535.22</span></span>
+<span><span class="co">#&gt; Personal      12 777  1340.64  677.07 1200.0  1268.35</span></span>
+<span><span class="co">#&gt; PhD           13 777    72.66   16.33   75.0    73.92</span></span>
+<span><span class="co">#&gt; Terminal      14 777    79.70   14.72   82.0    81.10</span></span>
+<span><span class="co">#&gt; S.F.Ratio     15 777    14.09    3.96   13.6    13.94</span></span>
+<span><span class="co">#&gt; perc.alumni   16 777    22.74   12.39   21.0    21.86</span></span>
+<span><span class="co">#&gt; Expend        17 777  9660.17 5221.77 8377.0  8823.70</span></span>
+<span><span class="co">#&gt; Grad.Rate     18 777    65.46   17.18   65.0    65.60</span></span>
+<span><span class="co">#&gt;                 mad    min     max   range  skew kurtosis</span></span>
+<span><span class="co">#&gt; Private*       0.00    1.0     2.0     1.0 -1.02    -0.96</span></span>
+<span><span class="co">#&gt; Apps        1463.33   81.0 48094.0 48013.0  3.71    26.52</span></span>
+<span><span class="co">#&gt; Accept      1008.17   72.0 26330.0 26258.0  3.40    18.75</span></span>
+<span><span class="co">#&gt; Enroll       354.34   35.0  6392.0  6357.0  2.68     8.74</span></span>
+<span><span class="co">#&gt; Top10perc     13.34    1.0    96.0    95.0  1.41     2.17</span></span>
+<span><span class="co">#&gt; Top25perc     20.76    9.0   100.0    91.0  0.26    -0.57</span></span>
+<span><span class="co">#&gt; F.Undergrad 1441.09  139.0 31643.0 31504.0  2.60     7.61</span></span>
+<span><span class="co">#&gt; P.Undergrad  449.23    1.0 21836.0 21835.0  5.67    54.52</span></span>
+<span><span class="co">#&gt; Outstate    4121.63 2340.0 21700.0 19360.0  0.51    -0.43</span></span>
+<span><span class="co">#&gt; Room.Board  1005.20 1780.0  8124.0  6344.0  0.48    -0.20</span></span>
+<span><span class="co">#&gt; Books        148.26   96.0  2340.0  2244.0  3.47    28.06</span></span>
+<span><span class="co">#&gt; Personal     593.04  250.0  6800.0  6550.0  1.74     7.04</span></span>
+<span><span class="co">#&gt; PhD           17.79    8.0   103.0    95.0 -0.77     0.54</span></span>
+<span><span class="co">#&gt; Terminal      14.83   24.0   100.0    76.0 -0.81     0.22</span></span>
+<span><span class="co">#&gt; S.F.Ratio      3.41    2.5    39.8    37.3  0.66     2.52</span></span>
+<span><span class="co">#&gt; perc.alumni   13.34    0.0    64.0    64.0  0.60    -0.11</span></span>
+<span><span class="co">#&gt; Expend      2730.95 3186.0 56233.0 53047.0  3.45    18.59</span></span>
+<span><span class="co">#&gt; Grad.Rate     17.79   10.0   118.0   108.0 -0.11    -0.22</span></span>
+<span><span class="co">#&gt;                 se</span></span>
+<span><span class="co">#&gt; Private*      0.02</span></span>
+<span><span class="co">#&gt; Apps        138.84</span></span>
+<span><span class="co">#&gt; Accept       87.93</span></span>
+<span><span class="co">#&gt; Enroll       33.33</span></span>
+<span><span class="co">#&gt; Top10perc     0.63</span></span>
+<span><span class="co">#&gt; Top25perc     0.71</span></span>
+<span><span class="co">#&gt; F.Undergrad 174.01</span></span>
+<span><span class="co">#&gt; P.Undergrad  54.62</span></span>
+<span><span class="co">#&gt; Outstate    144.32</span></span>
+<span><span class="co">#&gt; Room.Board   39.34</span></span>
+<span><span class="co">#&gt; Books         5.92</span></span>
+<span><span class="co">#&gt; Personal     24.29</span></span>
+<span><span class="co">#&gt; PhD           0.59</span></span>
+<span><span class="co">#&gt; Terminal      0.53</span></span>
+<span><span class="co">#&gt; S.F.Ratio     0.14</span></span>
+<span><span class="co">#&gt; perc.alumni   0.44</span></span>
+<span><span class="co">#&gt; Expend      187.33</span></span>
+<span><span class="co">#&gt; Grad.Rate     0.62</span></span></code></pre></div>
 
 </div>
 </div>
 </div>
-  </main>
-
-  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page">
-      <h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+  <div class="chapter-nav">
+<div class="prev"><a href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></div>
+<div class="next"><a href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#describing-data-in-r"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li>
+<a class="nav-link" href="#central-tendency"><span class="header-section-number">5.1</span> Central Tendency:</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sample-mean"><span class="header-section-number">5.1.1</span> Sample Mean</a></li>
+<li><a class="nav-link" href="#median"><span class="header-section-number">5.1.2</span> Median</a></li>
+<li><a class="nav-link" href="#mode"><span class="header-section-number">5.1.3</span> Mode</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#measures-of-dispersion"><span class="header-section-number">5.2</span> Measures of Dispersion</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#range"><span class="header-section-number">5.2.1</span> Range:</a></li>
+<li><a class="nav-link" href="#interquartile-range-iqr"><span class="header-section-number">5.2.2</span> Interquartile Range (IQR):</a></li>
+<li><a class="nav-link" href="#variance"><span class="header-section-number">5.2.3</span> Variance:</a></li>
+<li><a class="nav-link" href="#standard-deviation"><span class="header-section-number">5.2.4</span> Standard Deviation:</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#the-psych-package---kitchen-knife-of-social-scientists"><span class="header-section-number">5.3</span> The psych package - Kitchen knife of social scientists</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-describe-function"><span class="header-section-number">5.3.1</span> The describe() Function</a></li></ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/04-Rdescriptives.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/04-Rdescriptives.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-      </div>
+</div>
     </nav>
-  </div>
+</div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5">
-  <div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -314,11 +366,7 @@ s = \sqrt{s^2}
   </div>
 
 </div></div>
-</footer>
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -330,8 +378,7 @@ s = \sqrt{s^2}
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script>
-<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -349,5 +396,4 @@ for (let popover of popovers) {
 }
 </script>
 </body>
-
 </html>

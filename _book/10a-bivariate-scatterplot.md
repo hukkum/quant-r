@@ -24,6 +24,7 @@ As an example, lets create five different types of plots here to see how they di
 ```r
 # Load ggplot2 package
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.2.3
 
 # Create sample datasets
 set.seed(42)

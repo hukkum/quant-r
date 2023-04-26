@@ -1,48 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>Chapter 20 Chi Square Tests | Quantitative Methods Using R</title>
-
-    <meta name="author" content="Subash Parajuli" />
-  
-   <meta name="description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-   <meta name="generator" content="placeholder" />
-  <meta property="og:title" content="Chapter 20 Chi Square Tests | Quantitative Methods Using R" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/" />
-  <meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
-  <meta property="og:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 20 Chi Square Tests | Quantitative Methods Using R" />
-  
-  <meta name="twitter:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-  <meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
-  <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
-    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
-    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-    <script src="libs/bs3compat-0.4.2/transition.js"></script>
-    <script src="libs/bs3compat-0.4.2/tabs.js"></script>
-    <script src="libs/bs3compat-0.4.2/bs3compat.js"></script>
-    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
-    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
-
-  <!-- CSS -->
-  <style type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 20 Chi Square Tests | Quantitative Methods Using R</title>
+<meta name="author" content="Subash Parajuli">
+<meta name="description" content="Chi-square tests are non-parametric statistical tests used to determine whether there is a significant relationship between variables or if the observed frequencies in a sample are consistent with...">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
+<meta property="og:title" content="Chapter 20 Chi Square Tests | Quantitative Methods Using R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/chi-square-tests.html">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
+<meta property="og:description" content="Chi-square tests are non-parametric statistical tests used to determine whether there is a significant relationship between variables or if the observed frequencies in a sample are consistent with...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 20 Chi Square Tests | Quantitative Methods Using R">
+<meta name="twitter:description" content="Chi-square tests are non-parametric statistical tests used to determine whether there is a significant relationship between variables or if the observed frequencies in a sample are consistent with...">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-    <style type="text/css">
+<style type="text/css">
     /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
     div.csl-bib-body { }
     div.csl-entry {
@@ -64,16 +46,13 @@
       margin-left: 2em;
     }
   </style>
-      <link rel="stylesheet" href="style.css" />
-  
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
-    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -85,43 +64,73 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
+</form>
 
-      <nav aria-label="Table of contents">
-        <h2>Table of contents</h2>
-        <div id="book-toc"></div>
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome!</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">2</span> Basic Statistical Concepts</a></li>
+<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
+<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
+<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
+<li><a class="" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
+<li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
+<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
+<li><a class="" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
+<li><a class="" href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></li>
+<li><a class="active" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
-    </div>
-  </header>
-
-  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
-<div id="chi-square-tests" class="section level1" number="20">
-<h1><span class="header-section-number">Chapter 20</span> Chi Square Tests</h1>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="chi-square-tests" class="section level1" number="20">
+<h1>
+<span class="header-section-number">20</span> Chi Square Tests<a class="anchor" aria-label="anchor" href="#chi-square-tests"><i class="fas fa-link"></i></a>
+</h1>
 <p>Chi-square tests are non-parametric statistical tests used to determine whether there is a significant relationship between variables or if the observed frequencies in a sample are consistent with expected frequencies. There are two main types of chi-square tests: the chi-square goodness of fit test and the chi-square test of independence (or association).</p>
 <div id="chi-square-goodness-of-fit-test" class="section level2" number="20.1">
-<h2><span class="header-section-number">20.1</span> Chi Square Goodness of Fit Test</h2>
+<h2>
+<span class="header-section-number">20.1</span> Chi Square Goodness of Fit Test<a class="anchor" aria-label="anchor" href="#chi-square-goodness-of-fit-test"><i class="fas fa-link"></i></a>
+</h2>
 <p>This test is used to determine whether the observed frequencies in a sample match the expected frequencies based on a specified distribution. It is a univariate test, meaning it involves only one categorical variable. The null hypothesis for the goodness of fit test is that the observed frequencies are consistent with the expected frequencies.</p>
 <p>The test statistic (χ²) is calculated as follows:</p>
 <p>χ² = Σ [(O_i - E_i)² / E_i]</p>
 <p>where O_i are the observed frequencies, E_i are the expected frequencies, and Σ represents the summation across all categories.</p>
 <p>If the calculated χ² value is large, it indicates that there is a significant difference between the observed and expected frequencies, and we reject the null hypothesis.</p>
 <div id="performing-chi-square-goodness-of-fit" class="section level3" number="20.1.1">
-<h3><span class="header-section-number">20.1.1</span> Performing Chi Square Goodness of Fit</h3>
+<h3>
+<span class="header-section-number">20.1.1</span> Performing Chi Square Goodness of Fit<a class="anchor" aria-label="anchor" href="#performing-chi-square-goodness-of-fit"><i class="fas fa-link"></i></a>
+</h3>
 <p>Let’s take a simple example first.
 Suppose we have a school with 200 students, and we know the distribution of students’ grades as A, B, C, and D should follow a specific proportion: 25% A, 35% B, 25% C, and 15% D. We want to know if the observed grade distribution in our school matches this expected distribution.</p>
 <p>First, we’ll create a table with observed grade frequencies:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="chi-square-tests.html#cb72-1" aria-hidden="true" tabindex="-1"></a>observed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">A =</span> <span class="dv">40</span>, <span class="at">B =</span> <span class="dv">80</span>, <span class="at">C =</span> <span class="dv">50</span>, <span class="at">D =</span> <span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">observed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">40</span>, B <span class="op">=</span> <span class="fl">80</span>, C <span class="op">=</span> <span class="fl">50</span>, D <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code></pre></div>
 <p>Next, we’ll define the expected proportions and calculate the expected frequencies:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="chi-square-tests.html#cb73-1" aria-hidden="true" tabindex="-1"></a>expected_proportions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">A =</span> <span class="fl">0.25</span>, <span class="at">B =</span> <span class="fl">0.35</span>, <span class="at">C =</span> <span class="fl">0.25</span>, <span class="at">D =</span> <span class="fl">0.15</span>)</span>
-<span id="cb73-2"><a href="chi-square-tests.html#cb73-2" aria-hidden="true" tabindex="-1"></a>total_students <span class="ot">&lt;-</span> <span class="fu">sum</span>(observed)</span>
-<span id="cb73-3"><a href="chi-square-tests.html#cb73-3" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> total_students <span class="sc">*</span> expected_proportions</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">expected_proportions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">0.25</span>, B <span class="op">=</span> <span class="fl">0.35</span>, C <span class="op">=</span> <span class="fl">0.25</span>, D <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></span>
+<span><span class="va">total_students</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">observed</span><span class="op">)</span></span>
+<span><span class="va">expected</span> <span class="op">&lt;-</span> <span class="va">total_students</span> <span class="op">*</span> <span class="va">expected_proportions</span></span></code></pre></div>
 <p>Now, we’ll perform the chi-square goodness of fit test using the chisq.test() function. chisq.test performs chi-squared contingency table tests and goodness-of-fit tests.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="chi-square-tests.html#cb74-1" aria-hidden="true" tabindex="-1"></a>chisq_gof <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(observed, <span class="at">p =</span> expected_proportions)</span>
-<span id="cb74-2"><a href="chi-square-tests.html#cb74-2" aria-hidden="true" tabindex="-1"></a>chisq_gof</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">chisq_gof</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">observed</span>, p <span class="op">=</span> <span class="va">expected_proportions</span><span class="op">)</span></span>
+<span><span class="va">chisq_gof</span></span></code></pre></div>
 <pre><code>#&gt; 
 #&gt;  Chi-squared test for given probabilities
 #&gt; 
@@ -135,7 +144,9 @@ Suppose we have a school with 200 students, and we know the distribution of stud
 </div>
 </div>
 <div id="chi-sqaure-test-of-association" class="section level2" number="20.2">
-<h2><span class="header-section-number">20.2</span> Chi Sqaure test of association</h2>
+<h2>
+<span class="header-section-number">20.2</span> Chi Sqaure test of association<a class="anchor" aria-label="anchor" href="#chi-sqaure-test-of-association"><i class="fas fa-link"></i></a>
+</h2>
 <p>This test is used to determine whether there is a significant association between two categorical variables in a contingency table. The null hypothesis for the test of independence is that the two variables are independent, meaning there is no association between them.</p>
 <p>The test statistic (χ²) is calculated similarly to the goodness of fit test, but with a contingency table:</p>
 <p>χ² = Σ [(O_ij - E_ij)² / E_ij]</p>
@@ -144,48 +155,59 @@ Suppose we have a school with 200 students, and we know the distribution of stud
 <p>Both chi-square tests have some assumptions, including that the data are categorical, the sample is random, and the categories are mutually exclusive and exhaustive. Additionally, the expected frequencies should be sufficiently large (typically, at least 5) for the test to be valid.</p>
 <p>In data analysis and research, these tests are helpful for understanding whether the distribution of a categorical variable fits a particular pattern or whether two categorical variables are associated with each other, which can provide insights into potential relationships or associations in the data.</p>
 <div id="performing-chi-sqaure-test-of-independence" class="section level3" number="20.2.1">
-<h3><span class="header-section-number">20.2.1</span> Performing Chi-sqaure test of independence</h3>
+<h3>
+<span class="header-section-number">20.2.1</span> Performing Chi-sqaure test of independence<a class="anchor" aria-label="anchor" href="#performing-chi-sqaure-test-of-independence"><i class="fas fa-link"></i></a>
+</h3>
 <p>Let’s say we want to know if there is an association between the students’ grades and their participation in extracurricular activities. We have a contingency table with the observed frequencies.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="chi-square-tests.html#cb76-1" aria-hidden="true" tabindex="-1"></a>observed_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">60</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">20</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb76-2"><a href="chi-square-tests.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(observed_table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>)</span>
-<span id="cb76-3"><a href="chi-square-tests.html#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(observed_table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Participate&quot;</span>, <span class="st">&quot;Not_Participate&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">observed_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">20</span>, <span class="fl">60</span>, <span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">20</span>, <span class="fl">10</span>, <span class="fl">20</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">observed_table</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">observed_table</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Participate"</span>, <span class="st">"Not_Participate"</span><span class="op">)</span></span></code></pre></div>
 <p>To perform the chi-square test of independence, we’ll use the chisq.test() function:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="chi-square-tests.html#cb77-1" aria-hidden="true" tabindex="-1"></a>chisq_independence <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(observed_table)</span>
-<span id="cb77-2"><a href="chi-square-tests.html#cb77-2" aria-hidden="true" tabindex="-1"></a>chisq_independence</span>
-<span id="cb77-3"><a href="chi-square-tests.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb77-4"><a href="chi-square-tests.html#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Pearson&#39;s Chi-squared test</span></span>
-<span id="cb77-5"><a href="chi-square-tests.html#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb77-6"><a href="chi-square-tests.html#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  observed_table</span></span>
-<span id="cb77-7"><a href="chi-square-tests.html#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; X-squared = 30.952, df = 3, p-value = 8.699e-07</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">chisq_independence</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">observed_table</span><span class="op">)</span></span>
+<span><span class="va">chisq_independence</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Pearson's Chi-squared test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  observed_table</span></span>
+<span><span class="co">#&gt; X-squared = 30.952, df = 3, p-value = 8.699e-07</span></span></code></pre></div>
 <p>Based on this output, the p-value (8.699e-07) is much smaller than the common significance level of 0.05. Therefore, we reject the null hypothesis and conclude that there is a significant association between the two categorical variables. In other words, the distribution of grades is not independent of the groups, and there is a relationship between the group membership and the grade distribution according to Pearson’s chi-square test of independece.</p>
 
 </div>
 </div>
 </div>
-  </main>
-
-  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page">
-      <h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+  <div class="chapter-nav">
+<div class="prev"><a href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></div>
+<div class="next"><a href="g-power.html"><span class="header-section-number">21</span> G* Power</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#chi-square-tests"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li>
+<a class="nav-link" href="#chi-square-goodness-of-fit-test"><span class="header-section-number">20.1</span> Chi Square Goodness of Fit Test</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#performing-chi-square-goodness-of-fit"><span class="header-section-number">20.1.1</span> Performing Chi Square Goodness of Fit</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#chi-sqaure-test-of-association"><span class="header-section-number">20.2</span> Chi Sqaure test of association</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#performing-chi-sqaure-test-of-independence"><span class="header-section-number">20.2.1</span> Performing Chi-sqaure test of independence</a></li></ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/16-chi-square.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/16-chi-square.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-      </div>
+</div>
     </nav>
-  </div>
+</div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5">
-  <div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -193,11 +215,7 @@ Suppose we have a school with 200 students, and we know the distribution of stud
   </div>
 
 </div></div>
-</footer>
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -209,8 +227,7 @@ Suppose we have a school with 200 students, and we know the distribution of stud
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script>
-<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -228,5 +245,4 @@ for (let popover of popovers) {
 }
 </script>
 </body>
-
 </html>

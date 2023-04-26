@@ -56,7 +56,7 @@ library(readr)
 library(psych)
 
 # Read the CSV file into a data frame
-data_file <- "exampledata/Empsuccess.csv"
+data_file <- "exampledata/EmpSuccess.csv"
 data <- read_csv(data_file)
 
 # Perform simple linear regression

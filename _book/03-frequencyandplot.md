@@ -33,6 +33,13 @@ A frequency table displays the number of occurrences (frequencies) for each cate
 ```r
 # Load required packages
 library(ggplot2)
+```
+
+```
+#> Warning: package 'ggplot2' was built under R version 4.2.3
+```
+
+```r
 library(gapminder)
 ```
 

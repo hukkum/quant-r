@@ -1,48 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>Chapter 9 Probability and Inference | Quantitative Methods Using R</title>
-
-    <meta name="author" content="Subash Parajuli" />
-  
-   <meta name="description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-   <meta name="generator" content="placeholder" />
-  <meta property="og:title" content="Chapter 9 Probability and Inference | Quantitative Methods Using R" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/" />
-  <meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
-  <meta property="og:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Probability and Inference | Quantitative Methods Using R" />
-  
-  <meta name="twitter:description" content="This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working." />
-  <meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg" />
-  <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
-    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
-    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-    <script src="libs/bs3compat-0.4.2/transition.js"></script>
-    <script src="libs/bs3compat-0.4.2/tabs.js"></script>
-    <script src="libs/bs3compat-0.4.2/bs3compat.js"></script>
-    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
-    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
-
-  <!-- CSS -->
-  <style type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 Probability and Inference | Quantitative Methods Using R</title>
+<meta name="author" content="Subash Parajuli">
+<meta name="description" content="9.1 Probability: Probability is a numerical measure of the likelihood that a particular event will occur. It ranges from 0 to 1, with 0 meaning the event is impossible and 1 meaning the event is...">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
+<meta property="og:title" content="Chapter 9 Probability and Inference | Quantitative Methods Using R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/probability-and-inference.html">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
+<meta property="og:description" content="9.1 Probability: Probability is a numerical measure of the likelihood that a particular event will occur. It ranges from 0 to 1, with 0 meaning the event is impossible and 1 meaning the event is...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 Probability and Inference | Quantitative Methods Using R">
+<meta name="twitter:description" content="9.1 Probability: Probability is a numerical measure of the likelihood that a particular event will occur. It ranges from 0 to 1, with 0 meaning the event is impossible and 1 meaning the event is...">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-    <style type="text/css">
+<style type="text/css">
     /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
     div.csl-bib-body { }
     div.csl-entry {
@@ -64,16 +46,13 @@
       margin-left: 2em;
     }
   </style>
-      <link rel="stylesheet" href="style.css" />
-  
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
-    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -85,127 +64,181 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
+</form>
 
-      <nav aria-label="Table of contents">
-        <h2>Table of contents</h2>
-        <div id="book-toc"></div>
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome!</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="r-basics.html"><span class="header-section-number">1</span> R Basics</a></li>
+<li><a class="" href="basic-statistical-concepts.html"><span class="header-section-number">2</span> Basic Statistical Concepts</a></li>
+<li><a class="" href="loading-data-in-r.html"><span class="header-section-number">3</span> Loading Data in R</a></li>
+<li><a class="" href="data-representation.html"><span class="header-section-number">4</span> Data Representation</a></li>
+<li><a class="" href="describing-data-in-r.html"><span class="header-section-number">5</span> Describing Data in R</a></li>
+<li><a class="" href="normal-distribution.html"><span class="header-section-number">6</span> Normal Distribution</a></li>
+<li><a class="" href="skewness-and-kurtosis.html"><span class="header-section-number">7</span> Skewness and Kurtosis</a></li>
+<li><a class="" href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></li>
+<li><a class="active" href="probability-and-inference.html"><span class="header-section-number">9</span> Probability and Inference</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></li>
+<li><a class="" href="independent-samples-t---test.html"><span class="header-section-number">11</span> Independent Samples T - Test</a></li>
+<li><a class="" href="paired-t-test.html"><span class="header-section-number">12</span> Paired t-test</a></li>
+<li><a class="" href="covariance.html"><span class="header-section-number">13</span> Covariance</a></li>
+<li><a class="" href="scatter-plots-1.html"><span class="header-section-number">14</span> Scatter Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">15</span> Correlation</a></li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">16</span> Simple Linear Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple Regression</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">18</span> One way ANOVA</a></li>
+<li><a class="" href="post-hoc-tests.html"><span class="header-section-number">19</span> Post hoc tests</a></li>
+<li><a class="" href="chi-square-tests.html"><span class="header-section-number">20</span> Chi Square Tests</a></li>
+<li><a class="" href="g-power.html"><span class="header-section-number">21</span> G* Power</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+          <p><a id="book-repo" href="https://github.com/hukkum/quant-r">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
-    </div>
-  </header>
-
-  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
-<div id="probability-and-inference" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Probability and Inference</h1>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="probability-and-inference" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Probability and Inference<a class="anchor" aria-label="anchor" href="#probability-and-inference"><i class="fas fa-link"></i></a>
+</h1>
 <div id="probability" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Probability:</h2>
+<h2>
+<span class="header-section-number">9.1</span> Probability:<a class="anchor" aria-label="anchor" href="#probability"><i class="fas fa-link"></i></a>
+</h2>
 <p>Probability is a numerical measure of the likelihood that a particular event will occur. It ranges from 0 to 1, with 0 meaning the event is impossible and 1 meaning the event is certain. Probabilities can be represented graphically using bar plots or pie charts.</p>
 </div>
 <div id="sample-space" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Sample Space:</h2>
+<h2>
+<span class="header-section-number">9.2</span> Sample Space:<a class="anchor" aria-label="anchor" href="#sample-space"><i class="fas fa-link"></i></a>
+</h2>
 <p>The sample space is the set of all possible outcomes for a given experiment or event. For example, in a coin toss experiment, the sample space is {Heads, Tails}. The sample space can be represented using Venn diagrams or tree diagrams.</p>
 </div>
 <div id="conditional-probability" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Conditional Probability:</h2>
+<h2>
+<span class="header-section-number">9.3</span> Conditional Probability:<a class="anchor" aria-label="anchor" href="#conditional-probability"><i class="fas fa-link"></i></a>
+</h2>
 <p>Conditional probability refers to the probability of an event occurring given that another event has already occurred. It can be represented graphically using Venn diagrams, which show the intersections of events.</p>
 </div>
 <div id="independence" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Independence:</h2>
+<h2>
+<span class="header-section-number">9.4</span> Independence:<a class="anchor" aria-label="anchor" href="#independence"><i class="fas fa-link"></i></a>
+</h2>
 <p>Two events are independent if the occurrence of one event does not affect the probability of the other event. Graphically, independence can be visualized using Venn diagrams or probability tables, where the probability of the intersection of two events is equal to the product of their individual probabilities.</p>
 </div>
 <div id="bayes-theorem" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> Bayes’ Theorem:</h2>
+<h2>
+<span class="header-section-number">9.5</span> Bayes’ Theorem:<a class="anchor" aria-label="anchor" href="#bayes-theorem"><i class="fas fa-link"></i></a>
+</h2>
 <p>Bayes’ theorem is a powerful tool for updating the probability of an event based on new evidence. It can be visualized using tree diagrams or probability tables, which show the updated probabilities after taking into account the new evidence.</p>
 </div>
 <div id="discrete-and-continuous-probability-distributions" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> Discrete and Continuous Probability Distributions:</h2>
+<h2>
+<span class="header-section-number">9.6</span> Discrete and Continuous Probability Distributions:<a class="anchor" aria-label="anchor" href="#discrete-and-continuous-probability-distributions"><i class="fas fa-link"></i></a>
+</h2>
 <p>Discrete probability distributions describe the probabilities of outcomes for discrete random variables (e.g., number of heads in coin tosses), while continuous probability distributions describe the probabilities of outcomes for continuous random variables (e.g., height of individuals). Discrete distributions can be visualized using bar plots, and continuous distributions can be visualized using probability density functions or cumulative distribution functions.</p>
 
 <p>#Sampling distribution</p>
 <p>A sampling distribution is the probability distribution of a sample statistic (e.g., sample mean, sample proportion) obtained from a population. It helps to understand the variability of the sample statistic and the likelihood of obtaining different sample statistics from the population.</p>
 </div>
 <div id="central-limit-theorem" class="section level2" number="9.7">
-<h2><span class="header-section-number">9.7</span> Central Limit Theorem</h2>
+<h2>
+<span class="header-section-number">9.7</span> Central Limit Theorem<a class="anchor" aria-label="anchor" href="#central-limit-theorem"><i class="fas fa-link"></i></a>
+</h2>
 <p>The CLT states that, for a large enough sample size (usually n ≥ 30), the distribution of the sample means approaches a normal distribution, regardless of the shape of the population distribution. The mean of the sampling distribution is equal to the population mean (μ), and the standard deviation (standard error) is equal to the population standard deviation (σ) divided by the square root of the sample size (n).</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="probability-and-inference.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb34-2"><a href="probability-and-inference.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb34-3"><a href="probability-and-inference.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="probability-and-inference.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
-<span id="cb34-5"><a href="probability-and-inference.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb34-6"><a href="probability-and-inference.html#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="probability-and-inference.html#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define population parameters</span></span>
-<span id="cb34-8"><a href="probability-and-inference.html#cb34-8" aria-hidden="true" tabindex="-1"></a>population_mean <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb34-9"><a href="probability-and-inference.html#cb34-9" aria-hidden="true" tabindex="-1"></a>population_sd <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb34-10"><a href="probability-and-inference.html#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="probability-and-inference.html#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define sample size and number of samples</span></span>
-<span id="cb34-12"><a href="probability-and-inference.html#cb34-12" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb34-13"><a href="probability-and-inference.html#cb34-13" aria-hidden="true" tabindex="-1"></a>num_samples <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb34-14"><a href="probability-and-inference.html#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-15"><a href="probability-and-inference.html#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate random samples and calculate sample means</span></span>
-<span id="cb34-16"><a href="probability-and-inference.html#cb34-16" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_samples, <span class="fu">mean</span>(<span class="fu">rnorm</span>(sample_size, <span class="at">mean =</span> population_mean, <span class="at">sd =</span> population_sd)))</span>
-<span id="cb34-17"><a href="probability-and-inference.html#cb34-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-18"><a href="probability-and-inference.html#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the distribution of sample means</span></span>
-<span id="cb34-19"><a href="probability-and-inference.html#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(sample_means), <span class="fu">aes</span>(<span class="at">x =</span> sample_means)) <span class="sc">+</span></span>
-<span id="cb34-20"><a href="probability-and-inference.html#cb34-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb34-21"><a href="probability-and-inference.html#cb34-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb34-22"><a href="probability-and-inference.html#cb34-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sampling Distribution of the Mean&quot;</span>) <span class="sc">+</span></span>
-<span id="cb34-23"><a href="probability-and-inference.html#cb34-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Sample Means&quot;</span>) <span class="sc">+</span></span>
-<span id="cb34-24"><a href="probability-and-inference.html#cb34-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Density&quot;</span>) <span class="sc">+</span></span>
-<span id="cb34-25"><a href="probability-and-inference.html#cb34-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb34-26"><a href="probability-and-inference.html#cb34-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: The dot-dot notation (`..density..`) was deprecated in</span></span>
-<span id="cb34-27"><a href="probability-and-inference.html#cb34-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ggplot2 3.4.0.</span></span>
-<span id="cb34-28"><a href="probability-and-inference.html#cb34-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Please use `after_stat(density)` instead.</span></span></code></pre></div>
-<p><img src="08-samplingdistribution_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'ggplot2' was built under R version 4.2.3</span></span>
+<span></span>
+<span><span class="co"># Set seed for reproducibility</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Define population parameters</span></span>
+<span><span class="va">population_mean</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="va">population_sd</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span></span>
+<span><span class="co"># Define sample size and number of samples</span></span>
+<span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
+<span><span class="va">num_samples</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span>
+<span></span>
+<span><span class="co"># Generate random samples and calculate sample means</span></span>
+<span><span class="va">sample_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">num_samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">sample_size</span>, mean <span class="op">=</span> <span class="va">population_mean</span>, sd <span class="op">=</span> <span class="va">population_sd</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot the distribution of sample means</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">sample_means</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sample_means</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">..density..</span><span class="op">)</span>, bins <span class="op">=</span> <span class="fl">30</span>, fill <span class="op">=</span> <span class="st">"lightblue"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Sampling Distribution of the Mean"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Sample Means"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Density"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: The dot-dot notation (`..density..`) was deprecated in</span></span>
+<span><span class="co">#&gt; ggplot2 3.4.0.</span></span>
+<span><span class="co">#&gt; ℹ Please use `after_stat(density)` instead.</span></span>
+<span><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
+<span><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where</span></span>
+<span><span class="co">#&gt; this warning was generated.</span></span></code></pre></div>
+<div class="inline-figure"><img src="08-samplingdistribution_files/figure-html/unnamed-chunk-1-1.png" width="672"></div>
 </div>
 <div id="confidence-intervals" class="section level2" number="9.8">
-<h2><span class="header-section-number">9.8</span> Confidence Intervals</h2>
+<h2>
+<span class="header-section-number">9.8</span> Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
+</h2>
 <p>Confidence intervals are a range of values within which the true population parameter is likely to fall, with a specified level of confidence (e.g., 95%). Confidence intervals provide an estimate of the precision and uncertainty of the sample statistic.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="probability-and-inference.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the sample data</span></span>
-<span id="cb35-2"><a href="probability-and-inference.html#cb35-2" aria-hidden="true" tabindex="-1"></a>sample_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">30</span>, <span class="dv">32</span>)</span>
-<span id="cb35-3"><a href="probability-and-inference.html#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="probability-and-inference.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the sample mean and standard deviation</span></span>
-<span id="cb35-5"><a href="probability-and-inference.html#cb35-5" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample_data)</span>
-<span id="cb35-6"><a href="probability-and-inference.html#cb35-6" aria-hidden="true" tabindex="-1"></a>sample_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(sample_data)</span>
-<span id="cb35-7"><a href="probability-and-inference.html#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-8"><a href="probability-and-inference.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the standard error</span></span>
-<span id="cb35-9"><a href="probability-and-inference.html#cb35-9" aria-hidden="true" tabindex="-1"></a>standard_error <span class="ot">&lt;-</span> sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(sample_data))</span>
-<span id="cb35-10"><a href="probability-and-inference.html#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-11"><a href="probability-and-inference.html#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the 95% confidence interval</span></span>
-<span id="cb35-12"><a href="probability-and-inference.html#cb35-12" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb35-13"><a href="probability-and-inference.html#cb35-13" aria-hidden="true" tabindex="-1"></a>critical_value <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> alpha <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb35-14"><a href="probability-and-inference.html#cb35-14" aria-hidden="true" tabindex="-1"></a>margin_of_error <span class="ot">&lt;-</span> critical_value <span class="sc">*</span> standard_error</span>
-<span id="cb35-15"><a href="probability-and-inference.html#cb35-15" aria-hidden="true" tabindex="-1"></a>confidence_interval <span class="ot">&lt;-</span> <span class="fu">c</span>(sample_mean <span class="sc">-</span> margin_of_error, sample_mean <span class="sc">+</span> margin_of_error)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Define the sample data</span></span>
+<span><span class="va">sample_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">15</span>, <span class="fl">18</span>, <span class="fl">20</span>, <span class="fl">22</span>, <span class="fl">24</span>, <span class="fl">25</span>, <span class="fl">28</span>, <span class="fl">30</span>, <span class="fl">32</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate the sample mean and standard deviation</span></span>
+<span><span class="va">sample_mean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">)</span></span>
+<span><span class="va">sample_sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate the standard error</span></span>
+<span><span class="va">standard_error</span> <span class="op">&lt;-</span> <span class="va">sample_sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate the 95% confidence interval</span></span>
+<span><span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fl">0.05</span></span>
+<span><span class="va">critical_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">alpha</span> <span class="op">/</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">margin_of_error</span> <span class="op">&lt;-</span> <span class="va">critical_value</span> <span class="op">*</span> <span class="va">standard_error</span></span>
+<span><span class="va">confidence_interval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">sample_mean</span> <span class="op">-</span> <span class="va">margin_of_error</span>, <span class="va">sample_mean</span> <span class="op">+</span> <span class="va">margin_of_error</span><span class="op">)</span></span></code></pre></div>
 
 </div>
 </div>
-  </main>
-
-  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page">
-      <h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+  <div class="chapter-nav">
+<div class="prev"><a href="standard-scores.html"><span class="header-section-number">8</span> Standard Scores</a></div>
+<div class="next"><a href="hypothesis-testing.html"><span class="header-section-number">10</span> Hypothesis Testing</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#probability-and-inference"><span class="header-section-number">9</span> Probability and Inference</a></li>
+<li><a class="nav-link" href="#probability"><span class="header-section-number">9.1</span> Probability:</a></li>
+<li><a class="nav-link" href="#sample-space"><span class="header-section-number">9.2</span> Sample Space:</a></li>
+<li><a class="nav-link" href="#conditional-probability"><span class="header-section-number">9.3</span> Conditional Probability:</a></li>
+<li><a class="nav-link" href="#independence"><span class="header-section-number">9.4</span> Independence:</a></li>
+<li><a class="nav-link" href="#bayes-theorem"><span class="header-section-number">9.5</span> Bayes’ Theorem:</a></li>
+<li><a class="nav-link" href="#discrete-and-continuous-probability-distributions"><span class="header-section-number">9.6</span> Discrete and Continuous Probability Distributions:</a></li>
+<li><a class="nav-link" href="#central-limit-theorem"><span class="header-section-number">9.7</span> Central Limit Theorem</a></li>
+<li><a class="nav-link" href="#confidence-intervals"><span class="header-section-number">9.8</span> Confidence Intervals</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/hukkum/quant-r/blob/master/07-probabilityandinference.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/hukkum/quant-r/edit/master/07-probabilityandinference.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-      </div>
+</div>
     </nav>
-  </div>
+</div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5">
-  <div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-19.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-04-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -213,11 +246,7 @@
   </div>
 
 </div></div>
-</footer>
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -229,8 +258,7 @@
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script>
-<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -248,5 +276,4 @@ for (let popover of popovers) {
 }
 </script>
 </body>
-
 </html>
