@@ -160,7 +160,7 @@ library(ISLR)
 data("College") 
 ```
 
-Descriptives of *income* dataset
+Descriptive of *income* dataset
 
 ```{r}
 

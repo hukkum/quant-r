@@ -169,13 +169,11 @@ The describe() function in the psych package provides a summary of a dataset's v
 ```r
 # Load required packages and dataset
 library(psych)
-#> Warning: package 'psych' was built under R version 4.2.3
 library(ISLR)
-#> Warning: package 'ISLR' was built under R version 4.2.3
 data("College") 
 ```
 
-Descriptives of *income* dataset
+Descriptive of *income* dataset
 
 
 ```r

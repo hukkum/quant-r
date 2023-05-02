@@ -7,7 +7,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 url: https://bookdown.org/subashparajuli/quant-r/
 github-repo: hukkum/quant-r
-cover-image: cover.jpg
+cover-image: cover.jpgb
 description:
   This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working.
 biblio-style: apalike 
@@ -17,7 +17,7 @@ csl: apa.csl
 
 # Welcome! {.unnumbered}
 
-![](cover.jpg){style="align:center"}
+![](cover.jpg){style="display: block;   margin-left: auto;   margin-right: auto;   width: 50%;" width="211"}
 
 This book covers practical worked out examples which you can easily apply to your data set and also includes a discussion on how the example is working. We will cover descriptive and basic inferential statistics, including graphs, frequency distributions, central tendency, dispersion, probability, hypothesis testing, tests of mean differences, correlation, simple regression, and chi-square tests. This book is designed to facilitate graduate students of Educational Psychology to develop their knowledge and understanding of various statistical concepts and procedures in R programming as a supplement resource.
 

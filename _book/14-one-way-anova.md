@@ -38,7 +38,6 @@ The base R aov() function and the **car** package are used for the actual ANOVA 
 ```r
 # Load required libraries
 library(psych)
-#> Warning: package 'psych' was built under R version 4.2.3
 
 # Read the CSV file
 ourdata <- read.csv("exampledata/Ch11_distress.csv")
@@ -127,9 +126,7 @@ shapiro_test4
 
 # Load car library for Levene's test
 library(car)
-#> Warning: package 'car' was built under R version 4.2.3
 #> Loading required package: carData
-#> Warning: package 'carData' was built under R version 4.2.3
 #> 
 #> Attaching package: 'car'
 #> The following object is masked from 'package:psych':

@@ -62,11 +62,9 @@ Then we do post hoc test,
 ```r
 # Load the necessary packages
 library(multcomp)
-#> Warning: package 'multcomp' was built under R version 4.2.3
 #> Loading required package: mvtnorm
 #> Loading required package: survival
 #> Loading required package: TH.data
-#> Warning: package 'TH.data' was built under R version 4.2.3
 #> Loading required package: MASS
 #> 
 #> Attaching package: 'TH.data'
@@ -96,12 +94,12 @@ summary(tukey_results)
 #> territory - target == 0      6.500      3.005   2.163
 #> territory - fielding == 0    4.125      3.005   1.373
 #>                           Pr(>|t|)    
-#> target - movement == 0      0.1354    
-#> fielding - movement == 0    0.0246 *  
+#> target - movement == 0      0.1353    
+#> fielding - movement == 0    0.0249 *  
 #> territory - movement == 0   <0.001 ***
 #> fielding - target == 0      0.8582    
-#> territory - target == 0     0.1584    
-#> territory - fielding == 0   0.5262    
+#> territory - target == 0     0.1586    
+#> territory - fielding == 0   0.5261    
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -117,18 +115,18 @@ confint(tukey_results)
 #> 
 #> Fit: aov(formula = Distress ~ SportF, data = ourdata)
 #> 
-#> Quantile = 2.7288
+#> Quantile = 2.7312
 #> 95% family-wise confidence level
 #>  
 #> 
 #> Linear Hypotheses:
 #>                           Estimate lwr     upr    
-#> target - movement == 0     6.7500  -1.4490 14.9490
-#> fielding - movement == 0   9.1250   0.9260 17.3240
-#> territory - movement == 0 13.2500   5.0510 21.4490
-#> fielding - target == 0     2.3750  -5.8240 10.5740
-#> territory - target == 0    6.5000  -1.6990 14.6990
-#> territory - fielding == 0  4.1250  -4.0740 12.3240
+#> target - movement == 0     6.7500  -1.4561 14.9561
+#> fielding - movement == 0   9.1250   0.9189 17.3311
+#> territory - movement == 0 13.2500   5.0439 21.4561
+#> fielding - target == 0     2.3750  -5.8311 10.5811
+#> territory - target == 0    6.5000  -1.7061 14.7061
+#> territory - fielding == 0  4.1250  -4.0811 12.3311
 ```
 
 The first part of the output shows the estimated mean differences between groups, standard errors, t-values, and adjusted p-values. The second part of the output presents the confidence intervals for the pairwise comparisons.

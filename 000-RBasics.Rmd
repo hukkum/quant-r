@@ -1,6 +1,6 @@
 # R Basics
 
-This sections covers everything you need to get run statistical analysis using R. Just like other programming language, R also has a base package and an Integrated Development Environment. Base package is what you need to run your R code in your computer. R Studio is an IDE developed specifically focussing on development of R programs and packages.
+This sections covers everything you need to get run statistical analysis using R. Just like other programming language, R also has a base package and an Integrated Development Environment. Base package is what you need to run your R code in your computer. R Studio is an IDE developed specifically focusing on development of R programs and packages.
 
 ## Installing R base package.
 
@@ -74,13 +74,13 @@ R has a large community of developers and supporters. The following resources ma
 
 ### **Documentation / Websites**
 
-1.  [**R Documentation**](https://www.rdocumentation.org/)
+1.  [R Documentation](https://www.rdocumentation.org/)
 
-2.  [**R-bloggers**](https://www.r-bloggers.com/)
+2.  [R-bloggers](https://www.r-bloggers.com/)
 
-3.  [**RStudio Community**](https://community.rstudio.com/)
+3.  [RStudio Community](https://community.rstudio.com/)
 
-4.  [**Stack Overflow**](https://stackoverflow.com/questions/tagged/r)
+4.  [Stack Overflow](https://stackoverflow.com/questions/tagged/r)
 
 ### **Books**
 
@@ -96,6 +96,6 @@ R has a large community of developers and supporters. The following resources ma
 
 ### **Cheatsheets**
 
-1.  [**RStudio Cheatsheets**](https://rstudio.com/resources/cheatsheets/)
+1.  [RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
 
-2.  [**DataCamp Cheatsheets**](https://www.datacamp.com/community/data-science-cheatsheets)
+2.  [DataCamp Cheatsheets](https://www.datacamp.com/community/data-science-cheatsheets)

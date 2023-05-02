@@ -10,7 +10,6 @@ The CLT states that, for a large enough sample size (usually n ≥ 30), the dist
 ```r
 # Load required libraries
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.2.3
 
 # Set seed for reproducibility
 set.seed(123)

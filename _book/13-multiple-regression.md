@@ -20,13 +20,7 @@ We can perform linear regression in R using the *psych* package.
 ```r
 # Load the necessary libraries.
 library(psych)
-#> Warning: package 'psych' was built under R version 4.2.3
 library(tidyverse)
-#> Warning: package 'tidyverse' was built under R version
-#> 4.2.3
-#> Warning: package 'ggplot2' was built under R version 4.2.3
-#> Warning: package 'tibble' was built under R version 4.2.3
-#> Warning: package 'dplyr' was built under R version 4.2.3
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
 #> ✔ dplyr     1.1.2     ✔ readr     2.1.4
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.0
@@ -38,7 +32,7 @@ library(tidyverse)
 #> ✖ ggplot2::alpha() masks psych::alpha()
 #> ✖ dplyr::filter()  masks stats::filter()
 #> ✖ dplyr::lag()     masks stats::lag()
-#> ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
 # Reading the CSV file. 
 data <- read_csv("exampledata/Ch18_GGPA.csv")

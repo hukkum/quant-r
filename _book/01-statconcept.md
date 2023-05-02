@@ -77,7 +77,7 @@ Data types idea in computer science and program shares similar nomenclature in c
 Four different types of scales of measurement are presented in the table below.
 
 | **Scale of Measurement** | **Description**                                                                                    | **Example**                                             |
-|----------------|------------------------------------|--------------------|
+|--------------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------|
 | Nominal                  | Categorical data without any inherent order or ranking. Each value represents a distinct category. | Gender (male or female), colors, or religion.           |
 | Ordinal                  | Categorical data with a natural order or ranking, but without a specific numerical value.          | Education level, Likert scale, or age group.            |
 | Interval                 | Numeric data with a constant difference between values, but no true zero point.                    | Temperature (Celsius or Fahrenheit), or calendar years. |

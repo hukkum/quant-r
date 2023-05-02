@@ -6,7 +6,7 @@ I would like to sincerely thank my professor and academic advisor **Dr Howard M.
 
 I would also like to extend my gratitude to the authors of the textbook "**An Introduction to Statistical Concepts" by Hahs-Vaughn and Lomax, 4th edition**, and for providing a comprehensive resource that guided my exploration of various statistical concepts and methodologies. The textbook served as an invaluable reference, helping to gain a deeper understanding of the topics and apply them in practical examples using R programming. All the example data and text references are inspired from this textbook.
 
-I also appreciate the developers and maintainers of the [R language](https://www.r-project.org/), R packages, and related tools for their dedicated work in providing a powerful and accessible platform for statistical computing and data analysis. In particular, we would like to acknowledge the creators of the `bookdown`[@bookdown2016], rmarkdown[@rmarkdown2020], ggplot2 [@ggplot2], psych [@psych], lavaan [@lavaan], and all other packages used throughout the guide, which were instrumental in demonstrating various statistical concepts and procedures throughout this book and also useful for social science research.
+I also appreciate the developers and maintainers of the [R language](https://www.r-project.org/), R packages, and related tools for their dedicated work in providing a powerful and accessible platform for statistical computing and data analysis. In particular, we would like to acknowledge the creators of the `bookdown`[@bookdown2016], `rmarkdown`[@rmarkdown2020], `ggplot2` [@ggplot2], `psych` [@psych], lavaan [@lavaan], and all other packages used throughout the guide, which were instrumental in demonstrating various statistical concepts and procedures throughout this book and also useful for social science research.
 
 ## Conventions Used in the Book
 
@@ -21,15 +21,11 @@ Code chunks will be presented in a typical Markdown format as such, with the cod
 
 *Italic*
 
-:Indicates new terms, packages name, URLs, email addresses, filenames, and file extensions.
+:Indicates new terms, URLs, email addresses, filenames, and file extensions., some key highlights.
 
 > **Tip**
 >
 > This icon signifies a tip, suggestion, or general note.
-
-> **Caution**
->
-> This icon indicates a warning or caution.
 
 Finally, here is the R version I am currently using:
 
@@ -44,14 +40,14 @@ version
 #> system         x86_64, mingw32                  
 #> status                                          
 #> major          4                                
-#> minor          2.2                              
-#> year           2022                             
-#> month          10                               
-#> day            31                               
-#> svn rev        83211                            
+#> minor          3.0                              
+#> year           2023                             
+#> month          04                               
+#> day            21                               
+#> svn rev        84292                            
 #> language       R                                
-#> version.string R version 4.2.2 (2022-10-31 ucrt)
-#> nickname       Innocent and Trusting
+#> version.string R version 4.3.0 (2023-04-21 ucrt)
+#> nickname       Already Tomorrow
 ```
 
 ## Example Data

@@ -127,7 +127,6 @@ In R, you can create a histogram and Q-Q plot using the following code:
 ```r
 # Load required libraries
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.2.3
 
 # Sample data
 data <- c(12, 14, 16, 18, 20)
@@ -187,7 +186,6 @@ Here's a step-by-step procedure for generating and testing power using R:
 
 # Load the pwr package
 library(pwr)
-#> Warning: package 'pwr' was built under R version 4.2.3
 ```
 
 2. Define the parameters for power analysis. You will need to specify the effect size (Cohen's d), sample size, and significance level (α):
