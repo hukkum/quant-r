@@ -11,12 +11,12 @@
 <meta property="og:title" content="Chapter 5 Describing Data in R | Quantitative Methods Using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/describing-data-in-r.html">
-<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <meta property="og:description" content="Describing data is the process of summarizing and interpreting information that has been collected through research or observation. To describe data, we typically use statistical measures such as...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 5 Describing Data in R | Quantitative Methods Using R">
 <meta name="twitter:description" content="Describing data is the process of summarizing and interpreting information that has been collected through research or observation. To describe data, we typically use statistical measures such as...">
-<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -120,7 +120,7 @@
 <p><span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\)</span></p>
 <p>where <span class="math inline">\(\bar{x}\)</span> is the mean, <span class="math inline">\(n\)</span> is the total number of data points, and <span class="math inline">\(x_i\)</span> are the individual data points.</p>
 <p>In R, we can calculate the mean using the <strong><code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code></strong> function. For example:</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Example: Mean test scores of all students in a school</span></span>
 <span><span class="va">scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">80</span>, <span class="fl">85</span>, <span class="fl">90</span>, <span class="fl">75</span>, <span class="fl">95</span>, <span class="fl">85</span>, <span class="fl">70</span>, <span class="fl">75</span>, <span class="fl">90</span>, <span class="fl">80</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">scores</span><span class="op">)</span></span>
@@ -134,7 +134,7 @@
 <p>t is represented as:</p>
 <p><span class="math inline">\(median = \begin{cases} x_{(n+1)/2} &amp;\text{if }n\text{ is odd}\ \frac{x_{n/2} + x_{(n/2)+1}}{2} &amp;\text{if }n\text{ is even} \end{cases}\)</span></p>
 <p>where <span class="math inline">\(n\)</span> is the total number of data points, and <span class="math inline">\(x_{(n+1)/2}\)</span> and <span class="math inline">\(x_{n/2}\)</span> are the middle values for odd and even <span class="math inline">\(n\)</span> respectively.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Example: Median income</span></span>
 <span><span class="va">income</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25000</span>, <span class="fl">30000</span>, <span class="fl">35000</span>, <span class="fl">40000</span>, <span class="fl">45000</span>, <span class="fl">50000</span><span class="op">)</span> <span class="co"># income data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span> <span class="co"># calculate the median</span></span>
@@ -161,7 +161,7 @@
 Range = Max(X) - Min(X)
 \end{equation}\]</span>
 <p>The range() function returns the difference between the maximum and minimum values in a dataset, providing a measure of the spread of data around them.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Example dataset</span></span>
 <span><span class="va">income</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25000</span>, <span class="fl">30000</span>, <span class="fl">35000</span>, <span class="fl">40000</span>, <span class="fl">45000</span>, <span class="fl">50000</span><span class="op">)</span></span>
 <span><span class="co"># Calculate range</span></span>
@@ -178,7 +178,7 @@ IQR = Q3 - Q1
 \end{equation}\]</span>
 <p>where Q1 is the first quartile and Q3 is the third quartile of the dataset.</p>
 <p>The IQR() function calculates the difference between the 75th percentile (Q3) and the 25th percentile (Q1) of a dataset, providing a measure of the spread of the middle 50% of the data.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 12500</span></span></code></pre></div>
 </div>
@@ -198,7 +198,7 @@ s^2 = \frac{\sum(X - \bar{x})^2}{n - 1}
 \end{equation}\]</span>
 <p>where X is the data point, <span class="math inline">\(\bar{x}\)</span> is the mean of the sample, and n is the sample size.</p>
 <p><code><a href="https://rdrr.io/r/stats/cor.html">var()</a></code> function is used to calcultate the variance.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calculate variance</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 87500000</span></span></code></pre></div>
@@ -219,7 +219,7 @@ s = \sqrt{s^2}
 \end{equation}\]</span>
 <p>where s^2 is the sample variance.</p>
 <p><code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> function is used to calculate the standard deviation.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calculate standard deviation</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 9354.143</span></span></code></pre></div>
@@ -235,13 +235,15 @@ s = \sqrt{s^2}
 <span class="header-section-number">5.3.1</span> The <code>describe()</code> Function<a class="anchor" aria-label="anchor" href="#the-describe-function"><i class="fas fa-link"></i></a>
 </h3>
 <p>The describe() function in the psych package provides a summary of a dataset’s variables. It includes the number of observations, mean, standard deviation, minimum, maximum, and other useful statistics. Here’s an example:</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages and dataset</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'psych' was built under R version 4.2.3</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.statlearning.com">ISLR</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'ISLR' was built under R version 4.2.3</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"College"</span><span class="op">)</span> </span></code></pre></div>
 <p>Descriptive of <em>income</em> dataset</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co">#view summary of the income data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span></span>
@@ -250,7 +252,7 @@ s = \sqrt{s^2}
 <span><span class="co">#&gt;    range skew kurtosis      se</span></span>
 <span><span class="co">#&gt; X1 25000    0     -1.8 3818.81</span></span></code></pre></div>
 <p>We will use the College dataset from the ISLR package <span class="citation">(<a href="references.html#ref-ISLR" role="doc-biblioref">James et al., 2021</a>)</span> . This dataset contains information on a number of colleges in the US, including variables such as acceptance rate, graduation rate, and median SAT score.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># View summary statistics of the college dataset</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">College</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             vars   n     mean      sd median  trimmed</span></span>
@@ -356,7 +358,7 @@ s = \sqrt{s^2}
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-01.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -11,12 +11,12 @@
 <meta property="og:title" content="Chapter 13 Covariance | Quantitative Methods Using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/covariance.html">
-<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <meta property="og:description" content="Covariation, or covariance, is a measure of how two variables change together. If the values of one variable increase as the values of the other variable increase, the covariance is positive,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 13 Covariance | Quantitative Methods Using R">
 <meta name="twitter:description" content="Covariation, or covariance, is a measure of how two variables change together. If the values of one variable increase as the values of the other variable increase, the covariance is positive,...">
-<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -109,8 +109,9 @@
 <p>where:</p>
 <p>Xi and Yi are the individual data points X_mean and Y_mean are the means of the X and Y variables, respectively Σ denotes the sum over all data points n is the number of data points In a scatterplot, the covariance can be visually inferred by the direction and the closeness of the points. When the points are tightly clustered around a positive slope, the covariance is positive. If they are clustered around a negative slope, the covariance is negative. If the points are scattered randomly with no clear pattern, the covariance is close to 0.</p>
 <p>We can use R inbuilt cov() function to calculate covariance.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'readr' was built under R version 4.2.2</span></span>
 <span><span class="co"># Read the CSV file into a data frame</span></span>
 <span><span class="va">covdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"exampledata/Ch10_kidspets.csv"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 5 Columns: 2</span></span>
@@ -151,7 +152,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-01.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

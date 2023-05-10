@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Basic Statistical Concepts | Quantitative Methods Using R</title>
 <meta name="author" content="Subash Parajuli">
-<meta name="description" content="2.1 Population and Sample  2.1.1 Population A population is the entire group of individuals, objects, or events that we are interested in studying. It includes all possible cases that meet the...">
+<meta name="description" content="2.1 Data Types Data types idea in computer science and program shares similar nomenclature in case of statistics. Data is broadly classified into constant and variables in terms of its nature...">
 <meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Basic Statistical Concepts | Quantitative Methods Using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/basic-statistical-concepts.html">
-<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
-<meta property="og:description" content="2.1 Population and Sample  2.1.1 Population A population is the entire group of individuals, objects, or events that we are interested in studying. It includes all possible cases that meet the...">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
+<meta property="og:description" content="2.1 Data Types Data types idea in computer science and program shares similar nomenclature in case of statistics. Data is broadly classified into constant and variables in terms of its nature...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Basic Statistical Concepts | Quantitative Methods Using R">
-<meta name="twitter:description" content="2.1 Population and Sample  2.1.1 Population A population is the entire group of individuals, objects, or events that we are interested in studying. It includes all possible cases that meet the...">
-<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta name="twitter:description" content="2.1 Data Types Data types idea in computer science and program shares similar nomenclature in case of statistics. Data is broadly classified into constant and variables in terms of its nature...">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -103,94 +103,54 @@
 <h1>
 <span class="header-section-number">2</span> Basic Statistical Concepts<a class="anchor" aria-label="anchor" href="#basic-statistical-concepts"><i class="fas fa-link"></i></a>
 </h1>
-<div id="population-and-sample" class="section level2" number="2.1">
+<div id="data-types" class="section level2" number="2.1">
 <h2>
-<span class="header-section-number">2.1</span> Population and Sample<a class="anchor" aria-label="anchor" href="#population-and-sample"><i class="fas fa-link"></i></a>
-</h2>
-<div id="population" class="section level3" number="2.1.1">
-<h3>
-<span class="header-section-number">2.1.1</span> Population<a class="anchor" aria-label="anchor" href="#population"><i class="fas fa-link"></i></a>
-</h3>
-<p>A population is the entire group of individuals, objects, or events that we are interested in studying. It includes all possible cases that meet the defined criteria for the study. For example, the population of interest for a study on student performance may include all students in a specific school, district, or country.</p>
-<p><strong>Characteristics of a population:</strong></p>
-<ul>
-<li>The population is usually large, and it is often impractical or impossible to study the entire population.</li>
-<li>The population has fixed and known statistical properties, such as population mean, variance, and standard deviation.</li>
-<li>The statistical properties of the population can be estimated through a census or other data collection methods.</li>
-<li>Research conducted on a population is often aimed at generalizing the results to the entire population.</li>
-</ul>
-</div>
-<div id="population-parameters" class="section level3" number="2.1.2">
-<h3>
-<span class="header-section-number">2.1.2</span> Population Parameters:<a class="anchor" aria-label="anchor" href="#population-parameters"><i class="fas fa-link"></i></a>
-</h3>
-<p>Population parameters are characteristics of a variable in a population. These parameters are usually unknown and must be estimated from a sample. Some common population parameters are:</p>
-<p><strong>Population Mean (μ)</strong>: The average value of a variable in a population.</p>
-<p><strong>Population Variance (σ^2)</strong>: A measure of the variability or spread of a variable in a population.</p>
-<p><strong>Population Standard Deviation (σ)</strong>: The square root of the population variance, often used as a measure of the spread of a variable in a population.</p>
-<p><strong>Population Proportion (p)</strong>: The proportion of individuals in a population with a certain characteristic.</p>
-</div>
-<div id="sample" class="section level3" number="2.1.3">
-<h3>
-<span class="header-section-number">2.1.3</span> Sample<a class="anchor" aria-label="anchor" href="#sample"><i class="fas fa-link"></i></a>
-</h3>
-<p>A sample is a subset of the population that is selected to represent the population. It is a smaller group of cases that are selected from the population for the purpose of conducting research. For example, a sample of students may be selected from a school to participate in a study on student performance.</p>
-<p><strong>Characteristics of a sample:</strong></p>
-<ul>
-<li>The sample is smaller than the population and represents only a portion of the population.</li>
-<li>The statistical properties of the sample are used to estimate the population parameters, but these estimates are subject to sampling variability.</li>
-<li>Data is collected from a sample of the population, and statistical inference is used to make inferences about the population based on the sample.</li>
-<li>Research conducted on a sample is often aimed at making inferences about the population based on the sample data.</li>
-</ul>
-<p>We will be focussing on sample statistics while refering to descriptive statistics and use these statistics to infer the predictions for the larger population.</p>
-</div>
-</div>
-<div id="data-types" class="section level2" number="2.2">
-<h2>
-<span class="header-section-number">2.2</span> Data Types<a class="anchor" aria-label="anchor" href="#data-types"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1</span> Data Types<a class="anchor" aria-label="anchor" href="#data-types"><i class="fas fa-link"></i></a>
 </h2>
 <p>Data types idea in computer science and program shares similar nomenclature in case of statistics. Data is broadly classified into constant and variables in terms of its nature during the execution of the analysis or the statistical program.</p>
 <p><strong>Constant</strong> are those kind of data types which are not changed during the program or during analysis. For eg, the value of alpha (alpha) is always kept constant.</p>
 <p><strong>Variables</strong> are those data types which are changed or have multiple values in the program.</p>
 </div>
-<div id="types-of-variable" class="section level2" number="2.3">
+<div id="types-of-variable" class="section level2" number="2.2">
 <h2>
-<span class="header-section-number">2.3</span> Types of variable<a class="anchor" aria-label="anchor" href="#types-of-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2</span> Types of variable<a class="anchor" aria-label="anchor" href="#types-of-variable"><i class="fas fa-link"></i></a>
 </h2>
-<ol style="list-style-type: decimal">
-<li><strong>Quantitative Variables (Continuous and Discrete):</strong></li>
-</ol>
+<div id="quantitative-variables-continuous-and-discrete" class="section level3" number="2.2.1">
+<h3>
+<span class="header-section-number">2.2.1</span> <strong>Quantitative Variables (Continuous and Discrete):</strong><a class="anchor" aria-label="anchor" href="#quantitative-variables-continuous-and-discrete"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
-<li>Continuous Variables: Variables that can take any value within a range, typically measured on a continuous scale. Example: Height, weight, or temperature.</li>
-<li>Discrete Variables: Variables that can only take specific values, usually whole numbers or counts. Example: Number of students in a class, or number of books in a library.</li>
+<li><p><strong>Continuous Variables</strong>: Variables that can take any value within a range, typically measured on a continuous scale. Example: Height, weight, or temperature.</p></li>
+<li>
+<p><strong>Discrete Variables</strong>: Variables that can only take specific values, usually whole numbers or counts. Example: Number of students in a class, or number of books in a library.</p>
+<h3 id="qualitative-variables-nominal-and-ordinal"><strong>Qualitative Variables (Nominal and Ordinal):</strong></h3>
+</li>
+<li><p><strong>Nominal Variables</strong>: Variables that represent categories without any inherent order. Example: Gender (male or female), or types of food (vegetarian or non-vegetarian).</p></li>
+<li>
+<p><strong>Ordinal Variables</strong>: Variables that represent categories with a natural order or ranking. Example: Education level (elementary, high school, or college), or customer satisfaction ratings (poor, average, or excellent).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basic-statistical-concepts.html#cb5-1" aria-hidden="true" tabindex="-1"></a>                   VARIABLES</span>
+<span id="cb5-2"><a href="basic-statistical-concepts.html#cb5-2" aria-hidden="true" tabindex="-1"></a>                       <span class="sc">|</span></span>
+<span id="cb5-3"><a href="basic-statistical-concepts.html#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="sc">+----------+-----------+</span></span>
+<span id="cb5-4"><a href="basic-statistical-concepts.html#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="er">|</span>                      <span class="er">|</span></span>
+<span id="cb5-5"><a href="basic-statistical-concepts.html#cb5-5" aria-hidden="true" tabindex="-1"></a>      Quantitative           Qualitative</span>
+<span id="cb5-6"><a href="basic-statistical-concepts.html#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="sc">|</span>                      <span class="er">|</span></span>
+<span id="cb5-7"><a href="basic-statistical-concepts.html#cb5-7" aria-hidden="true" tabindex="-1"></a>     <span class="sc">+------+-------+</span>      <span class="sc">+-------+-------+</span></span>
+<span id="cb5-8"><a href="basic-statistical-concepts.html#cb5-8" aria-hidden="true" tabindex="-1"></a>     <span class="er">|</span>              <span class="er">|</span>      <span class="er">|</span>               <span class="er">|</span></span>
+<span id="cb5-9"><a href="basic-statistical-concepts.html#cb5-9" aria-hidden="true" tabindex="-1"></a>Continuous    Discrete   Nominal      Ordinal</span></code></pre></div>
+</li>
 </ul>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Qualitative Variables (Nominal and Ordinal):</strong></li>
-</ol>
-<ul>
-<li>Nominal Variables: Variables that represent categories without any inherent order. Example: Gender (male or female), or types of food (vegetarian or non-vegetarian).</li>
-<li>Ordinal Variables: Variables that represent categories with a natural order or ranking. Example: Education level (elementary, high school, or college), or customer satisfaction ratings (poor, average, or excellent).</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basic-statistical-concepts.html#cb5-1" aria-hidden="true" tabindex="-1"></a>   VARIABLES</span>
-<span id="cb5-2"><a href="basic-statistical-concepts.html#cb5-2" aria-hidden="true" tabindex="-1"></a>                               <span class="sc">|</span></span>
-<span id="cb5-3"><a href="basic-statistical-concepts.html#cb5-3" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">+----------+-----------+</span></span>
-<span id="cb5-4"><a href="basic-statistical-concepts.html#cb5-4" aria-hidden="true" tabindex="-1"></a>                    <span class="er">|</span>                      <span class="er">|</span></span>
-<span id="cb5-5"><a href="basic-statistical-concepts.html#cb5-5" aria-hidden="true" tabindex="-1"></a>              Quantitative           Qualitative</span>
-<span id="cb5-6"><a href="basic-statistical-concepts.html#cb5-6" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">|</span>                      <span class="er">|</span></span>
-<span id="cb5-7"><a href="basic-statistical-concepts.html#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="sc">+------+-------+</span>      <span class="sc">+-------+-------+</span></span>
-<span id="cb5-8"><a href="basic-statistical-concepts.html#cb5-8" aria-hidden="true" tabindex="-1"></a>             <span class="er">|</span>              <span class="er">|</span>      <span class="er">|</span>               <span class="er">|</span></span>
-<span id="cb5-9"><a href="basic-statistical-concepts.html#cb5-9" aria-hidden="true" tabindex="-1"></a>        Continuous    Discrete   Nominal      Ordinal</span></code></pre></div>
 </div>
-<div id="types-of-scales-of-measurement-of-variables" class="section level2" number="2.4">
+</div>
+<div id="types-of-scales-of-measurement-of-variables" class="section level2" number="2.3">
 <h2>
-<span class="header-section-number">2.4</span> Types of scales of measurement of variables<a class="anchor" aria-label="anchor" href="#types-of-scales-of-measurement-of-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3</span> Types of scales of measurement of variables<a class="anchor" aria-label="anchor" href="#types-of-scales-of-measurement-of-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>Four different types of scales of measurement are presented in the table below.</p>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
-<col width="14%">
-<col width="54%">
-<col width="31%">
+<col width="22%">
+<col width="50%">
+<col width="27%">
 </colgroup>
 <thead><tr class="header">
 <th><strong>Scale of Measurement</strong></th>
@@ -220,6 +180,8 @@
 </tr>
 </tbody>
 </table></div>
+<p>Understanding the scales of measurement is important because it helps determine the appropriate statistical techniques and interpretations for the data.</p>
+
 </div>
 </div>
   <div class="chapter-nav">
@@ -229,16 +191,11 @@
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#basic-statistical-concepts"><span class="header-section-number">2</span> Basic Statistical Concepts</a></li>
+<li><a class="nav-link" href="#data-types"><span class="header-section-number">2.1</span> Data Types</a></li>
 <li>
-<a class="nav-link" href="#population-and-sample"><span class="header-section-number">2.1</span> Population and Sample</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#population"><span class="header-section-number">2.1.1</span> Population</a></li>
-<li><a class="nav-link" href="#population-parameters"><span class="header-section-number">2.1.2</span> Population Parameters:</a></li>
-<li><a class="nav-link" href="#sample"><span class="header-section-number">2.1.3</span> Sample</a></li>
-</ul>
+<a class="nav-link" href="#types-of-variable"><span class="header-section-number">2.2</span> Types of variable</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#quantitative-variables-continuous-and-discrete"><span class="header-section-number">2.2.1</span> Quantitative Variables (Continuous and Discrete):</a></li></ul>
 </li>
-<li><a class="nav-link" href="#data-types"><span class="header-section-number">2.2</span> Data Types</a></li>
-<li><a class="nav-link" href="#types-of-variable"><span class="header-section-number">2.3</span> Types of variable</a></li>
-<li><a class="nav-link" href="#types-of-scales-of-measurement-of-variables"><span class="header-section-number">2.4</span> Types of scales of measurement of variables</a></li>
+<li><a class="nav-link" href="#types-of-scales-of-measurement-of-variables"><span class="header-section-number">2.3</span> Types of scales of measurement of variables</a></li>
 </ul>
 
       <div class="book-extra">
@@ -256,7 +213,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-01.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

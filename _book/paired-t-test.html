@@ -11,12 +11,12 @@
 <meta property="og:title" content="Chapter 12 Paired t-test | Quantitative Methods Using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/paired-t-test.html">
-<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <meta property="og:description" content="The paired samples t-test is used when the observations are collected from the same individuals or matched pairs (e.g., siblings, twins) under different conditions or at different time points. The...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 12 Paired t-test | Quantitative Methods Using R">
 <meta name="twitter:description" content="The paired samples t-test is used when the observations are collected from the same individuals or matched pairs (e.g., siblings, twins) under different conditions or at different time points. The...">
-<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -151,7 +151,7 @@
 <span class="header-section-number">12.0.1</span> <strong>Performing the paired t-test using R</strong><a class="anchor" aria-label="anchor" href="#performing-the-paired-t-test-using-r"><i class="fas fa-link"></i></a>
 </h3>
 <p>We will need data from two related groups or samples, typically stored in a data frame with two variables representing the paired observations. Then we will be loading the requirec libraries. We will be using pysch package.</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">swimdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"exampledata/Ch7_swim.csv"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">)</span></span>
 <span><span class="co">#&gt;     pretest         posttest    </span></span>
@@ -168,25 +168,25 @@
 </h3>
 <p>Before performing the paired t-test, it is essential to check the assumptions mentioned earlier, including the normality of differences and the presence of outliers.</p>
 <p>Check for outliers using boxplots:</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">pretest</span>, <span class="va">swimdata</span><span class="op">$</span><span class="va">posttest</span>, names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Pretest"</span>, <span class="st">"Posttest"</span><span class="op">)</span>, ylab <span class="op">=</span> <span class="st">"Scores"</span>, main <span class="op">=</span> <span class="st">"Boxplots for Pretest and Posttest"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="092-paired-t-test_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <p>Check for the normality of differences using histograms or Q-Q plots:</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute the differences between paired observations</span></span>
 <span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span> <span class="op">&lt;-</span> <span class="va">swimdata</span><span class="op">$</span><span class="va">posttest</span> <span class="op">-</span> <span class="va">swimdata</span><span class="op">$</span><span class="va">pretest</span></span>
 <span></span>
 <span><span class="co"># Create a histogram of the differences</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span>, main <span class="op">=</span> <span class="st">"Histogram of Paired Differences"</span>, xlab <span class="op">=</span> <span class="st">"Difference"</span>, ylab <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="092-paired-t-test_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Create a Q-Q plot of the differences</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span>, main <span class="op">=</span> <span class="st">"Q-Q Plot of Paired Differences"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="092-paired-t-test_files/figure-html/unnamed-chunk-3-2.png" width="672"></div>
 <p>We can also assess the normality using the Shapiro-Wilk test.</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">difference</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
@@ -199,7 +199,7 @@
 <span class="header-section-number">12.0.3</span> Performing the paired t-test<a class="anchor" aria-label="anchor" href="#performing-the-paired-t-test"><i class="fas fa-link"></i></a>
 </h3>
 <p>Paired t-test can be performed using <strong>t.test()</strong> function.</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Perform the paired t-test</span></span>
 <span><span class="va">t_test_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">swimdata</span><span class="op">$</span><span class="va">pretest</span>, <span class="va">swimdata</span><span class="op">$</span><span class="va">posttest</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -256,7 +256,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-01.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

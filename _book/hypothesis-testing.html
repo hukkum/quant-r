@@ -11,12 +11,12 @@
 <meta property="og:title" content="Chapter 10 Hypothesis Testing | Quantitative Methods Using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/subashparajuli/quant-r/hypothesis-testing.html">
-<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta property="og:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <meta property="og:description" content="Hypothesis testing is a method used to make decisions about population parameters based on sample data.  10.1 Hypothesis A hypothesis is an educated guess or statement about the relationship...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 10 Hypothesis Testing | Quantitative Methods Using R">
 <meta name="twitter:description" content="Hypothesis testing is a method used to make decisions about population parameters based on sample data.  10.1 Hypothesis A hypothesis is an educated guess or statement about the relationship...">
-<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpgb">
+<meta name="twitter:image" content="https://bookdown.org/subashparajuli/quant-r/cover.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -131,10 +131,10 @@
 Type II Error (β): This error occurs when the null hypothesis is not rejected when it is actually false. In other words, it’s a false negative. The probability of committing a Type II error is denoted by β. The power of a test (1 - β) measures the ability of the test to detect an effect when it truly exists.
 Here is a graphical representation of the types of decision errors:</p>
 <p>Hypothesis Testing Errors</p>
-<div class="sourceCode" id="cb34" eval="false"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb34-1"><a href="hypothesis-testing.html#cb34-1" aria-hidden="true" tabindex="-1"></a>|                  | Null Hypothesis (H0) is True | Null Hypothesis (H0) is False |</span>
-<span id="cb34-2"><a href="hypothesis-testing.html#cb34-2" aria-hidden="true" tabindex="-1"></a>|------------------|------------------------------|-------------------------------|</span>
-<span id="cb34-3"><a href="hypothesis-testing.html#cb34-3" aria-hidden="true" tabindex="-1"></a>| Reject H0        | Type I Error (α)             | Correct Decision (1 - β)      |</span>
-<span id="cb34-4"><a href="hypothesis-testing.html#cb34-4" aria-hidden="true" tabindex="-1"></a>| Fail to Reject H0| Correct Decision (1 - α)     | Type II Error (β)             |</span></code></pre></div>
+<div class="sourceCode" id="cb38" eval="false"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb38-1"><a href="hypothesis-testing.html#cb38-1" aria-hidden="true" tabindex="-1"></a>|                  | Null Hypothesis (H0) is True | Null Hypothesis (H0) is False |</span>
+<span id="cb38-2"><a href="hypothesis-testing.html#cb38-2" aria-hidden="true" tabindex="-1"></a>|------------------|------------------------------|-------------------------------|</span>
+<span id="cb38-3"><a href="hypothesis-testing.html#cb38-3" aria-hidden="true" tabindex="-1"></a>| Reject H0        | Type I Error (α)             | Correct Decision (1 - β)      |</span>
+<span id="cb38-4"><a href="hypothesis-testing.html#cb38-4" aria-hidden="true" tabindex="-1"></a>| Fail to Reject H0| Correct Decision (1 - α)     | Type II Error (β)             |</span></code></pre></div>
 <p>This table represents the different outcomes when making decisions based on hypothesis testing. The columns represent the reality (i.e., whether the null hypothesis is true or false), and the rows represent the decision made based on the hypothesis test (i.e., whether to reject or not reject the null hypothesis). The cells show the types of decision errors (Type I and Type II errors) and the correct decisions.</p>
 </div>
 <div id="level-of-signficance" class="section level2" number="10.3">
@@ -168,7 +168,7 @@ n is the sample size</p>
 </h3>
 <p>The t-distribution, also known as the Student’s t-distribution, is a probability distribution that is used when the population standard deviation is unknown and the sample size is small. It is similar to the normal distribution but has thicker tails, which accounts for the increased variability due to using the sample standard deviation as an estimate of the population standard deviation. The shape of the t-distribution depends on the degrees of freedom (df), which is related to the sample size (df = n - 1). As the sample size increases, the t-distribution approaches the normal distribution.</p>
 <p>To calculate the t-statistic in R, you can use the following code:</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Sample data</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">14</span>, <span class="fl">16</span>, <span class="fl">18</span>, <span class="fl">20</span><span class="op">)</span></span>
 <span></span>
@@ -187,7 +187,7 @@ n is the sample size</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">t_statistic</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.7071068</span></span></code></pre></div>
 <p>To perform a one-sample t-test in R, which calculates the t-statistic and p-value automatically, you can use the t.test() function:</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Perform a one-sample t-test</span></span>
 <span><span class="va">t_test_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">data</span>, mu <span class="op">=</span> <span class="va">hypothesized_mean</span><span class="op">)</span></span>
 <span></span>
@@ -218,9 +218,10 @@ n is the sample size</p>
 <ol style="list-style-type: decimal">
 <li>Create a histogram and Q-Q plot:</li>
 </ol>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'ggplot2' was built under R version 4.2.3</span></span>
 <span></span>
 <span><span class="co"># Sample data</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">14</span>, <span class="fl">16</span>, <span class="fl">18</span>, <span class="fl">20</span><span class="op">)</span></span>
@@ -230,7 +231,7 @@ n is the sample size</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span>, color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="09-hypothesistesting_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Create a Q-Q plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
@@ -239,7 +240,7 @@ n is the sample size</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Perform the Shapiro-Wilk test:</li>
 </ol>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Perform the Shapiro-Wilk test</span></span>
 <span><span class="va">shapiro_test_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
 <span></span>
@@ -266,14 +267,15 @@ n is the sample size</p>
 <ol style="list-style-type: decimal">
 <li>Install and load the pwr package:</li>
 </ol>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Load the pwr package</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heliosdrm/pwr">pwr</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heliosdrm/pwr">pwr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'pwr' was built under R version 4.2.3</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Define the parameters for power analysis. You will need to specify the effect size (Cohen’s d), sample size, and significance level (α):</li>
 </ol>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define parameters for power analysis</span></span>
 <span><span class="va">effect_size</span> <span class="op">&lt;-</span> <span class="fl">0.8</span>  <span class="co"># Cohen's d</span></span>
 <span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
@@ -281,7 +283,7 @@ n is the sample size</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Use the <strong>pwr.t.test()</strong> function to calculate the power for a one-sample t-test:</li>
 </ol>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calculate the power for a one-sample t-test</span></span>
 <span><span class="va">power_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">500</span>,</span>
 <span>                           d <span class="op">=</span> <span class="va">effect_size</span>,</span>
@@ -343,7 +345,7 @@ n is the sample size</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-01.</p>
+    <p>"<strong>Quantitative Methods Using R</strong>" was written by Subash Parajuli. It was last built on 2023-05-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
